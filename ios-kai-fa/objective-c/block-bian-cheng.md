@@ -4,6 +4,36 @@ Blocks 是一个添加到 C，Objective-C 和 C++ 的语言级特性，它允许
 
 ###### Block 语法
 
+使用脱字符（^）定义 block 字面量：
+
+```Objective-C
+^{
+    NSLog(@"This is a block");
+}
+```
+
+声明一个变量来跟踪 block：
+
+```
+void (^simpleBlock)(void);
+```
+
+这个例子声明一个叫做 simpleBlock 的变量引用不携带参数、没有返回值的 block。这个变量能分配给上面展示的 block 字面量：
+
+```
+void (^simpleBlock)(void) = ^{
+    NSLog(@"This is a block");
+};
+```
+
+调用声明并赋值的 block：
+
+```
+simpleBlock();
+```
+
+> 注意：如果调用未分配的变量（nil block 变量），应用会崩溃。
+
 **Block 携带参数和返回值**
 
 **Block 能从封闭范围捕获值**
