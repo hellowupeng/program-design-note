@@ -261,7 +261,7 @@ complexBlock 变量引用一个携带另一个 block 作为一个参数（aBlock
 XYZSimpleBlock (^betterBlock)(XYZSimpleBlock) = ^(XYZSimpleBlock aBlock) {
     ...
     return ^{
-    	...    
+        ...    
     };
 };
 ```
@@ -278,7 +278,28 @@ XYZSimpleBlock (^betterBlock)(XYZSimpleBlock) = ^(XYZSimpleBlock aBlock) {
 
 > 注意：指定 copy 作为属性特性，因为 block 需要被复制来在原始范围外跟踪它捕获的状态。
 
+block 属性像其他 block 变量一样设置、调用：
+
+```
+self.blockProperty = ^{
+    ...
+};
+self.blockProperty();
+```
+
+也可以使用类型定义作为 block 属性声明：
+
+```
+typedef void (^XYZSimpleBlock)(void);
+
+@interface XYZObject : NSObject
+@propery (copy) XYZSimpleBlock blockProperty;
+@end
+```
+
 ##### **在捕获 self 时避免强引用循环**
+
+blocks 保留所有捕获对象的强引用，包括 self，很容易造成强引用循环。
 
 ### Block 简化枚举
 
