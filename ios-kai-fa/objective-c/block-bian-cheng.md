@@ -52,7 +52,7 @@ double (^multiplyTwoValues)(double, double);
 }
 ```
 
-和函数定义一样，firstValue 和 secondValue 被用于在 block 被调用时引用提供的值。
+和函数定义一样，firstValue 和 secondValue 被用于在 block 被调用时引用提供的值。返回类型从 block 里的返回语句推断出。
 
 **Block 能从封闭范围捕获值**
 
