@@ -93,6 +93,28 @@ anInteger 在 block 外面声明，在 block 定义时被捕获。
 
 除非另外指定，否则 block 只能捕获定义时的值。
 
+被调用期间改变外部变量的值：
+
+```
+int anInteger = 42;
+
+void (^testBlock)(void) = ^{
+    NSLog(@"Integer is: %i", anInteger);
+}
+
+anInteger = 84;
+
+testBlock();
+```
+
+block 捕获的值不受影响：
+
+```
+Integer is: 42
+```
+
+block 不能改变原始变量的值，也不能改变捕获的值（它作为 const 变量被捕获）。
+
 **Block 能作为方法或函数的参数**
 
 **使用类型定义简化 Block 语法**
