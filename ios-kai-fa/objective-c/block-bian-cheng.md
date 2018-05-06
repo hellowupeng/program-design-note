@@ -301,6 +301,40 @@ typedef void (^XYZSimpleBlock)(void);
 
 blocks 保留所有捕获对象的强引用，包括 self，很容易造成强引用循环。
 
+一个保留一个 copy 属性的对象，block 捕获了 self。
+
+```
+@interface XYZBlockKeeper : NSObject
+@property (copy) void (^block)(void);
+@end
+```
+
+```
+@implementation XYZBlockKeeper
+- (void)configureBlock {
+    self.block = ^{
+        [self doSomething];    // capturing a strong reference to self
+                               // creates a strong reference cycle
+    };
+}
+...
+@end
+```
+
+避免这个问题的最佳实践是捕获 self 的弱引用：
+
+```
+- (void)configureBlock {
+    XYZBlockKeeper * __weak weakSelf = self;
+    self.block = ^{
+        [weakSelf doSomething];   // capture the weak reference
+                                  // to avoid the reference cycle
+    }
+}
+```
+
+捕获指向 self 的弱指针，block 不会保留 XYZBlockKeeper 对象的强引用关系。如果对象在 block 被调用之前被释放，weakSelf 指针会被置为 nil。
+
 ### Block 简化枚举
 
 ### Block 简化并发任务
