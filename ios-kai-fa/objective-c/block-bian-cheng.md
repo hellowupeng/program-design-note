@@ -339,11 +339,105 @@ blocks 保留所有捕获对象的强引用，包括 self，很容易造成强�
 
 许多 Cocoa 和Cocoa Touch API 使用 blocks 简化常用任务，例如集合枚举。
 
+NSArray 类提供三个基于 block 的方法，包括：
+
+```
+- (void)enumerateObjectsUsingBlock:(void (^)(id obj, NSUInteger idx, BOOL *stop))block;
+```
+
+这个方法携带一个参数，是一个数组里每个条目都会调用一个的 block：
+
+```
+NSArray *array = ...
+    [array enumerateObjectUsingBlock:^ (id obj, NSUInteger idx, BOOL *stop) {
+        NSLog(@"Object at index %lu is %@", idx, obj);
+    }];
+```
+
+这个 block 携带三个参数，前两个引用数组里的当前对象和它的索引。第三个参数是一个指向你可以用于停止枚举的布尔变量的指针：
+
+```
+[array enumerateObjectsUsingBlock:^ (id obj, NSUInteger idx, BOOL *stop) {
+    if (...) {
+        *stop = YES;
+    }
+}];
+```
+
+使用 enumerateObjectsWithOptions:usingBlock: 方法自定义枚举。例如指定 NSEnumerationReverse 选项，会从相反的顺序遍历数组。
+
+如果枚举 block 里的代码是处理器密集型并且对于并发执行是安全的，你可以使用 NSEnumerationConcurrent 选项：
+
+```
+[array enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^ (id obj, NSUInteger idx, BOOL *stop) {
+    ...
+}];
+```
+
+这个标记指示枚举 block 调用可以分发到多个线程，如果 block 代码尤其是处理器密集型的话，会提供一个潜在的性能提升。注意在使用这个选项时，枚举顺序是未定义的。
+
+NSDictionary 类也提供基于 block 的方法，包括：
+
+```
+NSDictionary *dictionary = ...
+    [dictionary enumerateKeysAndObjectsUsingBlock:^ (id key, id obj, BOOL *stop) {
+        NSLog(@"key: %@, value: %@", key, obj);
+    }];
+```
+
+这使枚举每个键值对比在使用传统的循环时更加方便。
+
 ### Block 简化并发任务
+
+OS X 和 iOS 提供了各种并发技术，包括两种任务调度机制：操作队列和 GCD。这些机制围绕等待被调用的任务队列的想法。你按你需要它们被调用的顺序添加 blocks 到一个队列，系统在处理器时间和资源变得可用时把它们移出队列用于调用。
+
+串行队列一次只允许执行一个任务，队列里的下一个任务不会被移出队列并调用直到之前的任务已经完成。并发队列调用尽可能多的任务，不需要等待之前的任务完成。
 
 **和操作队列（Operation Queue）一起使用 Block 操作（operation）**
 
+操作队列是 Cocoa 和 Cocoa Touch 进行任务调度的途径。你创建一个 NSOperation 实例来封装一个工作单位以及任何必要的数据，然后添加那个操作到一个 NSOperationQueue 用于执行。
+
+你可以创建自定义 NSOperation 子类来实现复杂任务，也可以使用 NSBlockOperation 来使用 block 创建一个操作：
+
+```
+NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+    ...
+}];
+```
+
+也可以手动执行一个 operation，但是 operations 通常被添加到一个存在的操作队里或你自己创建的队列，准备执行：
+
+```
+// schedule task on main queue:
+NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+[mainQueue addOperation:operation];
+
+// schedule task on background queue
+NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+[queue addOperation:operation];
+```
+
+使用一个操作队列，可以在队列之间配置优先级或依赖，例如指定一个操作不应该被执行直到一组其他操作已经完成。你也可以通过键值观察监听你的操作的状态变化。
+
 **和 GCD 一起在调度队列（Dispatch Queue）上安排 Blocks**
+
+如果你需要安排一个随意的代码块用于执行，你可以直接和由 GCD 控制的调度队列（dispatch queue）一起工作。调度队列使用期望的调用者同步或者异步地执行任务变得容易，并且采用先进先出的顺序执行它们的任务。
+
+你可以创建你自己的调度队列或使用由 GCD 自动提供的调度队列之一。如果需要安排一个用于同时执行的任务，例如，可以通过使用 dispatch\_get\_global\_queue\(\) 函数获取一个存在队列的引用并指定队列优先级：
+
+```
+ dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+```
+
+要调度 block 到队列里，使用 dispatch\_async\(\) 或 dispatch\_sync\(\) 函数。dispatch\_async\(\) 函数立即返回，无需等待 block 被调用。
+
+```
+dispatch_async(queue, ^{
+    NSLog(@"Block for asynchronous execution");
+});
+```
+
+dispatch\_sync\(\) 函数不返回直到 block 已经完成执行；可以在并发 block 在继续之前需要在主线程上等待另一个任务完成的情况下使用它。
 
 ###### 参考资料
 
