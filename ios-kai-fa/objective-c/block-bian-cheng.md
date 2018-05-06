@@ -80,16 +80,18 @@ block 能捕获方法范围里的值：
 ```
 - (void)testMethod {
     int anInteger = 42;
-    
+
     void (^testBlock)(void) = ^{
         NSLog(@"Integer is: %i", anInteger);
     }
-    
+
     testBlock();
 }
 ```
 
 anInteger 在 block 外面声明，在 block 定义时被捕获。
+
+除非另外指定，否则 block 只能捕获值。
 
 **Block 能作为方法或函数的参数**
 
