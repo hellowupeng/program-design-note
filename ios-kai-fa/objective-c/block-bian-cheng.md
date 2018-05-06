@@ -36,7 +36,23 @@ simpleBlock();
 
 **Block 携带参数和返回值**
 
+Block 也能像方法和参数一样携带参数和返回值。
 
+一个变量引用一个返回两个值相乘的结果的 block：
+
+```
+double (^multiplyTwoValues)(double, double);
+```
+
+相应的 block 字面量：
+
+```
+^(double firstValue, double secondValue){
+    return firstValue * secondValue;
+}
+```
+
+和函数定义一样，firstValue 和 secondValue 被用于在 block 被调用时引用提供的值。
 
 **Block 能从封闭范围捕获值**
 
