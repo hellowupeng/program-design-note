@@ -180,9 +180,103 @@ blocks 能在初始化任务时定义回调行为：
 
 这个例子调用方法显示进度指示器，然后创建任务并开始。回调 block 指定任务完成时被执行的代码：调用方法隐藏进度指示器。回调 block 捕获了 self 以便能在被调用时调用 hideProgressIndicator 方法。捕获 self 时要小心，很容易造成强引用循环。
 
+```
+- (void)beginTaskWithCallbackBlock:(void (^)(void))callback;
+```
+
+\(void \(^\)\(void\)\)指定参数是一个不携带任何参数或返回值的 block。
+
+```
+- (void)beginTaskWithCallbackBlock:(void (^)(void))callback {
+    ...
+    callback();
+}
+```
+
+拥有一个 block 参数且 block 拥有两个参数的方法：
+
+```
+- (void)doSomethingWithBlock:(void (^)(double, double))block
+{
+    ...
+    block(21.0, 2.0);
+}
+```
+
+###### Block 总应该是方法的最后一个参数
+
+一个方法最后只使用一个 block 参数。如果方法需要其他非 block 参数，block 应该放在末尾：
+
+```
+- (void)beginTaskWithName:(NSString *)name completion:(void (^)(void))callback;
+```
+
+这样方法调用时更加易读：
+
+```
+[self beginTaskWithName:@"MyTask" completion:^{
+    NSLog(@"The task is complete");
+}];
+```
+
 ##### **使用类型定义简化 Block 语法**
 
+为一个不携带参数或返回值的 block 定义一种类型：
+
+```
+typedef void (^XYZSimpleBlock)(void);
+```
+
+然后能为方法参数或创建 block 变量时使用自定义类型：
+
+```
+XYZSimpleBlock anotherBlock = ^{
+    ...
+};
+```
+
+```
+- (void)beginFetchWithCallbackBlock:(XYZSimpleBlock)callback {
+    ...
+    callbackBlock();
+};
+```
+
+自定义类型定义在处理返回 blocks 或携带其他 blocks 作为参数时特别有用。
+
+```
+void (^(^complexBlock)(void (^)(void))(void)) = ^(void (^aBlock)(void)) {
+    ...
+    return ^{
+        ...
+    };
+};
+```
+
+complexBlock 变量引用一个携带另一个 block 作为一个参数（aBlock）和返回另一个 block 的 block。
+
+使用类型定义重写代码：
+
+```
+XYZSimpleBlock (^betterBlock)(XYZSimpleBlock) = ^(XYZSimpleBlock aBlock) {
+    ...
+    return ^{
+    	...    
+    };
+};
+```
+
 ##### **对象使用属性追踪 Block**
+
+定义属性跟踪 block 的语法类型 block 变量：
+
+```
+@interface XYZObject : NSObject
+@property (copy) void (^blockProperty)(void);
+@end
+```
+
+> 注意：指定 copy 作为属性特性，因为 block 需要被复制来在原始范围外跟踪它捕获的状态。
 
 ##### **在捕获 self 时避免强引用循环**
 
