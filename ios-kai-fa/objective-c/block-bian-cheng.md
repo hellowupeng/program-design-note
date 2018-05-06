@@ -54,7 +54,42 @@ double (^multiplyTwoValues)(double, double);
 
 和函数定义一样，firstValue 和 secondValue 被用于在 block 被调用时引用提供的值。返回类型从 block 里的返回语句推断出。
 
+也可以明确的指定返回类型：
+
+```
+^double(double firstValue, double secondValue){
+    return firstValue * secondValue;
+}
+```
+
+声明并定义了 block 后，像函数一样调用它：
+
+```
+double (^multiplyTwoValues)(double, double) = ^(double firstValue, double secondValue) {
+    return firstValue * secondValue;
+};
+
+double result = multiplyTwoValues(2, 4);
+NSLog(@"The result is %f", result);
+```
+
 **Block 能从封闭范围捕获值**
+
+block 能捕获方法范围里的值：
+
+```
+- (void)testMethod {
+    int anInteger = 42;
+    
+    void (^testBlock)(void) = ^{
+        NSLog(@"Integer is: %i", anInteger);
+    }
+    
+    testBlock();
+}
+```
+
+anInteger 在 block 外面声明，在 block 定义时被捕获。
 
 **Block 能作为方法或函数的参数**
 
