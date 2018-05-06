@@ -36,6 +36,8 @@ simpleBlock();
 
 **Block 携带参数和返回值**
 
+
+
 **Block 能从封闭范围捕获值**
 
 **Block 能作为方法或函数的参数**
