@@ -17,7 +17,7 @@
   * [Objective-C](ios-kai-fa/objective-c.md)
     * [Block 编程](ios-kai-fa/objective-c/block-bian-cheng.md)
     * [runtime](ios-kai-fa/objective-c/runtime.md)
-    * 内存管理
+    * [内存管理](ios-kai-fa/objective-c/nei-cun-guan-li.md)
   * [Ruby](ios-kai-fa/ruby.md)
   * [Cocoa Touch](ios-kai-fa/cocoa-touch.md)
     * [UI](ios-kai-fa/cocoa-touch/ui.md)
