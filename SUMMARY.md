@@ -2,9 +2,9 @@
 
 * [介绍](README.md)
 * [计算机基础](chapter1.md)
-  * 计算机网络
-  * 数据结构与算法
-  * 体系结构与操作系统
+  * [计算机网络](chapter1/ji-suan-ji-wang-luo.md)
+  * [数据结构与算法](chapter1/shu-ju-jie-gou-yu-suan-fa.md)
+  * [体系结构与操作系统](chapter1/ti-xi-jie-gou-yu-cao-zuo-xi-tong.md)
   * 数据库
   * 编译原理
   * 设计模式

@@ -22,7 +22,9 @@
 
 **和 GCD 一起在调度队列（Dispatch Queue）上安排 Blocks**
 
+###### 参考资料
 
+1. [Working with Blocks](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html)
 
 
 
