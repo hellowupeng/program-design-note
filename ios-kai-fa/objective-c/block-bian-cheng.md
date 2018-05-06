@@ -133,6 +133,12 @@ testBlock();
 
 anInteger 被声明为 \_\_block 变量，它和 block 声明共享存储。
 
+日志输出：
+
+```
+Integer is: 84
+```
+
 ##### **Block 能作为方法或函数的参数**
 
 ##### **使用类型定义简化 Block 语法**
