@@ -337,6 +337,8 @@ blocks 保留所有捕获对象的强引用，包括 self，很容易造成强�
 
 ### Block 简化枚举
 
+许多 Cocoa 和Cocoa Touch API 使用 blocks 简化常用任务，例如集合枚举。
+
 ### Block 简化并发任务
 
 **和操作队列（Operation Queue）一起使用 Block 操作（operation）**
