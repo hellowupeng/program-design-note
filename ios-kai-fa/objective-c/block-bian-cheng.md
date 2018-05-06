@@ -169,16 +169,16 @@ blocks 能在初始化任务时定义回调行为：
 ```
 - (IBAction)fetchRemoteInformation:(id)sender {
     [self showProgressIndicator];
-    
+
     XYZWebTask *task = ...
-        
+
     [task beginTaskWithCallbackBlock:^{
-    	[self hideProgressIndicator];
+        [self hideProgressIndicator];
     }];
 }
 ```
 
-这个例子调用方法显示进度指示器，然后创建任务并开始。回调 block 指定任务完成时被执行的代码：调用方法隐藏进度指示器。
+这个例子调用方法显示进度指示器，然后创建任务并开始。回调 block 指定任务完成时被执行的代码：调用方法隐藏进度指示器。回调 block 捕获了 self 以便能在被调用时调用 hideProgressIndicator 方法。捕获 self 时要小心，很容易造成强引用循环。
 
 ##### **使用类型定义简化 Block 语法**
 
