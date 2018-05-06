@@ -6,6 +6,12 @@ Objective-C 语言推迟尽可能多的决定从编译时和链接时到运行�
 
 Objective-C 程序在三个不同级别上与 runtime 系统交互：通过 Objective-C 源码；通过 Foundation 框架的 NSObject 类定义的方法；t通过直接调用 runtime 函数。
 
+##### Objective-C 源码
+
+##### NSObject 方法
+
+##### Runtime 函数
+
 ### 消息
 
 ### 动态方法解析
