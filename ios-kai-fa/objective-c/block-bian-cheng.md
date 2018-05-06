@@ -2,7 +2,7 @@
 
 Blocks 是一个添加到 C，Objective-C 和 C++ 的语言级特性，它允许你创建能传入到方法或函数、似乎是值的不同代码片段。Blocks 是 Objective-C 对象，能被添加到集合（NSArray，NSDictionary）里。它们也能从封闭范围里捕获值，类似于其他编程语言里的闭包或 lambda 表达式。
 
-###### Block 语法
+### Block 语法
 
 使用脱字符（^）定义 block 字面量：
 
@@ -34,7 +34,7 @@ simpleBlock();
 
 > 注意：如果调用未分配的变量（nil block 变量），应用会崩溃。
 
-**Block 携带参数和返回值**
+##### **Block 携带参数和返回值**
 
 Block 也能像方法和参数一样携带参数和返回值。
 
@@ -73,7 +73,7 @@ double result = multiplyTwoValues(2, 4);
 NSLog(@"The result is %f", result);
 ```
 
-**Block 能从封闭范围捕获值**
+##### **Block 能从封闭范围捕获值**
 
 block 能捕获方法范围里的值：
 
@@ -115,17 +115,35 @@ Integer is: 42
 
 block 不能改变原始变量的值，也不能改变捕获的值（它作为 const 变量被捕获）。
 
-**Block 能作为方法或函数的参数**
+###### 使用 \_\_block 变量共享存储
 
-**使用类型定义简化 Block 语法**
+想要能够改变 block 里捕获的值，在原始变量声明上使用 \_\_block 存储类型修饰符。
 
-**对象使用属性追踪 Block**
+```
+__block int anInteger = 42;
 
-**在捕获 self 时避免强引用循环**
+void (^testBlock)(void) = ^{
+    NSLog(@"Integer is: %i", anInteger);
+};
 
-###### Block 简化枚举
+anInteger = 84;
 
-###### Block 简化并发任务
+testBlock();
+```
+
+anInteger 被声明为 \_\_block 变量，它和 block 声明共享存储。
+
+##### **Block 能作为方法或函数的参数**
+
+##### **使用类型定义简化 Block 语法**
+
+##### **对象使用属性追踪 Block**
+
+##### **在捕获 self 时避免强引用循环**
+
+### Block 简化枚举
+
+### Block 简化并发任务
 
 **和操作队列（Operation Queue）一起使用 Block 操作（operation）**
 
