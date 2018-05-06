@@ -8,15 +8,16 @@
   * 数据库
   * 编译原理
   * 设计模式
-  * 版本控制
+  * [版本控制](chapter1/ban-ben-kong-zhi.md)
+    * Git
+    * SVN
 * [iOS 开发](ios-kai-fa.md)
-  * [编程语言](ios-kai-fa/bian-cheng-yu-yan.md)
-    * Swift
-    * [Objective-C](ios-kai-fa/bian-cheng-yu-yan/objective-c.md)
-      * runtime
-      * 内存管理
-      * [Block 编程](ios-kai-fa/bian-cheng-yu-yan/objective-c/block.md)
-    * Ruby
+  * [Swift](ios-kai-fa/swift.md)
+  * [Objective-C](ios-kai-fa/objective-c.md)
+    * [Block 编程](ios-kai-fa/objective-c/block-bian-cheng.md)
+    * runtime
+    * 内存管理
+  * [Ruby](ios-kai-fa/ruby.md)
   * [Cocoa Touch](ios-kai-fa/cocoa-touch.md)
     * [UI](ios-kai-fa/cocoa-touch/ui.md)
     * 动画
@@ -29,5 +30,11 @@
     * SDWebImage
     * Alamofire
 * [Android 开发](android-kai-fa.md)
-* React Native 开发
+  * Kotlin
+  * Java
+  * Android SDK
+  * 第三方库
+* [React Native 开发](react-native-kai-fa.md)
+* [Web前端开发](qian-duan-kai-fa.md)
+* [后端开发](hou-duan-kai-fa.md)
 
