@@ -139,7 +139,30 @@ anInteger 被声明为 \_\_block 变量，它和 block 声明共享存储。
 Integer is: 84
 ```
 
+block 能修改原始的值：
+
+```
+__block int anInteger = 42;
+
+void (^testBlock)(void) = ^{
+    NSLog(@"Integer is: %i", anInteger);
+    anInteger = 100;
+};
+
+testBlock();
+NSLog(@"Value of original variable is now: %i", anInteger);
+```
+
+输入显示：
+
+```
+Integer is: 42
+Value of original variable is now: 100
+```
+
 ##### **Block 能作为方法或函数的参数**
+
+blocks 常被用于回调，在任务完成时执行。
 
 ##### **使用类型定义简化 Block 语法**
 
