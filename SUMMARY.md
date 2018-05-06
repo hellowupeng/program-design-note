@@ -16,7 +16,7 @@
   * [Swift](ios-kai-fa/swift.md)
   * [Objective-C](ios-kai-fa/objective-c.md)
     * [Block 编程](ios-kai-fa/objective-c/block-bian-cheng.md)
-    * runtime
+    * [runtime](ios-kai-fa/objective-c/runtime.md)
     * 内存管理
   * [Ruby](ios-kai-fa/ruby.md)
   * [Cocoa Touch](ios-kai-fa/cocoa-touch.md)
