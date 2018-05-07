@@ -30,7 +30,7 @@ NSObject 提供了一些方法用于从 runtime 系统查询信息。class 方�
 [receiver message]
 ```
 
-这个函数接收者和方法选择器（方法名）作为它的两个主要参数：
+这个函数把消息接收者和方法选择器（方法名）作为它的两个主要参数：
 
 ```
 objc_msgSend(receiver, selector)
