@@ -21,6 +21,7 @@
   * [Ruby](ios-kai-fa/ruby.md)
   * [Cocoa Touch](ios-kai-fa/cocoa-touch.md)
     * [UI](ios-kai-fa/cocoa-touch/ui.md)
+      * [应用程序启动过程](ios-kai-fa/cocoa-touch/ui/ying-yong-cheng-xu-qi-dong-guo-cheng.md)
     * [动画](ios-kai-fa/cocoa-touch/dong-hua.md)
     * [多线程编程](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng.md)
     * [网络编程](ios-kai-fa/cocoa-touch/wang-luo-bian-cheng.md)
