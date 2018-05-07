@@ -22,9 +22,17 @@ NSObject 提供了一些方法用于从 runtime 系统查询信息。class 方�
 
 ### 消息传递
 
-##### objc\__msgSen_d 函数
+##### objc\_\_msgSen\_d 函数
 
-在 Objective-C 里，消息在运行时才会绑定到方法实现。
+在 Objective-C 里，消息在运行时才会绑定到方法实现。编译器转换消息表达式为一个在消息传递函数 objc\_msgSend 上的一个调用。
+
+```
+[receiver message]
+```
+
+```
+objc_msgSend(receiver, selector)
+```
 
 ##### 使用隐藏参数
 
