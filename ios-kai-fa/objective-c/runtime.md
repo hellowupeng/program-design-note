@@ -79,7 +79,7 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 {
     id target = getTheReceiver();
     SEL method = getTheMethod();
-    
+
     if (target == self || method == _cmd)
         return nil;
     return [target performSelector:method];
@@ -105,7 +105,19 @@ for (i = 0; i < 100; i++)
 
 ### 动态方法解析
 
+##### 动态方法解析
+
+##### 动态加载
+
 ### 消息转发
+
+##### 转发
+
+##### 转发和多重继承
+
+##### 代理对象
+
+##### 转发和继承
 
 
 
