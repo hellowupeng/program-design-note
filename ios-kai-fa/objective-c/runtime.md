@@ -59,7 +59,7 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 ![](/assets/Messaging Framework.png)
 
-消息被发送给对象时，
+发送消息给对象时，消息传递函数跟随对象的isa指针，指向查找调度表中的方法选择器的类结构。如果它在那里找不到选择器，objc\_msgSend 跟随指向父类的指针，并尝试在其调度表中查找选择器。连续失败导致 objc\_msgSend 沿着类层次结构，直到它到达NSObject类。一旦找到选择器，该函数调用在表中输入的方法并将其传递给接收对象的数据结构。
 
 ##### 使用隐藏参数
 
