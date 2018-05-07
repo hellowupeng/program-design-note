@@ -36,6 +36,12 @@ NSObject 提供了一些方法用于从 runtime 系统查询信息。class 方�
 objc_msgSend(receiver, selector)
 ```
 
+传入消息的参数也由 objc\_msgSend 处理：
+
+```
+objc_msgSend(receiver, selector, arg1, arg2, ...)
+```
+
 ##### 使用隐藏参数
 
 ##### 获取方法地址
