@@ -153,7 +153,7 @@ testBlock();
 NSLog(@"Value of original variable is now: %i", anInteger);
 ```
 
-输入显示：
+输出显示：
 
 ```
 Integer is: 42
