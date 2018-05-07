@@ -184,7 +184,7 @@ blocks 能在初始化任务时定义回调行为：
 - (void)beginTaskWithCallbackBlock:(void (^)(void))callback;
 ```
 
-\(void \(^\)\(void\)\)指定参数是一个不携带任何参数或返回值的 block。
+\(void \(^\)\(void\)\)指定参数是一个不携带任何参数和返回值的 block。
 
 ```
 - (void)beginTaskWithCallbackBlock:(void (^)(void))callback {
