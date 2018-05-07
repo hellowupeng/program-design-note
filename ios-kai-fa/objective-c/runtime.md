@@ -57,7 +57,9 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 新对象创建时，它的内存被分配，它的实例变量被初始化。对象的第一个实例变量是指向它的类结构的指针。这个指针叫做 isa，让对象能访问它的类，通过这个类到它继承的所有类。
 
+![](/assets/Messaging Framework.png)
 
+消息被发送给对象时，
 
 ##### 使用隐藏参数
 
