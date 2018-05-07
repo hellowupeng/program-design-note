@@ -1,5 +1,7 @@
 # 应用程序启动过程
 
+![](/assets/The app launch and initialization sequence.png)
+
 1. 应用由用户或系统启动。
 2. Xcode提供的 main 函数调用 UIKit 的 UIApplicationMain 函数。
 3. UIApplicationMain 函数创建 UIApplication 对象和应用代理。
