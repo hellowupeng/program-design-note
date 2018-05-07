@@ -29,7 +29,7 @@ UIViewController类定义了用于管理视图，处理事件，从一个视图�
 
 ###### 数据封装
 
-视图控制器充当其管理的视图和应用程序数据之间的中介。当您继承UIViewController时，您可以添加任何需要在您的子类中管理数据的变量。视图控制器引用了您的数据和用于呈现该数据的视图。在两者之间来回移动数据是您的责任。![](/assets/A view controller mediates between data objects and views.png)你应始终在视图控制器和数据对象内保持清晰的职责分离。
+视图控制器充当其管理的视图和应用程序数据之间的中介。当您继承 UIViewController 时，您可以添加任何需要在您的子类中管理数据的变量。视图控制器引用了您的数据和用于呈现该数据的视图。在两者之间来回移动数据是您的责任。![](/assets/A view controller mediates between data objects and views.png)你应始终在视图控制器和数据对象内保持清晰的职责分离。
 
 ###### 用户交互
 
@@ -37,13 +37,27 @@ UIViewController类定义了用于管理视图，处理事件，从一个视图�
 
 ###### 资源管理
 
-视图控制器承担其视图及其创建的任何对象的所有责任。UIViewController类自动处理视图管理的大多数方面。例如，UIKit会自动释放不再需要的任何视图相关资源。在你的UIViewController子类中，你负责管理你明确创建的任何对象。
+视图控制器承担其视图及其创建的任何对象的所有责任。UIViewController 类自动处理视图管理的大多数方面。例如，UIKit 会自动释放不再需要的任何视图相关资源。在你的 UIViewController 子类中，你负责管理你明确创建的任何对象。
 
-当可用空闲内存不足时，UIKit会要求应用程序释放不再需要的资源。其中一种方法是调用视图控制器的 didReceiveMemoryWarning 方法。
+当可用空闲内存不足时，UIKit 会要求应用程序释放不再需要的资源。其中一种方法是调用视图控制器的 didReceiveMemoryWarning 方法。
 
 ###### 适应性
 
 ##### 视图控制器层次结构
+
+###### 根视图控制器
+
+根视图控制器是视图控制器层次结构的锚点。每个窗口都有一个根视图控制器，其内容填充该窗口。根视图控制器定义用户看到的初始内容。由于窗口本身没有可见的内容，所以视图控制器的视图提供了所有的内容。
+
+根视图控制器和窗口之间的关系：![](/assets/The root view controller.png)根视图控制器可以从 UIWindow 对象的 rootViewController 属性访问。当你使用 storyboard 来配置视图控制器时，UIKit 会在启动时自动设置该属性的值。对于以编程方式创建的窗口，您必须自己设置根视图控制器。
+
+###### 容器视图控制器
+
+容器视图控制器允许你从更易于管理和可重用的部分组装复杂的界面。容器视图控制器将一个或多个子视图控制器的内容与可选的自定义视图混合在一起以创建其最终界面。例如， UINavigationController 对象显示来自子视图控制器的内容以及由导航控制器管理的导航栏和可选工具栏。UIKit包含多个容器视图控制器，包括 UINavigationController，UISplitViewController 和 UIPageViewController。
+
+容器视图控制器的视图始终填充给定的空间。容器视图控制器通常作为根视图控制器安装在窗口中。但它们也可以模态呈现或安装为其他容器的子项。容器负责适当地定位其子视图。虽然它取决于容器接口，但子视图控制器可能对容器和任何同级视图控制器有最少的了解。![](/assets/A container acting as the root view controller.png)由于容器视图控制器管理其子项，UIKit 定义了如何在自定义容器中设置这些子项的规则。
+
+###### 被呈现的视图控制器
 
 ##### 设计技巧
 
