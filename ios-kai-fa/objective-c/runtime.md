@@ -67,7 +67,41 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 ##### 使用隐藏参数
 
+当 objc\_msgSend 找到实现方法的程序时，它调用该程序并传入消息中的所有参数。它还传入程序两个隐藏参数：
+
+* 接收对象
+* 方法选择器
+
+方法引用接收对象为 self，引用它自己的选择器为 _cmd。_下面的例子_中，\_cmd 引用 strange 方法的选择器，self 引用接收 strange 消息的对象。_
+
+```
+- strange
+{
+    id target = getTheReceiver();
+    SEL method = getTheMethod();
+    
+    if (target == self || method == _cmd)
+        return nil;
+    return [target performSelector:method];
+}
+```
+
 ##### 获取方法地址
+
+绕过动态绑定的唯一方式是获取方法的地址并像函数一样直接调用它。
+
+下面的例子展示了如何调用实现 setFilled：方法的过程：
+
+```
+void (*setter)(id, SEL, BOOL);
+int i;
+
+setter = (void (*)(id, SEL, BOOL))[target methodForSelector:@selector(setFilled:)];
+for (i = 0; i < 100; i++)
+    setter(targetList[i], @selector(setFilled:), YES);
+```
+
+传递给过程（procedure）的前两个参数是接收对象（self）和方法选择器（\_cmd）。这些参数在方法语法中是隐藏的，但是当方法作为函数调用时必须明确给出。
 
 ### 动态方法解析
 
