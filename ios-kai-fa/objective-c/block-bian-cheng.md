@@ -268,7 +268,7 @@ XYZSimpleBlock (^betterBlock)(XYZSimpleBlock) = ^(XYZSimpleBlock aBlock) {
 
 ##### **对象使用属性追踪 Block**
 
-定义属性跟踪 block 的语法类型 block 变量：
+定义属性跟踪 block 的语法类似 block 变量：
 
 ```
 @interface XYZObject : NSObject
