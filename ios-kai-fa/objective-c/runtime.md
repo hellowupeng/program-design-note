@@ -119,5 +119,9 @@ for (i = 0; i < 100; i++)
 
 ##### 转发和继承
 
+###### 参考资料
+
+1. [Objective-C Runtime Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048-CH1-SW1)
+
 
 
