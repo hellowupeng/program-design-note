@@ -205,7 +205,7 @@ blocks 能在初始化任务时定义回调行为：
 
 ###### Block 总应该是方法的最后一个参数
 
-一个方法最后只使用一个 block 参数。如果方法需要其他非 block 参数，block 应该放在末尾：
+一个方法最好只使用一个 block 参数。如果方法需要其他非 block 参数，block 应该放在末尾：
 
 ```
 - (void)beginTaskWithName:(NSString *)name completion:(void (^)(void))callback;
