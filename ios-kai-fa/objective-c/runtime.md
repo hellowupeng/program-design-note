@@ -14,7 +14,7 @@ Objective-C 程序在三个不同级别上与 runtime 系统交互：通过 Obje
 
 ##### NSObject 方法
 
-NSObject 提供了一些方法用于从 runtime 系统查询信息。class 方法请求对象确定它的类；isKindOfClass: 和 isMemberOfClass: 方法测试对象在继承层次结构中的位置；
+NSObject 提供了一些方法用于从 runtime 系统查询信息。class 方法请求对象确定它的类；isKindOfClass: 和 isMemberOfClass: 方法测试对象在继承层次结构中的位置；respondsToSelector: 表明对象是否能接受特定的消息；conformsToProtocol: 表明对象是否要求实现指定协议里定义的方法；methodForSelector: 提供方法实现的地址。
 
 ##### Runtime 函数
 
