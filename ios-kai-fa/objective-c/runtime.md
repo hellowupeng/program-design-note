@@ -14,6 +14,8 @@ Objective-C 程序在三个不同级别上与 runtime 系统交互：通过 Obje
 
 ##### NSObject 方法
 
+NSObject 提供了一些方法用于从 runtime 系统查询信息。
+
 ##### Runtime 函数
 
 ### 消息
