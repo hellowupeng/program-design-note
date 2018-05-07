@@ -42,6 +42,10 @@ objc_msgSend(receiver, selector)
 objc_msgSend(receiver, selector, arg1, arg2, ...)
 ```
 
+消息传递函数为动态绑定做了所有必须的事情：
+
+* 首先，它搜索选择器引用的方法实现。由于相同的方法能被不同的类实现，因此它找到的方法实现取决于接收者的 class。
+
 ##### 使用隐藏参数
 
 ##### 获取方法地址
