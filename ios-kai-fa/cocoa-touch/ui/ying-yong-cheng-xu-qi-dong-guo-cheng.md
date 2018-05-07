@@ -10,7 +10,5 @@
 6. UIKit 执行状态恢复，调用应用代理和视图控制器的其他方法。
 7. UIKit 调用应用代理的 application:didFinishLaunchingWithOptions: 方法。
 
-初始化完成后，系统把应用移动到 active（foreground） 状态或 background 状态。
-
-
+初始化完成后，系统把应用移动到 active（foreground） 状态或 background 状态。应用被移动到 active 状态时，它的窗口出现在屏幕上并且开始响应用户交互。应用被移动到 background 状态时，它的窗口保持隐藏并且在被暂停之前只能运行很短时间。
 
