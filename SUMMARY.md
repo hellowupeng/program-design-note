@@ -3,8 +3,9 @@
 * [介绍](README.md)
 * [计算机基础](chapter1.md)
   * [计算机网络](chapter1/ji-suan-ji-wang-luo.md)
-  * [数据结构与算法](chapter1/shu-ju-jie-gou-yu-suan-fa.md)
-  * [体系结构与操作系统](chapter1/ti-xi-jie-gou-yu-cao-zuo-xi-tong.md)
+  * [数据结构](chapter1/shu-ju-jie-gou-yu-suan-fa.md)
+  * 常用算法
+  * [操作系统](chapter1/ti-xi-jie-gou-yu-cao-zuo-xi-tong.md)
   * [数据库](chapter1/shu-ju-ku.md)
   * [编译原理](chapter1/bian-yi-yuan-li.md)
   * [设计模式](chapter1/she-ji-mo-shi.md)
