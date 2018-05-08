@@ -1,8 +1,10 @@
 # 语言基础
 
-### 代码注释
+### 表达式，变量和常量
 
-**单行注释**
+##### 代码注释
+
+###### **单行注释**
 
 ```Kotlin
 // This is a comment. It is not executed.
@@ -13,7 +15,7 @@
 // Over multiple lines.
 ```
 
-**多行注释**
+###### **多行注释**
 
 ```
 /* This is also a comment.
@@ -22,7 +24,7 @@
    many lines. */
 ```
 
-**嵌套注释**
+###### **嵌套注释**
 
 ```
 /* This is a comment.
@@ -36,15 +38,15 @@
 */
 ```
 
-### 打印
+##### 打印
 
 ```
 println("Hello, Kotlin Apprentice reader!")
 ```
 
-### 算数运算
+##### 算数运算
 
-##### 移位操作
+###### 移位操作
 
 * 左移：`shl`
 * 右移：`shr`
@@ -57,7 +59,7 @@ println("Hello, Kotlin Apprentice reader!")
 
 左移一位等同于乘以2，右移一位等同于除以2。
 
-### 数学函数
+##### 数学函数
 
 ```
 sin(45 * PI / 180)
@@ -80,9 +82,9 @@ min(-5, -10)
 // -10
 ```
 
-### 命名数据
+##### 命名数据
 
-##### 常量（Constants）
+###### 常量（Constants）
 
 Int:
 
@@ -107,7 +109,7 @@ number = 0
 Val cannot be reassigned
 ```
 
-##### 变量（Variables）
+###### 变量（Variables）
 
 ```
 var variableNumber: Int = 42
@@ -118,7 +120,7 @@ variableNumber = 0
 variableNumber = 1_000_000
 ```
 
-##### 使用有意义的名字
+###### 使用有意义的名字
 
 好名字：
 
@@ -131,6 +133,8 @@ variableNumber = 1_000_000
 * a
 * temp
 * average
+
+### 类型和操作
 
 
 
