@@ -27,6 +27,8 @@ var name = 'Bob';
 
 变量存储引用。名为 name 的变量包含对值为“Bob”的 String 对象的引用。
 
+如果对象不限于单一类型，可以指定 `Object` 或 `dynamic` 类型:
+
 ```
 dynamic name = 'Bob';
 ```
@@ -35,7 +37,127 @@ dynamic name = 'Bob';
 String name = 'Bob';
 ```
 
+### 默认值
 
+未初始化的变量的初始值为 `null`。即使数字类型的变量最初也为 `null`，因为 Dart 中的所有数据都是对象。
+
+```
+int lineCount;
+assert(lineCount == null); 
+```
+
+### Final 和 const
+
+如果你从不打算改变一个变量，使用 `final` 或 `const`。final 变量只能设置一次；const 变量是一个编译时常量。Const 变量为隐式 final。
+
+> 注意：实例变量可以是 `final`，但不能是 `const`。
+
+```
+final name = 'Bob'; // Without a type annotation
+// name = 'Alice'; // Uncommenting this causes an error
+final String nickname = 'Bobby';
+```
+
+将 `const` 用于想要成为编译时常量的变量。如果const变量处于类级别，则将其标记为 `static const`。
+
+```
+const bar = 1000000; // Unit of pressure (dynes/cm2)
+const double atm = 1.01325 * bar; // Standard atomsphere
+```
+
+`const` 关键字不仅用于声明常量。也可以使用它来创建常量值，以及声明创建常量值的构造函数。
+
+```
+// Note: [] creates an empty list.
+// const [] creates an empty, immutable list (EIL).
+var foo = const []; // foo is currently an EIL.
+final bar = const []; // bar will always be an EIL.
+const baz = const []; // baz is a compile-time constant EIL.
+
+// You can change the value of a non-final, non-const variable,
+// even if it used to have a const value.
+foo = [];
+
+// You can't change the value of a final or const variable.
+// bar = []; // Unhandled exception.
+// baz = []; // Unhandled exception.
+```
+
+### 内置类型
+
+Dart语言对以下类型有特别的支持：
+
+* numbers
+* strings
+* booleans
+* lists \(也被称为 _arrays_\)
+* maps
+* runes \(用于在字符串中表示 Unicode 字符\)
+* symbols
+
+##### Numbers
+
+###### int
+
+整数值不大于64位，具体取决于平台
+
+###### double
+
+64位（双精度）浮点数。
+
+`int` 和 `double` 都是 `num` 的子类型。
+
+整数字面量：
+
+```
+int x = 1;
+int hex = 0xDEADBEEF;
+```
+
+double 字面量：
+
+```
+double y = 1.1;
+double exponents = 1.42e5;
+```
+
+字符串和数字转换：
+
+```
+// String -> int
+var one = int.parse('1');
+assert(one == 1);
+
+// String -> double
+var onePointOne = double.parse('1.1');
+assert(onePointOne == 1.1);
+
+// int -> String
+String oneAsString = 1.toString();
+assert(oneAsString == '1');
+
+// double -> String
+String piAsString = 3.14159.toStringAsFixed(2);
+assert(piAsString == '3.14');
+```
+
+int类型指定传统的移位（&lt;&lt;, &gt;&gt;），与（＆）和或（\|）运算符。
+
+```
+assert((3 << 1) == 6); // 0011 << 1 == 0110
+assert((3 >> 1) == 1); // 0011 >> 1 == 0001
+assert((3 | 4) == 7); // 0011 | 0100 == 0111
+```
+
+数字字面量是编译时常量。许多算数表达式也是编译时常量。
+
+```
+const msPerSecond = 1000;
+const secondUntilRetry = 5;
+const msUntilRetry = scondUntilRetry * msPerSecond;
+```
+
+##### Strings
 
 
 
