@@ -15,7 +15,7 @@
 
 * 标识符可以以字母或下划线（\_）开头，然后是这些字符和数字的任意组合。
 
-* _`expression` 或者_ _`statement`_
+* `expression`_ 或者_ `statement`
 
 * Dart 工具可以报告两种问题：警告和错误。
 
