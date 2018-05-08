@@ -42,6 +42,7 @@
     * [Alamofire](ios-kai-fa/di-san-fang-ku/alamofire.md)
 * [Android 开发](android-kai-fa.md)
   * [Kotlin](android-kai-fa/kotlin.md)
+    * [语言基础](android-kai-fa/kotlin/yu-fa-ji-chu.md)
   * [Java](android-kai-fa/java.md)
   * [Android SDK](android-kai-fa/android-sdk.md)
   * [第三方库](android-kai-fa/di-san-fang-ku.md)
