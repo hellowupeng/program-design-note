@@ -52,4 +52,6 @@
     * [React](qian-duan-kai-fa/kuang-jia/react.md)
     * [Vue](qian-duan-kai-fa/kuang-jia/vue.md)
 * [后端开发](hou-duan-kai-fa.md)
+  * [Linux](hou-duan-kai-fa/linux.md)
+  * [Shell](hou-duan-kai-fa/shell.md)
 
