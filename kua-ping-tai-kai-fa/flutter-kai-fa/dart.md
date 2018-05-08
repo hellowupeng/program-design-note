@@ -19,5 +19,23 @@
 
 * Dart 工具可以报告两种问题：警告和错误。
 
+### 变量
+
+```
+var name = 'Bob';
+```
+
+变量存储引用。名为 name 的变量包含对值为“Bob”的 String 对象的引用。
+
+```
+dynamic name = 'Bob';
+```
+
+```
+String name = 'Bob';
+```
+
+
+
 
 
