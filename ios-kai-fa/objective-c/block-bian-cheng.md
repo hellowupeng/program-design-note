@@ -335,7 +335,7 @@ blocks 保留所有捕获对象的强引用，包括 self，很容易造成强�
 
 捕获指向 self 的弱指针，block 不会保留 XYZBlockKeeper 对象的强引用关系。如果对象在 block 被调用之前被释放，weakSelf 指针会被置为 nil。
 
-### Block 简化枚举
+### Block 能简化枚举
 
 许多 Cocoa 和Cocoa Touch API 使用 blocks 简化常用任务，例如集合枚举。
 
@@ -387,7 +387,7 @@ NSDictionary *dictionary = ...
 
 这使枚举每个键值对比在使用传统的循环时更加方便。
 
-### Block 简化并发任务
+### Block 能简化并发任务
 
 OS X 和 iOS 提供了各种并发技术，包括两种任务调度机制：操作队列和 GCD。这些机制围绕等待被调用的任务队列的想法。你按你需要它们被调用的顺序添加 blocks 到一个队列，系统在处理器时间和资源变得可用时把它们移出队列用于调用。
 

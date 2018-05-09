@@ -14,7 +14,7 @@ Objective-C 程序在三个不同级别上与 runtime 系统交互：通过 Obje
 
 ##### NSObject 方法
 
-NSObject 提供了一些方法用于从 runtime 系统查询信息。class 方法请求对象确定它的类；isKindOfClass: 和 isMemberOfClass: 方法测试对象在继承层次结构中的位置；respondsToSelector: 表明对象是否能接受特定的消息；conformsToProtocol: 表明对象是否要求实现指定协议里定义的方法；methodForSelector: 提供方法实现的地址。
+NSObject 提供了一些方法用于从 runtime 系统查询信息。class 方法请求对象鉴定它的类；isKindOfClass: 和 isMemberOfClass: 方法确认对象在继承层次结构中的位置；respondsToSelector: 表明对象是否能接受特定的消息；conformsToProtocol: 表明对象是否要求实现指定协议里定义的方法；methodForSelector: 提供方法实现的地址。
 
 ##### Runtime 函数
 
@@ -22,7 +22,7 @@ NSObject 提供了一些方法用于从 runtime 系统查询信息。class 方�
 
 ### 消息传递
 
-##### objc\_\_msgSen\_d 函数
+##### objc\_\_msgSend 函数
 
 在 Objective-C 里，消息在运行时才会绑定到方法实现。编译器转换消息表达式为一个在消息传递函数 objc\_msgSend 上的一个调用。
 
@@ -53,13 +53,13 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 消息传递的关键在于编译器为每个类和对象构建的结构。每个类的结构包括两个基本要素：
 
 * 一个指向父类的指针。
-* 一个类调度表。该表具有将方法选择器与它们识别的方法的类特定地址相关联的条目。setOrigin: 方法选择器与 setOrigin: 的地址关联，display 方法选择器与 display 的地址关联。
+* 一个类调度表。该表具有将方法选择器与方法的地址相关联的条目。setOrigin: 方法选择器与 setOrigin: 的地址关联，display 方法选择器与 display 的地址关联。
 
 新对象创建时，它的内存被分配，它的实例变量被初始化。对象的第一个实例变量是指向它的类结构的指针。这个指针叫做 isa，让对象能访问它的类，通过这个类到它继承的所有类。
 
 ![](/assets/Messaging Framework.png)
 
-方法动态绑定到消息：
+方法动态绑定到消息过程：
 
 发送消息给对象时，消息传递函数跟随对象的 isa 指针，指向查找调度表中的方法选择器的类结构。如果它在那里找不到选择器，objc\_msgSend 跟随指向父类的指针，并尝试在其调度表中查找选择器。连续失败导致 objc\_msgSend 沿着类层次结构，直到它到达 NSObject 类。一旦找到选择器，该函数调用在表中输入的方法并将其传递给接收对象的数据结构。
 
