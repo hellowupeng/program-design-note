@@ -14,6 +14,16 @@ Container是一个小部件，允许您自定义其子部件。如果要添加 p
 
 列（Column）和行（Row）的属性允许您指定他们的孩子（children，子部件）如何垂直或水平对齐，以及子部件应该占据多少空间。
 
+### 布局小部件
+
+* 应用程序本身也是一个小部件。
+
+* 创建一个小部件并将其添加到布局小部件很容易。
+
+* 要在设备上显示小部件，将布局小部件添加到应用小部件。
+
+* 使用 Scaffold 是很容易的，它是 Material Components 库中的一个小部件，它提供了一个默认横幅（banner），背景颜色（background color），并且具有添加抽屉（drawer），snack bar 和底部表单（bottom sheet）的API。
+
 ###### 参考资料
 
 1. [Building Layouts in Flutter](https://flutter.io/tutorials/layout/#lay-out-a-widget)
