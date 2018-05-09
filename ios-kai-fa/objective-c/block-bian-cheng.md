@@ -385,19 +385,19 @@ NSDictionary *dictionary = ...
     }];
 ```
 
-这使枚举每个键值对比在使用传统的循环时更加方便。
+这使枚举每个键值对比使用传统的循环更加方便。
 
 ### Block 能简化并发任务
 
-OS X 和 iOS 提供了各种并发技术，包括两种任务调度机制：操作队列和 GCD。这些机制围绕等待被调用的任务队列的想法。你按你需要它们被调用的顺序添加 blocks 到一个队列，系统在处理器时间和资源变得可用时把它们移出队列用于调用。
+OS X 和 iOS 提供了各种并发技术，包括两种任务调度机制：操作队列和 GCD。这些机制围绕等待被调用的任务队列的想法。你按需要调用的顺序添加 block 到一个队列，系统在处理器时间和资源可用时把它们移出队列并调用它。
 
 串行队列一次只允许执行一个任务，队列里的下一个任务不会被移出队列并调用直到之前的任务已经完成。并发队列调用尽可能多的任务，不需要等待之前的任务完成。
 
-**和操作队列（Operation Queue）一起使用 Block 操作（operation）**
+与**操作队列（Operation Queue）一起使用 Block 操作（Block operation）**
 
-操作队列是 Cocoa 和 Cocoa Touch 进行任务调度的途径。你创建一个 NSOperation 实例来封装一个工作单位以及任何必要的数据，然后添加那个操作到一个 NSOperationQueue 用于执行。
+操作队列是 Cocoa 和 Cocoa Touch 进行任务调度的途径。你创建一个 NSOperation 实例来封装一个工作单位以及任何必要的数据，然后添加该操作到一个 NSOperationQueue 用于执行。
 
-你可以创建自定义 NSOperation 子类来实现复杂任务，也可以使用 NSBlockOperation 来使用 block 创建一个操作：
+你可以创建自定义 NSOperation 子类来实现复杂任务，也可以使用 NSBlockOperation 来使用 block 创建一个操作（operation）：
 
 ```
 NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
@@ -405,7 +405,7 @@ NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
 }];
 ```
 
-也可以手动执行一个 operation，但是 operations 通常被添加到一个存在的操作队里或你自己创建的队列，准备执行：
+可以手动执行一个 operation，但是 operation 通常被添加到一个已存在的操作队列或你自己创建的队列里，准备执行：
 
 ```
 // schedule task on main queue:
@@ -417,13 +417,13 @@ NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 [queue addOperation:operation];
 ```
 
-使用一个操作队列，可以在队列之间配置优先级或依赖，例如指定一个操作不应该被执行直到一组其他操作已经完成。你也可以通过键值观察监听你的操作的状态变化。
+使用操作队列时，可以在队列之间配置优先级或依赖，例如指定一个操作在一组其他操作完成后再执行。你也可以通过键值观察监听你的操作的状态变化。
 
-**和 GCD 一起在调度队列（Dispatch Queue）上安排 Blocks**
+与** GCD 一起在调度队列（Dispatch Queue）上安排 Blocks**
 
-如果你需要安排一个随意的代码块用于执行，你可以直接和由 GCD 控制的调度队列（dispatch queue）一起工作。调度队列使用期望的调用者同步或者异步地执行任务变得容易，并且采用先进先出的顺序执行它们的任务。
+如果你需要安排一个随意的代码块用于执行，你可以直接与由 GCD 控制的调度队列（dispatch queue）一起工作。调度队列使用期望的调用者同步或者异步地执行任务变得容易，并且采用先进先出的顺序执行它们的任务。
 
-你可以创建你自己的调度队列或使用由 GCD 自动提供的调度队列之一。如果需要安排一个用于同时执行的任务，例如，可以通过使用 dispatch\_get\_global\_queue\(\) 函数获取一个存在队列的引用并指定队列优先级：
+你可以创建你自己的调度队列或使用由 GCD 提供的调度队列。如果需要安排一个用于同时执行的任务，例如，可以通过使用 dispatch\_get\_global\_queue\(\) 函数获取一个存在队列的引用并指定队列优先级：
 
 ```
  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -437,7 +437,7 @@ dispatch_async(queue, ^{
 });
 ```
 
-dispatch\_sync\(\) 函数不返回直到 block 已经完成执行；可以在并发 block 在继续之前需要在主线程上等待另一个任务完成的情况下使用它。
+dispatch\_sync\(\) 函数在 block 完成执行后才返回；可以在并发 block 在继续之前需要在主线程上等待另一个任务完成的情况使用它。
 
 ###### 参考资料
 
