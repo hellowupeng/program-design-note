@@ -14,3 +14,9 @@ Container是一个小部件，允许您自定义其子部件。如果要添加 p
 
 列（Column）和行（Row）的属性允许您指定他们的孩子（children，子部件）如何垂直或水平对齐，以及子部件应该占据多少空间。
 
+###### 参考资料
+
+1. [Building Layouts in Flutter](https://flutter.io/tutorials/layout/#lay-out-a-widget)
+
+
+
