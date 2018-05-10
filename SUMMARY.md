@@ -50,6 +50,8 @@
   * [Flutter 开发](kua-ping-tai-kai-fa/flutter-kai-fa.md)
     * [Dart](kua-ping-tai-kai-fa/flutter-kai-fa/dart.md)
     * [Flutter 布局](kua-ping-tai-kai-fa/flutter-kai-fa/flutter-bu-ju.md)
+    * [交互](kua-ping-tai-kai-fa/flutter-kai-fa/jiao-hu.md)
+    * [动画](kua-ping-tai-kai-fa/flutter-kai-fa/dong-hua.md)
   * React Native 开发
 * [Web 前端开发](qian-duan-kai-fa.md)
   * [HTML](qian-duan-kai-fa/html.md)
