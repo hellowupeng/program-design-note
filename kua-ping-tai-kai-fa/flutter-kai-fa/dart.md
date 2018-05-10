@@ -43,7 +43,7 @@ String name = 'Bob';
 
 ```
 int lineCount;
-assert(lineCount == null); 
+assert(lineCount == null);
 ```
 
 ### Final 和 const
