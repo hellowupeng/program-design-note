@@ -1,4 +1,4 @@
-# Flutter Widget 
+# Flutter Widget
 
 ### 介绍
 
@@ -23,15 +23,23 @@ StatefulWidget 的逻辑和内部状态。
 
 状态（State）对象由框架通过调用 StatefulWidget.createState 方法创建，方法是在将StatefulWidget 插入树中时调用它。
 
-状态（State）对象具有以下生命周期：  
+状态（State）对象具有以下生命周期：
 
+* 框架通过调用 StatefulWidget.createState 来创建一个 State 对象。
+
+* 新创建的 State 对象与一个 BuildContext 关联。这种关联是永久的：State 对象永远不会改变它的 BuildContext。但是，BuildContext 本身可以在树和子树之间移动。此时，状态对象被认为是挂载（mounted）的。
+
+* 框架调用 initState。State 的子类应该重写 initState 以执行一次性初始化，该初始化取决于BuildContext 或小部件，分别在调用 initState 方法时可用作上下文和小部件属性。
+
+* 框架调用 didChangeDependencies。State 的子类应该重写 didChangeDependencies 以执行涉及 InheritedWidgets 的初始化。如果调用 BuildContext.inheritFromWidgetOfExactType，则随后更改继承的小部件或小部件在树中移动时，将再次调用 didChangeDependencies 方法。
+
+* 此时，State 对象被完全初始化，并且框架可以多次调用其构建方法以获取该子树的用户界面的描述。状态对象可以自发地请求通过调用它们的 setState 方法来重建它们的子树，这表明它们的一些内部状态已经以可能影响该子树中的用户界面的方式进行了改变。
+
+* 在此期间，父窗口小部件可能会重建并请求树中的此位置更新以显示具有相同 runtimeType 和 Widget.key 的新窗口小部件。
 
 ### Keys
 
-###  
-
-  
-
+### 
 
 
 
