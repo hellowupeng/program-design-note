@@ -8,5 +8,9 @@
 
 Image Widget 也支持 GIF 图片。
 
+### Placeholders and Caching
+
+默认的Image.network构造函数不能处理更多的高级功能，例如在下载后将图像加载或缓存到设备后淡入图像。
+
 
 
