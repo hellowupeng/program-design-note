@@ -59,6 +59,7 @@
         * [显示 SnackBar](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/she-ji-ji-chu/xian-shi-snackbar.md)
         * [Working with Tabs](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/she-ji-ji-chu/working-with-tabs.md)
       * [图片](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/tu-pian.md)
+        * [显示来自互联网的图像](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/tu-pian/xian-shi-lai-zi-hu-lian-wang-de-tu-xiang.md)
       * 列表
       * 处理手势
       * 导航
