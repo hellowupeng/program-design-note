@@ -61,7 +61,8 @@
       * [图片](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/tu-pian.md)
         * [显示来自互联网的图像](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/tu-pian/xian-shi-lai-zi-hu-lian-wang-de-tu-xiang.md)
         * [用占位符（Placeholder）淡入图像](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/tu-pian/yong-zhan-wei-fu-ff08-placeholder-ff09-dan-ru-tu-xiang.md)
-      * 列表
+      * [列表](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/lie-biao.md)
+        * [基础列表](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/lie-biao/ji-chu-lie-biao.md)
       * 处理手势
       * 导航
       * 动画
