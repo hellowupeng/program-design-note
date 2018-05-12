@@ -63,6 +63,7 @@
         * [用占位符（Placeholder）淡入图像](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/tu-pian/yong-zhan-wei-fu-ff08-placeholder-ff09-dan-ru-tu-xiang.md)
       * [列表](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/lie-biao.md)
         * [基础列表](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/lie-biao/ji-chu-lie-biao.md)
+        * [创建水平方向列表](kua-ping-tai-kai-fa/flutter-kai-fa/cookbook/lie-biao/chuang-jian-shui-ping-fang-xiang-lie-biao.md)
       * 处理手势
       * 导航
       * 动画
