@@ -293,7 +293,7 @@ self.blockProperty();
 typedef void (^XYZSimpleBlock)(void);
 
 @interface XYZObject : NSObject
-@propery (copy) XYZSimpleBlock blockProperty;
+@property (copy) XYZSimpleBlock blockProperty;
 @end
 ```
 
