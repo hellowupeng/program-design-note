@@ -233,5 +233,13 @@ var logger = new Logger('UI');
 logger.log('Button clicked');
 ```
 
+### 方法
+
+方法是为对象提供行为的函数。
+
+##### 实例方法
+
+对象的实例方法可以访问实例变量和 this。
+
 
 
