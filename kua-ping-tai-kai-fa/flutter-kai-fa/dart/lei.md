@@ -241,5 +241,48 @@ logger.log('Button clicked');
 
 对象的实例方法可以访问实例变量和 this。
 
+```
+import 'dart:math';
+
+class Point {
+  num x, y;
+
+  Point(this.x, this.y);
+
+  num distanceTo(Point other) {
+    var dx = x - other.x;
+    var dy = y - other.y;
+    return sqrt(dx * dx + dy * dy);
+  }
+}
+```
+
+##### Getters 和 Setters
+
+Getters 和 Setter 是特殊的方法，提供对对象属性的读写权限。每个实例变量都有一个隐式的 getter，如果合适的话还需要一个 setter。可以使用 get 和 set 关键字通过实现 getter 和 setter 来创建其他属性：
+
+```
+class Rectangle {
+  num left, top, width, height;
+
+  Rectangle(this.left, this.top, this.width, this.height);
+
+  // Define two calculated properties: right and bottom.
+  num get right => left + width;
+  set right(num value) => left = value - width;
+  num get bottom => top + height;
+  set bottom(num value) => top = value - height;
+}
+
+void main() {
+  var rect = new Rectangle(3, 4, 20, 15);
+  assert(rect.left == 3);
+  rect.right = 12;
+  assert(rect.left == -8);
+}
+```
+
+##### 抽象方法
+
 
 
