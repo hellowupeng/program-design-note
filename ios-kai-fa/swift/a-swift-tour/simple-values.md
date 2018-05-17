@@ -49,7 +49,7 @@ And then I said "I have \(apples + oranges) pieces of fruit."
 ```
 var shoppingList = ["catfish", "water", "tulips", "blue paint"]
 shoppingList[1] = "bottle of water"
- 
+
 var occupations = [
     "Malcolm": "Captain",
     "Kaylee": "Mechanic",
@@ -57,14 +57,12 @@ var occupations = [
 occupations["Jayne"] = "Public Relations"
 ```
 
-要创建一个空数组或字典，请使用初始化程序语法。
+要创建一个空数组或字典，使用初始化程序语法。
 
 ```
 let emptyArray = [String]()
 let emptyDictionary = [String: Float]()
 ```
-
-
 
 
 
