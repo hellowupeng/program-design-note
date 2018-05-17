@@ -22,6 +22,7 @@
     * [A Swift Tour](ios-kai-fa/swift/a-swift-tour.md)
       * [Simple Values](ios-kai-fa/swift/a-swift-tour/simple-values.md)
       * [控制流](ios-kai-fa/swift/a-swift-tour/kong-zhi-liu.md)
+      * [函数和闭包](ios-kai-fa/swift/a-swift-tour/han-shu-he-bi-bao.md)
   * [Ruby](ios-kai-fa/ruby.md)
   * [Objective-C](ios-kai-fa/objective-c.md)
     * [Block 编程](ios-kai-fa/objective-c/block-bian-cheng.md)

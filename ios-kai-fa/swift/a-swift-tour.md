@@ -6,5 +6,3 @@ print("Hello, world!")
 
 
 
-
-
