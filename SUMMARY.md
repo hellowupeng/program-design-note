@@ -27,6 +27,8 @@
   * [Objective-C](ios-kai-fa/objective-c.md)
     * [Block 编程](ios-kai-fa/objective-c/block-bian-cheng.md)
     * [runtime](ios-kai-fa/objective-c/runtime.md)
+      * [动态方法解析](ios-kai-fa/objective-c/runtime/dong-tai-fang-fa-jie-xi.md)
+      * 消息转发
     * [内存管理](ios-kai-fa/objective-c/nei-cun-guan-li.md)
   * [Cocoa Touch](ios-kai-fa/cocoa-touch.md)
     * [应用程序](ios-kai-fa/cocoa-touch/ying-yong-cheng-xu.md)
