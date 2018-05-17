@@ -103,16 +103,6 @@ for (i = 0; i < 100; i++)
 
 传递给过程（procedure）的前两个参数是接收对象（self）和方法选择器（\_cmd）。这些参数在方法语法中是隐藏的，但是当方法作为函数调用时必须明确给出。
 
-### 消息转发
-
-##### 转发
-
-##### 转发和多重继承
-
-##### 代理对象
-
-##### 转发和继承
-
 ###### 参考资料
 
 1. [Objective-C Runtime Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048-CH1-SW1)
