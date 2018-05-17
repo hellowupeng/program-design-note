@@ -64,5 +64,12 @@ let emptyArray = [String]()
 let emptyDictionary = [String: Float]()
 ```
 
+如果可以推断出类型信息，则可以将一个空数组写为\[\]，将一个空字典写为\[：\]
+
+```
+shoppingList = []
+occupations = [:]
+```
+
 
 
