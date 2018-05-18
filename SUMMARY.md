@@ -27,6 +27,7 @@
   * [Objective-C](ios-kai-fa/objective-c.md)
     * [Block 编程](ios-kai-fa/objective-c/block-bian-cheng.md)
     * [runtime](ios-kai-fa/objective-c/runtime.md)
+      * [消息传递](ios-kai-fa/objective-c/runtime/xiao-xi-chuan-di.md)
       * [动态方法解析](ios-kai-fa/objective-c/runtime/dong-tai-fang-fa-jie-xi.md)
       * [消息转发](ios-kai-fa/objective-c/runtime/xiao-xi-zhuan-fa.md)
     * [内存管理](ios-kai-fa/objective-c/nei-cun-guan-li.md)
