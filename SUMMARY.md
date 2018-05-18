@@ -31,6 +31,9 @@
       * [动态方法解析](ios-kai-fa/objective-c/runtime/dong-tai-fang-fa-jie-xi.md)
       * [消息转发](ios-kai-fa/objective-c/runtime/xiao-xi-zhuan-fa.md)
     * [内存管理](ios-kai-fa/objective-c/nei-cun-guan-li.md)
+      * 内存管理策略
+      * 实用的内存管理
+      * 使用自动释放池块（Autorelease Pool Blocks）
   * [Cocoa Touch](ios-kai-fa/cocoa-touch.md)
     * [应用程序](ios-kai-fa/cocoa-touch/ying-yong-cheng-xu.md)
       * [应用程序的生命周期](ios-kai-fa/cocoa-touch/ying-yong-cheng-xu/ying-yong-cheng-xu-de-sheng-ming-zhou-qi.md)
