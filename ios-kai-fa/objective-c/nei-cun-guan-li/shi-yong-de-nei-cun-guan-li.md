@@ -105,9 +105,75 @@ Cocoa 制定了一个约定，一个“父”对象应该对其“子女”保�
 
 ### 避免导致你正在使用的对象被释放
 
+Cocoa 的所有权策略规定，收到的对象通常在调用方法的整个范围内保持有效。也应该可以从当前范围返回一个接收的对象，而不用担心它被释放。
+
+这条规则偶尔有例外，主要分为两类。
+
+1. 从一个基本集合类中移除一个对象时。
+
+```
+heisenObject = [array objectAtIndex:n];
+[array removeObjectAtIndex:n];
+// heisenObject could now be invalid.
+```
+
+当一个对象从其中一个基本集合类中被移除时，它会发送一个 release（而不是 autorelease）消息。如果集合是被删除对象的唯一所有者，那么将立即释放被删除的对象（示例中的 heisenObject）。
+
+  2. 当“父对象”被释放时。
+
+```
+id parent = <#create a parent object#>;
+// ...
+heisenObject = [parent child] ;
+[parent release]; // Or, for example: self.parent = nil;
+// heisenObject could now be invalid.
+```
+
+在某些情况下，您从另一个对象中获取对象，然后直接或间接释放父对象。如果释放父对象，并且父项是该子项的唯一所有者，则该子对象（示例中的 heisenObject）将同时释放。
+
+为了防止出现这些情况，您在收到 heisenObject 后保留 heisenObject，并在完成后释放它。例如：
+
+```
+heisenObject = [[array objectAtIndex:n] retain];
+[array removeObjectAtIndex:n];
+// Use heisenObject...
+[heisenObject release];
+```
+
 ### 不要使用 dealloc 来管理稀缺资源
 
+您通常不应该在 dealloc 方法中管理稀缺资源，例如文件描述符，网络连接以及缓冲区或缓存。尤其是，您不应该设计类，以便在您认为它会被调用时调用 dealloc。dealloc 的调用可能由于错误而延迟或回避。
+
+相反，如果你有一个实例管理稀缺资源的类，你应该设计你的应用程序，以便知道你什么时候不再需要这些资源，然后告诉实例在那个时候“清理”。
+
 ### 集合拥有它们包含的对象
+
+将对象添加到集合（例如数组，字典或集合）时，集合将拥有它。当对象从集合中删除或集合本身被释放时，集合将放弃所有权。如果您想创建一个数字数组，您可以执行以下任一操作：
+
+```
+NSMutableArray *array = <#Get a mutable array#>;
+NSUInteger i;
+// ...
+for (i = 0; i < 10; i++) {
+    NSNumber *convenienceNumber = [NSNumber numberWithInteger:i];
+    [array addObject:convenienceNumber];
+}
+```
+
+在这种情况下，你没有调用 alloc，所以不需要调用 release。没有必要保留新的数字（convenienceNumber），因为数组会这样做。
+
+```
+NSMutableArray *array = <#Get a mutable array#>;
+NSUInteger i;
+// ...
+for (i = 0; i < 10; i++) {
+    NSNumber *allocedNumber = [[NSNumber alloc] initWithInteger:i];
+    [array addObject:allocedNumber];
+    [allocedNumber release];
+}
+```
+
+在这种情况下，您需要在 for 循环的范围内发送 allocedNumber release 消息来平衡 alloc。由于数组通过addObject添加时保留了数字，因此在数组中它不会被释放。
 
 ### 使用引用计数实现所有权策略
 
