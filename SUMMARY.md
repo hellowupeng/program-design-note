@@ -33,7 +33,7 @@
     * [内存管理](ios-kai-fa/objective-c/nei-cun-guan-li.md)
       * [内存管理策略](ios-kai-fa/objective-c/nei-cun-guan-li/nei-cun-guan-li-ce-lve.md)
       * [实用的内存管理](ios-kai-fa/objective-c/nei-cun-guan-li/shi-yong-de-nei-cun-guan-li.md)
-      * 使用自动释放池块（Autorelease Pool Blocks）
+      * [使用自动释放池块（Autorelease Pool Blocks）](ios-kai-fa/objective-c/nei-cun-guan-li/shi-yong-zi-dong-shi-fang-chi-kuai-ff08-autorelease-pool-blocks.md)
     * [Core Foundation 内存管理](ios-kai-fa/objective-c/core-foundation-nei-cun-guan-li.md)
   * [Cocoa Touch](ios-kai-fa/cocoa-touch.md)
     * [应用程序](ios-kai-fa/cocoa-touch/ying-yong-cheng-xu.md)
