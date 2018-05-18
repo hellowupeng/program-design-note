@@ -42,6 +42,8 @@
     * [UI](ios-kai-fa/cocoa-touch/ui.md)
       * [视图控制器](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi.md)
     * [多线程编程](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng.md)
+      * [并发编程](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng/bing-fa-bian-cheng.md)
+        * [并发和应用程序设计](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng/bing-fa-bian-cheng/bing-fa-he-ying-yong-cheng-xu-she-ji.md)
     * [动画](ios-kai-fa/cocoa-touch/dong-hua.md)
     * [网络编程](ios-kai-fa/cocoa-touch/wang-luo-bian-cheng.md)
     * [数据持久化](ios-kai-fa/cocoa-touch/shu-ju-chi-jiu-hua.md)
