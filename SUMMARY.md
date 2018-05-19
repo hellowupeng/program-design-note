@@ -48,6 +48,7 @@
         * [调度队列](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng/bing-fa-bian-cheng/diao-du-dui-lie.md)
         * [调度源（Dispatch Sources）](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng/bing-fa-bian-cheng/diao-du-yuan-ff08-dispatch-sources.md)
     * [动画](ios-kai-fa/cocoa-touch/dong-hua.md)
+      * [核心动画（Core Animation）](ios-kai-fa/cocoa-touch/dong-hua/core-animation.md)
     * [网络编程](ios-kai-fa/cocoa-touch/wang-luo-bian-cheng.md)
     * [数据持久化](ios-kai-fa/cocoa-touch/shu-ju-chi-jiu-hua.md)
     * [常用设计模式](ios-kai-fa/cocoa-touch/chang-yong-she-ji-mo-shi.md)
