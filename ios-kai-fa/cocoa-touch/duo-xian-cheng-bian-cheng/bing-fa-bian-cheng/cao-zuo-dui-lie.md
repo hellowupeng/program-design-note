@@ -51,10 +51,10 @@ NSInvocationOperation 类是 NSOperation 的具体子类，它在运行时会调
 - (NSOperation*)taskWithData:(id)data {
     NSInvocationOperation* theOp = [[NSInvocationOperation alloc] initWithTarget:self
                     selector:@selector(myTaskMethod:) object:data];
- 
+
    return theOp;
 }
- 
+
 // This is the method that does the actual work of the task.
 - (void)myTaskMethod:(id)data {
     // Perform the task.
@@ -108,14 +108,14 @@ NSBlockOperation* theOp = [NSBlockOperation blockOperationWithBlock: ^{
 @property id (strong) myData;
 -(id)initWithData:(id)data;
 @end
- 
+
 @implementation MyNonConcurrentOperation
 - (id)initWithData:(id)data {
    if (self = [super init])
       myData = data;
    return self;
 }
- 
+
 -(void)main {
    @try {
       // Do some work on myData and report the results.
@@ -145,7 +145,7 @@ NSBlockOperation* theOp = [NSBlockOperation blockOperationWithBlock: ^{
 - (void)main {
    @try {
       BOOL isDone = NO;
- 
+
       while (![self isCancelled] && !isDone) {
           // Do some work and set isDone to YES when finished
       }
@@ -258,9 +258,15 @@ NSOperationQueue* aQueue = [[NSOperationQueue alloc] init];
 
 ##### 取消操作
 
+一旦添加到操作队列中，操作对象实际上由队列拥有并且不能被删除。从队列中移除操作的唯一方法是取消操作。您可以通过调用其`cancel`方法来取消单个操作对象，也可以通过调用队列对象的`cancelAllOperations`方法来取消队列中的所有操作对象。
+
 ##### 等待操作完成
+
+为了获得最佳性能，您应该将您的操作设计为尽可能异步，使应用程序在执行操作时可以自由地执行额外的工作。如果创建操作的代码也处理该操作的结果，则可以使用`NSOperation`的`waitUntilFinished`方法来阻止该代码，直到操作完成。但是，一般来说，如果可以提供帮助，最好避免调用此方法。阻止当前线程可能是一个方便的解决方案，但它确实会在您的代码中引入更多序列化并限制并发的总体数量。
+
+除了等待单个操作完成之外，您还可以通过调用`NSOperationQueue`的`waitUntilAllOperationsAreFinished`方法来等待队列中的所有操作。当等待整个队列完成时，请注意您的应用程序的其他线程仍然可以将操作添加到队列中，从而延长等待时间。
 
 ##### 暂停和恢复队列
 
-
+如果您想暂时停止执行操作，则可以使用`setSuspended：`方法挂起相应的操作队列。暂停队列不会导致已执行的操作在其任务中间暂停。
 

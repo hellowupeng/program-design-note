@@ -167,24 +167,24 @@ Grand Central Dispatch 提供的功能允许您从应用程序访问几个常见
 void myFinalizerFunction(void *context)
 {
     MyDataContext* theData = (MyDataContext*)context;
- 
+
     // Clean up the contents of the structure
     myCleanUpDataContextFunction(theData);
- 
+
     // Now release the structure itself.
     free(theData);
 }
- 
+
 dispatch_queue_t createMyQueue()
 {
     MyDataContext*  data = (MyDataContext*) malloc(sizeof(MyDataContext));
     myInitializeDataContextFunction(data);
- 
+
     // Create the queue and set the context data.
     dispatch_queue_t serialQueue = dispatch_queue_create("com.example.CriticalTaskQueue", NULL);
     dispatch_set_context(serialQueue, data);
     dispatch_set_finalizer_f(serialQueue, &myFinalizerFunction);
- 
+
     return serialQueue;
 }
 ```
@@ -206,13 +206,13 @@ dispatch_queue_t createMyQueue()
 ```
 dispatch_queue_t myCustomQueue;
 myCustomQueue = dispatch_queue_create("com.example.MyCustomQueue", NULL);
- 
+
 dispatch_async(myCustomQueue, ^{
     printf("Do some work here.\n");
 });
- 
+
 printf("The first block may or may not have run.\n");
- 
+
 dispatch_sync(myCustomQueue, ^{
     printf("Do some more work here.\n");
 });
@@ -235,13 +235,13 @@ void average_async(int *data, size_t len,
    // sure it does not disappear before the completion
    // block can be called.
    dispatch_retain(queue);
- 
+
    // Do the work on the default concurrent queue and then
    // call the user-provided block with the results.
    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
       int avg = average(data, len);
       dispatch_async(queue, ^{ block(avg);});
- 
+
       // Release the user-provided queue when done
       dispatch_release(queue);
    });
@@ -266,7 +266,7 @@ for (i = 0; i < count; i++) {
 
 ```
 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
- 
+
 dispatch_apply(count, queue, ^(size_t i) {
    printf("%u\n",i);
 });
@@ -303,18 +303,18 @@ GCD为Cocoa 内存管理技术提供了内置支持，因此您可以在您提�
 ```
 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 dispatch_group_t group = dispatch_group_create();
- 
+
 // Add a task to the group
 dispatch_group_async(group, queue, ^{
    // Some asynchronous work
 });
- 
+
 // Do some other work while the tasks execute.
- 
+
 // When you cannot make any more forward progress,
 // wait on the group to block the current thread.
 dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
- 
+
 // Release the group when it is no longer needed.
 dispatch_release(group);
 ```
@@ -329,7 +329,7 @@ dispatch_release(group);
 
 * 避免从提交给调度队列的任务中获取锁定。虽然使用来自任务的锁定是安全的，但是当您获取锁定时，如果该锁定不可用，则可能会完全阻塞串行队列。同样，对于并​​发队列，等待锁定可能会阻止执行其他任务。如果您需要同步部分代码，请使用串行调度队列而不是锁定。
 
-* 虽然您可以获取有关运行任务的基础线程的信息，但最好避免这样做。  
+* 虽然您可以获取有关运行任务的基础线程的信息，但最好避免这样做。
 
 
 
