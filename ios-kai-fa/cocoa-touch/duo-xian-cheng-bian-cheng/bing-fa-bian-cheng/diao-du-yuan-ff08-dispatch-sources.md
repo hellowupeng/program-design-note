@@ -28,7 +28,7 @@
 
   * 当一个信号被传递给过程时
 
-* _Mach port dispatch sources_notify you of Mach-related events。
+* \_Mach port dispatch sources\_notify you of Mach-related events。
 
 * 自定义调度源是您定义并触发自己的来源
 
