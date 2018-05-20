@@ -51,7 +51,7 @@
       * [Threading Programming Guide](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng/threading-programming-guide.md)
         * [关于线程编程](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng/threading-programming-guide/guan-yu-xian-cheng-bian-cheng.md)
         * [线程管理](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng/threading-programming-guide/xian-cheng-guan-li.md)
-        * Run Loops
+        * [Run Loops](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng/threading-programming-guide/run-loops.md)
         * 同步
     * [动画](ios-kai-fa/cocoa-touch/dong-hua.md)
       * [核心动画（Core Animation）](ios-kai-fa/cocoa-touch/dong-hua/core-animation.md)
