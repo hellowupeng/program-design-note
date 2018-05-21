@@ -137,20 +137,20 @@ CALayer子类及其用途:
 ```
 - (void)drawLayer:(CALayer *)theLayer inContext:(CGContextRef)theContext {
     CGMutablePathRef thePath = CGPathCreateMutable();
- 
+
     CGPathMoveToPoint(thePath,NULL,15.0f,15.f);
     CGPathAddCurveToPoint(thePath,
                           NULL,
                           15.f,250.0f,
                           295.0f,250.0f,
                           295.0f,15.0f);
- 
+
     CGContextBeginPath(theContext);
     CGContextAddPath(theContext, thePath);
- 
+
     CGContextSetLineWidth(theContext, 5);
     CGContextStrokePath(theContext);
- 
+
     // Release the path
     CFRelease(thePath);
 }
@@ -233,9 +233,9 @@ CALayer类包含几个用于配置阴影效果的属性。阴影通过使其看�
 
 ### 将自定义属性添加到图层
 
-CAAnimation和CALayer类扩展了键值编码惯例以支持自定义属性。
+CAAnimation和CALayer类扩展了键值编码惯例以支持自定义属性。您可以使用此行为将数据添加到图层，并使用您定义的自定义键检索它。您甚至可以将操作与您的自定义属性相关联，以便在更改属性时执行相应的动画。
 
 ### 打印图层支持视图的内容
 
-
+在打印过程中，图层会根据需要重新绘制其内容以适应打印环境。核心动画在渲染到屏幕时通常依赖于缓存的位图，而在打印时会重新绘制该内容。特别是，如果一个图层背景视图使用drawRect：方法提供图层内容，Core Animation将在打印期间再次调用drawRect：以生成打印图层内容。
 
