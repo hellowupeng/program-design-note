@@ -35,7 +35,7 @@ let appleSummary = "I have \(apples) apples."
 let fruitSummary = "I have \(apples + oranges) pieces of fruit."
 ```
 
-对于占用多行的字符串使用三个双引号（“”“）。
+对于占用多行的字符串使用三个双引号（"""）。
 
 ```
 let quotation = """
