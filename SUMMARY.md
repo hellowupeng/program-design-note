@@ -10,6 +10,7 @@
   * [数据结构](chapter1/shu-ju-jie-gou-yu-suan-fa.md)
   * [算法](chapter1/chang-yong-suan-fa.md)
     * [动态规划](chapter1/chang-yong-suan-fa/dong-tai-gui-hua.md)
+    * LeetCode算法题目
   * [操作系统](chapter1/ti-xi-jie-gou-yu-cao-zuo-xi-tong.md)
   * [数据库](chapter1/shu-ju-ku.md)
   * [编译原理](chapter1/bian-yi-yuan-li.md)
@@ -77,9 +78,12 @@
     * [Alamofire](ios-kai-fa/di-san-fang-ku/alamofire.md)
   * [性能](ios-kai-fa/xing-neng.md)
     * [启动时间优化](ios-kai-fa/xing-neng/qi-dong-shi-jian-you-hua.md)
+    * 性能优化
   * 其他
     * 秒开功能
     * Crash 分析
+  * OpenGL ES
+  * GPUImage
 * [Android 开发](android-kai-fa.md)
   * [Kotlin](android-kai-fa/kotlin.md)
     * [语言基础](android-kai-fa/kotlin/yu-fa-ji-chu.md)
