@@ -57,6 +57,7 @@
       * [核心动画（Core Animation）](ios-kai-fa/cocoa-touch/dong-hua/core-animation.md)
         * [核心动画基础](ios-kai-fa/cocoa-touch/dong-hua/core-animation/he-xin-dong-hua-ji-chu.md)
         * [设置图层对象](ios-kai-fa/cocoa-touch/dong-hua/core-animation/she-zhi-tu-ceng-dui-xiang.md)
+        * [动画图层内容](ios-kai-fa/cocoa-touch/dong-hua/core-animation/dong-hua-tu-ceng-nei-rong.md)
     * [网络编程](ios-kai-fa/cocoa-touch/wang-luo-bian-cheng.md)
     * [数据持久化](ios-kai-fa/cocoa-touch/shu-ju-chi-jiu-hua.md)
     * [常用设计模式](ios-kai-fa/cocoa-touch/chang-yong-she-ji-mo-shi.md)
