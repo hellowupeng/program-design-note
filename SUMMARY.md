@@ -70,7 +70,7 @@
     * [音频](ios-kai-fa/cocoa-touch/yin-pin.md)
       * 音频编码
     * [视频](ios-kai-fa/cocoa-touch/shi-pin.md)
-      * 编码
+      * [视频编码](ios-kai-fa/cocoa-touch/shi-pin/shi-pin-bian-ma.md)
   * [第三方库](ios-kai-fa/di-san-fang-ku.md)
     * [AFNetworking](ios-kai-fa/di-san-fang-ku/afnetworking.md)
     * [SDWebImage](ios-kai-fa/di-san-fang-ku/sdwebimage.md)
