@@ -238,7 +238,7 @@ XYZSimpleBlock anotherBlock = ^{
 ```
 - (void)beginFetchWithCallbackBlock:(XYZSimpleBlock)callback {
     ...
-    callbackBlock();
+    callback();
 };
 ```
 
