@@ -26,7 +26,7 @@ fadeAnim.fromValue = [NSNumber numberWithFloat:1.0];
 fadeAnim.toValue = [NSNumber numberWithFloat:0.0];
 fadeAnim.duration = 1.0;
 [theLayer addAnimation:fadeAnim forKey:@"opacity"];
- 
+
 // Change the actual data value in the layer to the final value.
 theLayer.opacity = 0.0;
 ```
@@ -57,14 +57,14 @@ CGPathAddCurveToPoint(thePath,NULL,74.0,500.0,
 CGPathAddCurveToPoint(thePath,NULL,320.0,500.0,
                                    566.0,500.0,
                                    566.0,74.0);
- 
+
 CAKeyframeAnimation * theAnimation;
- 
+
 // Create the animation object, specifying the position property as the key path.
 theAnimation=[CAKeyframeAnimation animationWithKeyPath:@"position"];
 theAnimation.path=thePath;
 theAnimation.duration=5.0;
- 
+
 // Add the animation to the layer.
 [theLayer addAnimation:theAnimation forKey:@"position"];
 ```
@@ -92,18 +92,20 @@ theAnimation.duration=5.0;
 关键帧动画的时间安排和步调比基本动画更复杂，您可以使用几个属性来控制它：
 
 * `calculateMode`属性定义用于计算动画定时的算法。此属性的值会影响其他与时间相关的属性的使用方式。
+
   * 线性和立方体动画 - 也就是其中`calculateMode`属性设置为kCAAnimationLinear或`kCAAnimationCubic` 的动画。
 
   * Paced动画 - 也就是说，`calculateMode`属性设置为`kCAAnimationPaced`或`kCAAnimationCubicPaced`的动画，不依赖于keyTimes或timingFunctions属性提供的外部时间值。相反，定时值是隐式计算的，以便为动画提供恒定的速度。
 
   * 离散动画 - 也就是其中`calculateMode`属性设置为`kCAAnimationDiscrete`的动画。导致动画属性从一个关键帧值跳到下一个没有任何插值。计算模式使用`keyTimes`属性中的值，但忽略了`timingFunctions`属性。
+
 * `keyTimes`属性指定应用每个关键帧值的时间标记。仅当计算模式设置为`kCAAnimationLinear`，`kCAAnimationDiscrete`或`kCAAnimationCubic`时才使用此属性。它不适用于节奏（Paced）动画。
 
 * `timingFunctions`属性指定用于每个关键帧段的时间曲线。（该属性替换继承的`timingFunction`属性。）
 
 如果您想自己处理动画计时，请使用`kCAAnimationLinear`或`kCAAnimationCubic`模式以及`keyTimes`和`timingFunctions`属性。`keyTimes`定义应用每个关键帧值的时间点。所有中间值的时间由定时功能控制，这允许您将缓入或缓出曲线应用到每个段。如果您没有指定任何定时功能，则定时是线性的。
 
-### 正在运行时停止显式动画
+### 停止正在运行的显式动画
 
 ### 使多个改变一起动画
 
