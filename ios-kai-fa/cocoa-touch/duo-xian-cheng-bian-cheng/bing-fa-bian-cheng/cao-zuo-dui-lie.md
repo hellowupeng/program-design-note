@@ -240,7 +240,7 @@ NSOperation 类是对以下关键路径的键值观察（KVO）兼容的：
 NSOperationQueue* aQueue = [[NSOperationQueue alloc] init];
 ```
 
-要将操作添加到队列中，请使用 addOperation：方法。在OS X v10.6及更高版本中，您可以使用 addOperations：waitUntilFinished：方法添加操作组，也可以使用 addOperationWithBlock：方法将块对象直接添加到队列（没有相应的操作对象）。这些方法中的每一个都将一个操作（或多个操作）排队，并通知队列它应该开始处理它们。如果排队的操作依赖于尚未完成的其他操作，则执行可能会延迟。如果操作队列本身暂停或正在执行其最大并发操作数，则执行也可能会延迟。以下示例显示了将操作添加到队列的基本语法。
+要将操作添加到队列中，请使用 `addOperation：`方法。在 OS X v10.6 及更高版本中，您可以使用 `addOperations：waitUntilFinished：`方法添加操作组，也可以使用 `addOperationWithBlock：`方法将块对象直接添加到队列（没有相应的操作对象）。这些方法中的每一个都将一个操作（或多个操作）排队，并通知队列它应该开始处理它们。如果排队的操作依赖于尚未完成的其他操作，则执行可能会延迟。如果操作队列本身暂停或正在执行其最大并发操作数，则执行也可能会延迟。以下示例显示了将操作添加到队列的基本语法。
 
 ```
 [aQueue addOperation:anOp]; // Add a single operation
@@ -252,7 +252,7 @@ NSOperationQueue* aQueue = [[NSOperationQueue alloc] init];
 
 在将操作对象添加到队列之前，您应该对操作对象进行所有必要的配置和修改，因为一旦添加操作对象，该操作可能随时运行，这对于更改具有预期效果可能太迟了。
 
-尽管NSOperationQueue类是为并发执行操作而设计的，但可以强制一个队列一次仅运行一个操作。setMaxConcurrentOperationCount：方法允许您为操作队列对象配置最大并发操作数。将值1传递给此方法会导致队列一次只执行一个操作。
+尽管 `NSOperationQueue` 类是为并发执行操作而设计的，但可以强制一个队列一次仅运行一个操作。`setMaxConcurrentOperationCount：`方法允许您为操作队列对象配置最大并发操作数。将值1传递给此方法会导致队列一次只执行一个操作。
 
 ##### 手动执行操作
 
