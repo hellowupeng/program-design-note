@@ -11,6 +11,7 @@
   * [算法](chapter1/chang-yong-suan-fa.md)
     * [动态规划](chapter1/chang-yong-suan-fa/dong-tai-gui-hua.md)
     * LeetCode算法题目
+    * [面试题](chapter1/chang-yong-suan-fa/mian-shi-ti.md)
   * [操作系统](chapter1/ti-xi-jie-gou-yu-cao-zuo-xi-tong.md)
   * [数据库](chapter1/shu-ju-ku.md)
   * [编译原理](chapter1/bian-yi-yuan-li.md)
