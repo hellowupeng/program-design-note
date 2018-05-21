@@ -67,12 +67,19 @@
       * [Quartz 2D 编程指南](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan.md)
         * [介绍](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan/jie-shao.md)
         * [Quartz 2D概述](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan/quartz-2dgai-shu.md)
+    * [音频](ios-kai-fa/cocoa-touch/yin-pin.md)
+      * 音频编码
+    * [视频](ios-kai-fa/cocoa-touch/shi-pin.md)
+      * 编码
   * [第三方库](ios-kai-fa/di-san-fang-ku.md)
     * [AFNetworking](ios-kai-fa/di-san-fang-ku/afnetworking.md)
     * [SDWebImage](ios-kai-fa/di-san-fang-ku/sdwebimage.md)
     * [Alamofire](ios-kai-fa/di-san-fang-ku/alamofire.md)
   * [性能](ios-kai-fa/xing-neng.md)
     * [启动时间优化](ios-kai-fa/xing-neng/qi-dong-shi-jian-you-hua.md)
+  * 其他
+    * 秒开功能
+    * Crash 分析
 * [Android 开发](android-kai-fa.md)
   * [Kotlin](android-kai-fa/kotlin.md)
     * [语言基础](android-kai-fa/kotlin/yu-fa-ji-chu.md)
