@@ -67,6 +67,7 @@
     * [Alamofire](ios-kai-fa/di-san-fang-ku/alamofire.md)
   * [图片处理](ios-kai-fa/tu-pian-chu-li.md)
     * [Core Image](ios-kai-fa/tu-pian-chu-li/core-image.md)
+      * [关于 Core Image](ios-kai-fa/tu-pian-chu-li/core-image/guan-yu-core-image.md)
     * [GPU Image](ios-kai-fa/tu-pian-chu-li/gpu-image.md)
   * [OpenGL ES](ios-kai-fa/opengl-es.md)
     * [关于 OpenGL ES](ios-kai-fa/opengl-es/guan-yu-opengl-es.md)
