@@ -126,7 +126,7 @@ void MyInitFunction()
 {
     pthread_mutex_init(&mutex, NULL);
 }
- 
+
 void MyLockingFunction()
 {
     pthread_mutex_lock(&mutex);
@@ -185,7 +185,7 @@ NSRecursiveLock类定义了一个锁，它可以被同一个线程多次获取�
 
 ```
 NSRecursiveLock *theLock = [[NSRecursiveLock alloc] init];
- 
+
 void MyRecursiveFunction(int value)
 {
     [theLock lock];
@@ -196,7 +196,7 @@ void MyRecursiveFunction(int value)
     }
     [theLock unlock];
 }
- 
+
 MyRecursiveFunction(5);
 ```
 
@@ -212,7 +212,7 @@ NSConditionLock对象响应的锁定和解锁方法可以任意组合使用。�
 
 ```
 id condLock = [[NSConditionLock alloc] initWithCondition:NO_DATA];
- 
+
 while(true)
 {
     [condLock lock];
@@ -231,7 +231,7 @@ while (true)
     [condLock lockWhenCondition:HAS_DATA];
     /* Remove data from the queue. */
     [condLock unlockWithCondition:(isEmpty ? NO_DATA : HAS_DATA)];
- 
+
     // Process the data locally.
 }
 ```
@@ -252,7 +252,91 @@ NSDistributedLock类可以被多个主机上的多个应用程序使用，以限
 
 ##### 使用NSCondition类
 
+NSCondition类提供与POSIX条件相同的语义，但将所需的锁和条件数据结构封装在单个对象中。结果是一个对象，您可以像互斥锁一样锁定，然后像条件一样等待。
+
+下面显示了一段代码片段，演示了在`NSCondition`对象上等待的事件序列。`cocoaCondition`变量包含一个`NSCondition`对象，`timeToDoWork`变量是一个整数，在发送条件前立即从另一个线程递增。
+
+使用 Cocoa 条件：
+
+```
+[cocoaCondition lock];
+while (timeToDoWork <= 0)
+    [cocoaCondition wait];
+ 
+timeToDoWork--;
+ 
+// Do real work here.
+ 
+[cocoaCondition unlock];
+```
+
+下面显示了用来表示Cocoa条件并增加谓词变量的代码。在发出信号之前，您应该始终锁定条件。
+
+发信号给 Cocoa 条件：
+
+```
+[cocoaCondition lock];
+timeToDoWork++;
+[cocoaCondition signal];
+[cocoaCondition unlock];
+```
+
 ##### Using POSIX Conditions
+
+POSIX线程条件锁需要同时使用条件数据结构和互斥锁。虽然两个锁结构是分开的，但互斥锁在运行时与条件结构紧密相连。等待信号的线程应始终使用相同的互斥锁和条件结构。更改配对可能会导致错误。
+
+下面显示了条件和谓词的基本初始化和用法。初始化条件和互斥锁后，等待线程使用`ready_to_go`变量作为谓词进入while循环。只有当谓词被设置并且条件随后发出时，等待线程才会唤醒并开始工作。
+
+使用POSIX条件：
+
+```
+pthread_mutex_t mutex;
+pthread_cond_t condition;
+Boolean     ready_to_go = true;
+ 
+void MyCondInitFunction()
+{
+    pthread_mutex_init(&mutex);
+    pthread_cond_init(&condition, NULL);
+}
+ 
+void MyWaitOnConditionFunction()
+{
+    // Lock the mutex.
+    pthread_mutex_lock(&mutex);
+ 
+    // If the predicate is already set, then the while loop is bypassed;
+    // otherwise, the thread sleeps until the predicate is set.
+    while(ready_to_go == false)
+    {
+        pthread_cond_wait(&condition, &mutex);
+    }
+ 
+    // Do work. (The mutex should stay locked.)
+ 
+    // Reset the predicate and release the mutex.
+    ready_to_go = false;
+    pthread_mutex_unlock(&mutex);
+}
+```
+
+信号线程负责设置谓词并将信号发送到条件锁定。下面显示了实现这种行为的代码。在这个例子中，该条件在互斥体内部发出信号，以防止在等待条件的线程之间发生竞争条件。
+
+发出条件锁信号：
+
+```
+void SignalThreadUsingCondition()
+{
+    // At this point, there should be work for the other thread to do.
+    pthread_mutex_lock(&mutex);
+    ready_to_go = true;
+ 
+    // Signal the other thread to begin work.
+    pthread_cond_signal(&condition);
+ 
+    pthread_mutex_unlock(&mutex);
+}
+```
 
 
 
