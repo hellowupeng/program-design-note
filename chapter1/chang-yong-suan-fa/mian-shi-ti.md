@@ -110,35 +110,35 @@
 
    //数据入栈 push
    void push(int x){
-     	assert(!full());//防止数组越界
-   	data[count++] = x;
+         assert(!full());//防止数组越界
+       data[count++] = x;
    }
 
    //数据出栈 pop
    int pop(){
-   	assert(!empty());
-   	return data[--count];
+       assert(!empty());
+       return data[--count];
    }
 
    //查看栈顶元素 top
    int top(){
-   	assert(!empty());
-   	return data[count-1];
+       assert(!empty());
+       return data[count-1];
    }
 
    //查询栈满 full
    bool full() {
-   	if(count >= 1024) {
-        	return 1;
-   	}
+       if(count >= 1024) {
+            return 1;
+       }
         return 0; 
    }
 
    //查询栈空 empty
    bool empty() {
-   	if(count <= 0) {
-   		return 1;
-   	}
+       if(count <= 0) {
+           return 1;
+       }
        return 0;
    }
 
