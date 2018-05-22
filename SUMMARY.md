@@ -27,6 +27,8 @@
       * [Simple Values](ios-kai-fa/swift/a-swift-tour/simple-values.md)
       * [控制流](ios-kai-fa/swift/a-swift-tour/kong-zhi-liu.md)
       * [函数和闭包](ios-kai-fa/swift/a-swift-tour/han-shu-he-bi-bao.md)
+      * [对象和类](ios-kai-fa/swift/a-swift-tour/dui-xiang-he-lei.md)
+      * [枚举和结构体](ios-kai-fa/swift/a-swift-tour/mei-ju-he-jie-gou-ti.md)
     * RxSwift
   * [Ruby](ios-kai-fa/ruby.md)
   * [Objective-C](ios-kai-fa/objective-c.md)
@@ -134,4 +136,5 @@
 * [后端开发](hou-duan-kai-fa.md)
   * [Linux](hou-duan-kai-fa/linux.md)
   * [Shell](hou-duan-kai-fa/shell.md)
+  * Java
 

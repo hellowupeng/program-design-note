@@ -20,7 +20,7 @@ UIKit框架提供了检测常见手势的预定义手势识别器。 在可能�
 
 表1-1 UIKit框架的手势识别器类:
 
-* 点击（任意数量的点击）
+* 点击（任意数量的点击）  
   UITapGestureRecognizer
 
 * 挤入和挤出（Pinching in and out ）（用于缩放视图）
@@ -77,7 +77,7 @@ UIKit框架提供了检测常见手势的预定义手势识别器。 在可能�
 
 在Xcode的Interface Builder中，以与添加任何对象到您的用户界面相同的方式将手势识别器添加到您的应用程序中
 
- - 将手势识别器从对象库拖动到视图。当你这样做时，手势识别器会自动附加到该视图。您可以检查您的手势识别器附加到的视图，并且如有必要，更改nib文件中的连接。
+* 将手势识别器从对象库拖动到视图。当你这样做时，手势识别器会自动附加到该视图。您可以检查您的手势识别器附加到的视图，并且如有必要，更改nib文件中的连接。
 
 创建手势识别器对象后，您需要创建并连接一个操作方法。这种方法每当连接的手势识别器识别出手势时调用。如果你需要引用在此操作方法之外的手势识别器，您还应该创建并连接手势识别器的出口（outlets）。
 
@@ -110,16 +110,16 @@ UIKit框架提供了检测常见手势的预定义手势识别器。 在可能�
 ```
 - (void)viewDidLoad {
     [super viewDidLoad];// Create and initialize a tap gesture
-    
+
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]
     initWithTarget:self action:@selector(respondToTapGesture:)];
-    
+
     // Specify that the gesture must be a single tap
     tapRecognizer.numberOfTapsRequired = 1;
-    
+
     // Add the tap gesture recognizer to the view
     [self.view addGestureRecognizer:tapRecognizer];
-    
+
     // Do any additional setup after loading the view, typically from a nib
 }
 ```
@@ -134,10 +134,10 @@ UIKit框架提供了检测常见手势的预定义手势识别器。 在可能�
 - (IBAction)showGestureForTapRecognizer:(UITapGestureRecognizer *)recognizer {
     // Get the location of the gesture
     CGPoint location = [recognizer locationInView:self.view];
-    
+
     // Display an image view at that location
     [self drawImageForGestureRecognizer:recognizer atPoint:location];
-    
+
     // Animate the image view so that it fades out
     [UIView animateWithDuration:0.5 animations:^{
         self.imageView.alpha = 0.0;
@@ -155,10 +155,10 @@ UIKit框架提供了检测常见手势的预定义手势识别器。 在可能�
 {
     // Get the location of the gesture
     CGPoint location = [recognizer locationInView:self.view];
-    
+
     // Display an image view at that location
     [self drawImageForGestureRecognizer:recognizer atPoint:location];
-    
+
     // If gesture is a left swipe, specify an end location
     // to the left of the current location
     if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft) {
@@ -166,7 +166,7 @@ UIKit框架提供了检测常见手势的预定义手势识别器。 在可能�
     } else {
         location.x += 220.0;
     }
-    
+
     // Animate the image view in the direction of the swipe as it fades out
     [UIView animateWithDuration:0.5 animations:^{
         self.imageView.alpha = 0.0;
@@ -176,8 +176,6 @@ UIKit框架提供了检测常见手势的预定义手势识别器。 在可能�
 ```
 
 ##### 响应连续手势
-
-
 
 ### 定义手势识别器如何相互作用
 
