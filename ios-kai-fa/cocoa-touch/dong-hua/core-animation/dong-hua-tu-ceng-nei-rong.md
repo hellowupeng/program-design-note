@@ -107,11 +107,88 @@ theAnimation.duration=5.0;
 
 ### 停止正在运行的显式动画
 
+动画通常会一直运行直到它们完成，但是如果需要，可以使用以下技术之一提前阻止动画：
+
+* 要从图层中移除单个动画对象，请调用图层的`removeAnimationForKey：`方法以移除动画对象。此方法使用传递给`addAnimation：forKey：`方法的键来标识动画。您指定的密钥不能为零。
+
+* 要从图层中移除所有动画对象，请调用图层的`removeAllAnimations`方法。此方法立即删除所有正在进行的动画，并使用其当前状态信息重绘该图层。
+
+> 注意：您无法直接从图层中移除隐式动画。
+
+当您从图层中移除动画时，Core Animation将通过使用其当前值重绘图层来响应。由于当前值通常是动画的结束值，因此可能会导致图层的外观突然跳跃。如果希望图层的外观保持在动画最后一帧的位置，则可以使用表示树中的对象检索这些最终值并将它们设置为图层树中的对象。
+
 ### 使多个改变一起动画
+
+如果要同时将多个动画应用于图层对象，可以使用`CAAnimationGroup`对象将它们组合在一起。使用组对象通过提供单个配置点来简化多个动画对象的管理。应用于该组的定时和持续时间值会覆盖各个动画对象中的相同值。
+
+清单3-4显示了如何使用动画组来同时执行两个与边界相关（border-related）的动画并且具有相同的持续时间。
+
+清单3-4将两个动画组合在一起：
+
+```
+// Animation 1
+CAKeyframeAnimation* widthAnim = [CAKeyframeAnimation animationWithKeyPath:@"borderWidth"];
+NSArray* widthValues = [NSArray arrayWithObjects:@1.0, @10.0, @5.0, @30.0, @0.5, @15.0, @2.0, @50.0, @0.0, nil];
+widthAnim.values = widthValues;
+widthAnim.calculationMode = kCAAnimationPaced;
+ 
+// Animation 2
+CAKeyframeAnimation* colorAnim = [CAKeyframeAnimation animationWithKeyPath:@"borderColor"];
+NSArray* colorValues = [NSArray arrayWithObjects:(id)[UIColor greenColor].CGColor,
+            (id)[UIColor redColor].CGColor, (id)[UIColor blueColor].CGColor,  nil];
+colorAnim.values = colorValues;
+colorAnim.calculationMode = kCAAnimationPaced;
+ 
+// Animation group
+CAAnimationGroup* group = [CAAnimationGroup animation];
+group.animations = [NSArray arrayWithObjects:colorAnim, widthAnim, nil];
+group.duration = 5.0;
+ 
+[myLayer addAnimation:group forKey:@"BorderChanges"];
+```
+
+将动画组合在一起的更高级的方法是使用事务（transaction）对象。通过允许您创建嵌套的动画集并为每个动画分配不同的动画参数，事务提供更大的灵活性。
 
 ### 检测动画的结束
 
+核心动画为检测动画何时开始或结束提供支持。这些通知是进行与动画相关的任何内务处理的好时机。例如，您可以使用开始通知来设置一些相关的状态信息，并使用相应的结束通知来取消该状态。
+
+有两种不同的方式可以通知动画的状态：
+
+* 使用`setCompletionBlock：`方法向当前事务添加完成块。当事务中的所有动画完成时，事务将执行完成块。
+* 将委托分配给`CAAnimation`对象并实现`animationDidStart：`和`animationDidStop：finished：`委托方法。
+
+如果要将两个动画链接在一起，以便一个动画完成时不要使用动画通知。相反，使用动画对象的`beginTime`属性在所需的时间启动每个动画对象。要将两个动画链接在一起，请将第二个动画的开始时间设置为第一个动画的结束时间。
+
 ### 如何动画图层支持的视图
 
+如果一个图层属于一个支持图层的视图，推荐的创建动画的方法是使用UIKit或AppKit提供的基于视图的动画界面。有许多方法可以直接使用Core Animation界面对图层进行动画制作，但是如何创建这些动画取决于目标平台。
 
+### iOS中修改图层的规则
+
+由于iOS视图总是具有底部图层，因此UIView类本身直接从图层对象派生大部分数据。因此，您对该图层所做的更改也会自动反映在视图对象中。此行为意味着您可以使用Core Animation或UIView界面来进行更改。
+
+如果您想使用Core Animation类来启动动画，则必须从基于视图的动画块中发出所有Core Animation调用。UIView类默认禁用图层动画，但在动画块内重新启用它们。因此，您在动画块外进行的任何更改都不会生成动画。清单3-5显示了一个如何隐式地改变图层的不透明度（opacity）和显式地改变图层的位置（position）的例子。在这个例子中，myNewPosition变量被事先计算并被块捕获。两个动画同时开始，但不透明动画以默认计时运行，而位置动画以其动画对象中指定的时间运行
+
+清单3-5为连接到iOS视图的图层制作动画：
+
+```
+[UIView animateWithDuration:1.0 animations:^{
+   // Change the opacity implicitly.
+   myView.layer.opacity = 0.0;
+ 
+   // Change the position explicitly.
+   CABasicAnimation* theAnim = [CABasicAnimation animationWithKeyPath:@"position"];
+   theAnim.fromValue = [NSValue valueWithCGPoint:myView.layer.position];
+   theAnim.toValue = [NSValue valueWithCGPoint:myNewPosition];
+   theAnim.duration = 3.0;
+   [myView.layer addAnimation:theAnim forKey:@"AnimateFrame"];
+}];
+```
+
+### 在OS X中修改图层的规则
+
+### 请记住更新视图约束作为动画的一部分
+
+如果您使用基于约束的布局规则来管理视图的位置，则必须删除可能会干扰动画的任何约束，作为配置该动画的一部分。约束会影响您对视图的位置或大小所做的任何更改。它们也会影响视图与其子视图之间的关系。如果您正在对这些项目的更改进行动画制作，则可以删除约束，进行更改，然后应用所需的任何新约束。
 

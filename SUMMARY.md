@@ -7,6 +7,7 @@
     * [TCP](chapter1/ji-suan-ji-wang-luo/tcp.md)
     * [UDP](chapter1/ji-suan-ji-wang-luo/udp.md)
     * [IP](chapter1/ji-suan-ji-wang-luo/ip.md)
+    * WebSocket
   * [数据结构](chapter1/shu-ju-jie-gou-yu-suan-fa.md)
   * [算法](chapter1/chang-yong-suan-fa.md)
     * [动态规划](chapter1/chang-yong-suan-fa/dong-tai-gui-hua.md)
@@ -26,6 +27,7 @@
       * [Simple Values](ios-kai-fa/swift/a-swift-tour/simple-values.md)
       * [控制流](ios-kai-fa/swift/a-swift-tour/kong-zhi-liu.md)
       * [函数和闭包](ios-kai-fa/swift/a-swift-tour/han-shu-he-bi-bao.md)
+    * RxSwift
   * [Ruby](ios-kai-fa/ruby.md)
   * [Objective-C](ios-kai-fa/objective-c.md)
     * [Block 编程](ios-kai-fa/objective-c/block-bian-cheng.md)
@@ -93,6 +95,9 @@
     * Crash 分析
   * OpenGL ES
   * GPUImage
+  * 设计模式
+    * MVC
+  * Socket编程
 * [Android 开发](android-kai-fa.md)
   * [Kotlin](android-kai-fa/kotlin.md)
     * [语言基础](android-kai-fa/kotlin/yu-fa-ji-chu.md)
