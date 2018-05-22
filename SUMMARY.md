@@ -29,7 +29,10 @@
       * [函数和闭包](ios-kai-fa/swift/a-swift-tour/han-shu-he-bi-bao.md)
       * [对象和类](ios-kai-fa/swift/a-swift-tour/dui-xiang-he-lei.md)
       * [枚举和结构体](ios-kai-fa/swift/a-swift-tour/mei-ju-he-jie-gou-ti.md)
-    * RxSwift
+      * [协议和拓展](ios-kai-fa/swift/a-swift-tour/xie-yi-he-tuo-zhan.md)
+      * [错误处理](ios-kai-fa/swift/a-swift-tour/cuo-wu-chu-li.md)
+      * [泛型](ios-kai-fa/swift/a-swift-tour/fan-xing.md)
+    * [RxSwift](ios-kai-fa/swift/rxswift.md)
   * [Ruby](ios-kai-fa/ruby.md)
   * [Objective-C](ios-kai-fa/objective-c.md)
     * [Block 编程](ios-kai-fa/objective-c/block-bian-cheng.md)
