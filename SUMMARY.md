@@ -55,6 +55,8 @@
           * 保存和恢复状态
         * [呈现（Presentation）和过渡（Transition）](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/cheng-xian-ff08-presentation-ff09-he-guo-du-ff08-transition.md)
         * [Adaptivity 和 Size 变化](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/adaptivity-he-size-bian-hua.md)
+      * [iOS 视图编程指南](ios-kai-fa/cocoa-touch/ui/ios-shi-tu-bian-cheng-zhi-nan.md)
+        * [视图和窗口结构](ios-kai-fa/cocoa-touch/ui/ios-shi-tu-bian-cheng-zhi-nan/shi-tu-he-chuang-kou-jie-gou.md)
     * [多线程编程](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng.md)
       * [并发编程](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng/bing-fa-bian-cheng.md)
         * [并发和应用程序设计](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng/bing-fa-bian-cheng/bing-fa-he-ying-yong-cheng-xu-she-ji.md)
