@@ -16,6 +16,7 @@
     * [面试题](chapter1/chang-yong-suan-fa/mian-shi-ti.md)
     * [图书](chapter1/chang-yong-suan-fa/book.md)
       * [算法图解](chapter1/chang-yong-suan-fa/book/suan-fa-tu-jie.md)
+        * [1、算法简介](chapter1/chang-yong-suan-fa/book/suan-fa-tu-jie/suan-fa-jian-jie.md)
   * [设计模式](chapter1/she-ji-mo-shi.md)
   * [操作系统](chapter1/ti-xi-jie-gou-yu-cao-zuo-xi-tong.md)
   * [数据库](chapter1/shu-ju-ku.md)
