@@ -113,69 +113,7 @@ UIViewController类定义了用于管理视图，处理事件，从一个视图�
 
 ###### 适应变化
 
-### 视图控制器定义
-
-##### 定义子类
-
-内容视图控制器拥有它所有的视图，并对这些视图中的数据负责。
-
-容器视图控制器不拥有它所有的视图;其一些视图由其他视图控制器管理。
-
-对于内容视图控制器，最常见的父类如下所示：
-
-* 当你的视图控制器的主视图是一个表时，使用 UITableViewController。
-
-* 当你的视图控制器的主视图是一个集合视图时，使用UICollectionViewController。
-
-* 对所有其他视图控制器使用 UIViewController。
-
-###### 定义用户界面
-
-使用 Xcode 中的 storyboard 文件直观地定义视图控制器的 UI。虽然您也可以通过编程方式创建 UI，但故事板是一种很好的方式，可以将视图控制器的内容可视化，并针对不同环境自定义视图层次结构。![](/assets/A storyboard holds a set of view controllers and views.png)每个矩形区域代表视图控制器及其相关视图。视图控制器之间的箭头是视图控制器关系和 segues。关系将容器视图控制器连接到其子视图控制器。Segues可让您在界面中的视图控制器之间导航。
-
-使用故事板编辑器执行以下操作：
-
-* 添加，排列和配置视图控制器的视图。
-
-* 连接 outlets 和操作（actions）。
-
-* 在视图控制器之间创建关系和 segues。
-
-* 为不同的 size class 定制您的布局和视图。
-
-* 添加手势识别器来处理用户与视图的交互。
-
-###### 处理用户交互
-
-###### 在运行时显示视图
-
-###### 管理视图布局
-
-###### 高效管理内存
-
-##### 实现容器视图控制器
-
-##### 支持辅助功能
-
-##### 保存和恢复状态
-
-### 呈现（Presentation）和过渡（Transition）
-
-##### 呈现视图控制器
-
-##### 使用 Segues
-
-##### 自定义过渡（Transition）动画
-
-##### 创建自定义呈现（Presentation）
-
-### Adaptivity 和 Size 变化
-
-##### 自适应模型
-
-##### 构建自适应界面
-
-###### 参考资料
+### 参考资料
 
 1. [View Controller Programming Guide for iOS](https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457-CH2-SW1)
 
