@@ -74,7 +74,7 @@
     * [网络编程](ios-kai-fa/cocoa-touch/wang-luo-bian-cheng.md)
     * [数据持久化](ios-kai-fa/cocoa-touch/shu-ju-chi-jiu-hua.md)
     * [常用设计模式](ios-kai-fa/cocoa-touch/chang-yong-she-ji-mo-shi.md)
-    * 事件响应
+    * [事件响应](ios-kai-fa/cocoa-touch/shi-jian-xiang-ying.md)
     * [绘图（Core Graphics）](ios-kai-fa/cocoa-touch/hui-tu.md)
       * [Quartz 2D 编程指南](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan.md)
         * [介绍](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan/jie-shao.md)
