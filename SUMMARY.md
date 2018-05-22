@@ -45,6 +45,10 @@
     * [UI](ios-kai-fa/cocoa-touch/ui.md)
       * [视图控制器](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi.md)
         * [视图控制器定义](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/shi-tu-kong-zhi-qi-ding-yi.md)
+          * [定义子类](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/shi-tu-kong-zhi-qi-ding-yi/ding-yi-zi-lei.md)
+          * 实现容器视图控制器
+          * 支持辅助功能
+          * 保存和恢复状态
         * [呈现（Presentation）和过渡（Transition）](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/cheng-xian-ff08-presentation-ff09-he-guo-du-ff08-transition.md)
         * [Adaptivity 和 Size 变化](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/adaptivity-he-size-bian-hua.md)
     * [多线程编程](ios-kai-fa/cocoa-touch/duo-xian-cheng-bian-cheng.md)
