@@ -6,6 +6,10 @@
 
 ### 在iOS中绘制到视图图形上下文
 
+要在iOS应用程序中绘制到屏幕，​​需要设置一个`UIView`对象并实现其`drawRect：`方法来执行绘制。视图的`drawRect：`方法在视图在屏幕上可见以及其内容需要更新时调用。在调用您的自定义`drawRect：`方法之前，视图对象会自动配置其绘图环境，以便您的代码可以立即开始绘制。作为此配置的一部分，`UIView`对象为当前绘图环境创建图形上下文（`CGContextRef`不透明类型）。您可以通过调用UIKit函数`UIGraphicsGetCurrentContext`在`drawRect：`方法中获得此图形上下文。
+
+UIKit中使用的默认坐标系与Quartz使用的坐标系不同。在UIKit中，原点位于左上角，y轴正值指向下方。UIView对象通过将原点转换到视图的左上角来修改Quartz图形上下文的CTM以匹配UIKit约定，并通过将y轴乘以-1来反转y轴。
+
 ### 在Mac OS X中创建窗口图形上下文
 
 ### 创建一个PDF图形上下文
