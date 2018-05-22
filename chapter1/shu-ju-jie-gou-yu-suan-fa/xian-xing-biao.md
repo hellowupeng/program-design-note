@@ -7,21 +7,24 @@
 数组是一种大小固定的数据结构，对线性表的所有操作都可以通过数组来实现。虽然数组一旦创建之后，它的大小就无法改变了，但是当数组不能再存储线性表中的新元素时，我们可以创建一个新的大的数组来替换当前数组。这样就可以使用数组实现动态的数据结构。
 
 * 代码1 创建一个更大的数组来替换当前数组
+
   ```
   int[] oldArray = new int[10];
-        
+
   int[] newArray = new int[20];
-        
+
   for (int i = 0; i < oldArray.length; i++) {
       newArray[i] = oldArray[i];
   }
 
   // 也可以使用System.arraycopy方法来实现数组间的复制     
   // System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
-        
+
   oldArray = newArray;
   ```
+
 * 代码2 在数组位置index上添加元素e
+
   ```
   //oldArray 表示当前存储元素的数组
   //size 表示当前元素个数
@@ -58,12 +61,13 @@
 但链表的结构：![](/assets/单链表的结构.png)下面主要用代码来展示链表的一些基本操作，需要注意的是，这里主要是以单链表为例，暂时不考虑双链表和循环链表。
 
 * 链表的节点
+
   ```
   class Node<E> {
 
       E item;
       Node<E> next;
-    
+
       //构造函数
       Node(E element) {
          this.item = element;
@@ -71,6 +75,7 @@
      }
   }
   ```
+
 * 定义好节点后，使用前一般是对头节点和尾节点进行初始化
 
   ```

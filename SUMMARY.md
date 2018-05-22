@@ -14,10 +14,11 @@
     * [动态规划](chapter1/chang-yong-suan-fa/dong-tai-gui-hua.md)
     * LeetCode算法题目
     * [面试题](chapter1/chang-yong-suan-fa/mian-shi-ti.md)
+    * [图书](chapter1/chang-yong-suan-fa/book.md)
+  * [设计模式](chapter1/she-ji-mo-shi.md)
   * [操作系统](chapter1/ti-xi-jie-gou-yu-cao-zuo-xi-tong.md)
   * [数据库](chapter1/shu-ju-ku.md)
   * [编译原理](chapter1/bian-yi-yuan-li.md)
-  * [设计模式](chapter1/she-ji-mo-shi.md)
   * [版本控制](chapter1/ban-ben-kong-zhi.md)
     * [Git](chapter1/ban-ben-kong-zhi/git.md)
     * [SVN](chapter1/ban-ben-kong-zhi/svn.md)
