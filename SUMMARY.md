@@ -9,6 +9,7 @@
     * [IP](chapter1/ji-suan-ji-wang-luo/ip.md)
     * WebSocket
   * [数据结构](chapter1/shu-ju-jie-gou-yu-suan-fa.md)
+    * [线性表](chapter1/shu-ju-jie-gou-yu-suan-fa/xian-xing-biao.md)
   * [算法](chapter1/chang-yong-suan-fa.md)
     * [动态规划](chapter1/chang-yong-suan-fa/dong-tai-gui-hua.md)
     * LeetCode算法题目
