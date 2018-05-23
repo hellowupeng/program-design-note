@@ -129,12 +129,12 @@
    // Prepare the two view controllers for the change.
    [oldVC willMoveToParentViewController:nil];
    [self addChildViewController:newVC];
- 
+
    // Get the start frame of the new view controller and the end frame
    // for the old view controller. Both rectangles are offscreen.
    newVC.view.frame = [self newViewStartFrame];
    CGRect endFrame = [self oldViewEndFrame];
- 
+
    // Queue up the transition animation.
    [self transitionFromViewController: oldVC toViewController: newVC
         duration: 0.25 options:0
@@ -174,15 +174,15 @@
 -(void) viewWillAppear:(BOOL)animated {
     [self.child beginAppearanceTransition: YES animated: animated];
 }
- 
+
 -(void) viewDidAppear:(BOOL)animated {
     [self.child endAppearanceTransition];
 }
- 
+
 -(void) viewWillDisappear:(BOOL)animated {
     [self.child beginAppearanceTransition: NO animated: animated];
 }
- 
+
 -(void) viewDidDisappear:(BOOL)animated {
     [self.child endAppearanceTransition];
 }
@@ -192,9 +192,18 @@
 
 设计，开发和测试新的容器视图控制器需要时间。在实现自己的容器类时考虑以下技巧：
 
-* **只访问子视图控制器的根视图。**一个容器只应该访问每个子视图的根视图，也就是子视图属性返回的视图。
+* **只访问子视图控制器的根视图。**一个容器只应该访问每个子视图控制器的根视图，也就是子视图控制器的`view`属性返回的视图。它不应该访问任何孩子的其他视图。
+* **子视图控制器应该对其容器有最少的了解。**子视图控制器应该关注自己的内容。如果容器允许其行为受到孩子的影响，则应使用委托设计模式来管理这些交互。
+
+* **首先使用常规视图设计您的容器。**使用常规视图（而不是来自子视图控制器的视图）使您有机会在简化的环境中测试布局约束和动画过渡。当常规视图按预期工作时，将它们交换为子视图控制器的视图。
 
 ### 将控制委派给子视图控制器
+
+容器视图控制器可以将其自身外观的某些方面委托给其一个或多个子视图控制器。您可以通过以下方式委派控制权：
+
+* **让一个子视图控制器确定状态栏的样式。**要将状态栏外观委托给子视图控制器，请覆盖容器视图控制器中的一个或两个`childViewControllerForStatusBarStyle`和`childViewControllerForStatusBarHidden`方法。
+
+* **让子视图控制器指定自己喜欢的尺寸**。具有灵活布局的容器可以使用孩子自己的`preferredContentSize`属性来帮助确定孩子的大小。
 
 
 
