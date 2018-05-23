@@ -37,7 +37,7 @@
       * [协议和拓展](ios-kai-fa/swift/a-swift-tour/xie-yi-he-tuo-zhan.md)
       * [错误处理](ios-kai-fa/swift/a-swift-tour/cuo-wu-chu-li.md)
       * [泛型](ios-kai-fa/swift/a-swift-tour/fan-xing.md)
-    * ARC
+    * [ARC](ios-kai-fa/swift/arc.md)
   * [Ruby](ios-kai-fa/ruby.md)
   * [Objective-C](ios-kai-fa/objective-c.md)
     * [Block 编程](ios-kai-fa/objective-c/block-bian-cheng.md)
@@ -123,7 +123,7 @@
   * [性能](ios-kai-fa/xing-neng.md)
     * [启动时间优化](ios-kai-fa/xing-neng/qi-dong-shi-jian-you-hua.md)
     * 性能优化
-  * 其他
+  * [其他](ios-kai-fa/qi-ta.md)
     * 秒开功能
     * Crash 分析
   * OpenGL ES
