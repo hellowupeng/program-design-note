@@ -60,8 +60,12 @@
           * [定义子类](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/shi-tu-kong-zhi-qi-ding-yi/ding-yi-zi-lei.md)
           * [实现容器视图控制器](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/shi-tu-kong-zhi-qi-ding-yi/shi-xian-rong-qi-shi-tu-kong-zhi-qi.md)
           * [支持辅助功能](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/shi-tu-kong-zhi-qi-ding-yi/zhi-chi-fu-zhu-gong-neng.md)
-          * 保存和恢复状态
+          * [保存和恢复状态](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/shi-tu-kong-zhi-qi-ding-yi/bao-cun-he-hui-fu-zhuang-tai.md)
         * [呈现（Presentation）和过渡（Transition）](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/cheng-xian-ff08-presentation-ff09-he-guo-du-ff08-transition.md)
+          * [呈现视图控制器](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/cheng-xian-ff08-presentation-ff09-he-guo-du-ff08-transition/cheng-xian-shi-tu-kong-zhi-qi.md)
+          * 使用 Segues
+          * 自定义过渡（Transition）动画
+          * 创建自定义呈现（Presentation）
         * [Adaptivity 和 Size 变化](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/adaptivity-he-size-bian-hua.md)
       * [iOS 视图编程指南](ios-kai-fa/cocoa-touch/ui/ios-shi-tu-bian-cheng-zhi-nan.md)
         * [视图和窗口结构](ios-kai-fa/cocoa-touch/ui/ios-shi-tu-bian-cheng-zhi-nan/shi-tu-he-chuang-kou-jie-gou.md)
