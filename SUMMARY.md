@@ -27,7 +27,8 @@
   * [C 语言](chapter1/c-yu-yan.md)
 * [iOS 开发](ios-kai-fa.md)
   * [Swift](ios-kai-fa/swift.md)
-    * [A Swift Tour](ios-kai-fa/swift/a-swift-tour.md)
+    * [RxSwift](ios-kai-fa/swift/rxswift.md)
+    * [Swift Tour](ios-kai-fa/swift/a-swift-tour.md)
       * [Simple Values](ios-kai-fa/swift/a-swift-tour/simple-values.md)
       * [控制流](ios-kai-fa/swift/a-swift-tour/kong-zhi-liu.md)
       * [函数和闭包](ios-kai-fa/swift/a-swift-tour/han-shu-he-bi-bao.md)
@@ -36,7 +37,7 @@
       * [协议和拓展](ios-kai-fa/swift/a-swift-tour/xie-yi-he-tuo-zhan.md)
       * [错误处理](ios-kai-fa/swift/a-swift-tour/cuo-wu-chu-li.md)
       * [泛型](ios-kai-fa/swift/a-swift-tour/fan-xing.md)
-    * [RxSwift](ios-kai-fa/swift/rxswift.md)
+    * ARC
   * [Ruby](ios-kai-fa/ruby.md)
   * [Objective-C](ios-kai-fa/objective-c.md)
     * [Block 编程](ios-kai-fa/objective-c/block-bian-cheng.md)
