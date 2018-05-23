@@ -86,11 +86,113 @@
 
 ##### 椭圆（Ellipses）
 
+椭圆本质上是一个压扁的圆。您可以通过定义两个焦点创建一个，然后绘制位于某个距离的所有点，以便将椭圆上任意一点到一个焦点的距离与该点到另一个焦点的距离相加得到的值始终相同。图3-9显示了独立绘制的多个路径。每个路径包含一个随机生成的椭圆;一些被填充，另一些被描边。
+
+图3-9多条路径;每个路径包含一个随机生成的椭圆
+
+![](/assets/Multiple paths; each path contains a randomly generated ellipse.png)
+
+您可以通过调用`CGContextAddEllipseInRect`函数向当前路径添加一个椭圆。您提供了一个定义椭圆边界的矩形。Quartz用一系列贝塞尔曲线近似椭圆。椭圆的中心是矩形的中心。如果矩形的宽度和高度相等（即正方形），则椭圆是圆形的，其半径等于矩形宽度（或高度）的一半。如果矩形的宽度和高度不相等，则它们定义椭圆的长轴和短轴。
+
+添加到路径的椭圆开始于移至操作，并以关闭子路径操作结束，所有移动均以顺时针方向。
+
 ##### 矩形（Rectangles）
+
+您可以通过调用`CGContextAddRect`函数向当前路径添加一个矩形。您提供了一个`CGRect`结构，其中包含矩形的原点及其宽度和高度。
+
+添加到路径的矩形以移动操作开始，以结束子路径操作结束，所有移动均以逆时针方向定向。
+
+通过调用函数`CGContextAddRects`并提供`CGRect`结构数组，可以将多个矩形添加到当前路径。图3-10显示了独立绘制的多个路径。每个路径包含一个随机生成的矩形;一些被填充，另一些被描边。
+
+图3-10 多条路径;每个路径都包含一个随机生成的矩形
+
+![](/assets/Multiple paths; each path contains a randomly generated rectangle.png)
 
 ### 创建一条路径
 
+当你想在图形上下文中构建一个路径时，你可以通过调用`CGContextBeginPath`函数来发信号通知Quartz。接下来，通过调用函数`CGContextMoveToPoint`来设置路径中第一个形状或子路径的起点。在建立第一个点后，可以将线条，弧线和曲线添加到路径中，请注意以下事项：
+
+* 在开始一个新路径之前，调用函数`CGContextBeginPath`。
+
+* 直线，圆弧和曲线从当前点开始绘制。空路径没有当前点;您必须调用`CGContextMoveToPoint`来为第一个子路径设置起始点，或者调用一个为您隐式执行此操作的便利函数。
+
+* 如果要关闭路径中的当前子路径，请调用函数`CGContextClosePath`将一个段连接到子路径的起始点。后续路径调用会开始一个新的子路径，即使您没有明确设置新的起点。
+
+* 绘制弧线时，Quartz会在当前点与弧线的起点之间绘制一条线。
+
+* 添加椭圆和矩形的Quartz例程为路径添加一个新的封闭子路径。
+
+* 您必须调用绘画函数来填充或描边路径，因为创建路径不会绘制路径。
+
+绘制路径后，将从图形上下文中刷新路径。您可能不想轻易失去自己的路径，特别是如果它描绘了一个想要反复使用的复杂场景。出于这个原因，Quartz提供了两种用于创建可重用路径的数据类型 - `CGPathRef`和`CGMutablePathRef`。你可以调用`CGPathCreateMutable`函数来创建一个可变的`CGPath`对象，你可以在其中添加直线，弧线，曲线和矩形。Quartz提供了一组`CGPath`函数，它们与Building Block中讨论的函数并行。路径函数在`CGPath`对象上运行，而不是在图形上下文中运行。这些功能是：
+
+* `CGPathCreateMutable`，取代`CGContextBeginPath`
+
+* `CGPathMoveToPoint`，取代`CGContextMoveToPoint`
+
+* `CGPathAddLineToPoint`，取代`CGContextAddLineToPoint`
+
+* `CGPathAddCurveToPoint`，取代`CGContextAddCurveToPoint`
+
+* `CGPathAddEllipseInRect`，取代`CGContextAddEllipseInRect`
+
+* `CGPathAddArc`，取代`CGContextAddArc`
+
+* `CGPathAddRect`，取代`CGContextAddRect`
+
+* `CGPathCloseSubpath`，取代`CGContextClosePath`
+
+当你想把路径附加到图形上下文时，你可以调用函数`CGContextAddPath`。路径保持在图形上下文中，直到Quartz描绘它。您可以通过调用`CGContextAddPath`再次添加路径。
+
 ### 绘制一条路径
+
+您可以通过描边或填充或两者来绘制当前路径。描边（_Stroking_）绘制一条路径线。填充（_Filling_）绘制路径中包含的区域。Quartz具有可以让您描边路径，填充路径，或者同时描边和填充路径的函数。描边线（宽度，颜色等）的特征，填充颜色和Quartz用来计算填充区域的方法都是图形状态的一部分。
+
+##### 影响描边的参数
+
+您可以通过修改表3-1中列出的参数来影响路径的描边。这些参数是图形状态的一部分，这意味着您为参数设置的值会影响所有后续的描边，直到您将参数设置为其他值。
+
+表3-1 影响Quartz如何描边当前路径的参数：
+
+* 线宽（Line width）：`CGContextSetLineWidth`
+
+* Line join：`CGContextSetLineJoin`
+
+* Line cap：`CGContextSetLineCap`
+
+* 斜接限制（Miter limit）：`CGContextSetMiterLimit`
+
+* Line dash pattern：`CGContextSetLineDash`
+
+* 描边颜色空间（Stroke color space）：`CGContextSetStrokeColorSpace`
+
+* 描边颜色（Stroke color）：`CGContextSetStrokeColor`、`CGContextSetStrokeColorWithColor`
+
+* 描边模式（Stroke pattern）：`CGContextSetStrokePattern`
+
+线宽是线的总宽度，以用户空间为单位表示。
+
+线连接（line join）指定Quartz如何绘制连接线段之间的连接点。Quartz支持表3-2中描述的线连接样式。默认样式是斜接连接。
+
+表3-2 线路连接样式：
+
+* Miter join
+
+![](/assets/Miter join.png)
+
+* Round join
+
+![](/assets/Round join.png)
+
+* Bevel join
+
+![](/assets/Bevel join.png)
+
+##### 用于描边路径的函数
+
+##### 填充路径
+
+##### 设置混合模式
 
 ### 剪切到一条路径
 
