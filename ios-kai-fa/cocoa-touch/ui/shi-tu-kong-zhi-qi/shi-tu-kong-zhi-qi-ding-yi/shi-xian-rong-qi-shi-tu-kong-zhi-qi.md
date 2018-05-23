@@ -115,11 +115,84 @@
 }
 ```
 
-##### 在子视图控制器之间切换
+##### 在子视图控制器之间切换（Transitioning）
+
+当您想用另一个视图控制器动画替换一个子视图控制器时，将子视图控制器的添加和删除合并到过渡动画过程中。在动画之前，请确保两个子视图控制器都是您的内容的一部分，但让当前的子视图控制器知道它即将消失。在您的动画中，将新的子视图控制器的视图移动到位并移除旧的子视图控制器的视图。完成动画后，完成子视图控制器的移除。
+
+清单5-3显示了如何使用过渡动画将一个子视图控制器过渡为另一个子视图控制器的示例。在这个例子中，新的视图控制器被动画为现有的子视图控制器当前占用的矩形，该控制器被移出屏幕。动画完成后，完成块从容器中移除子视图控制器。在这个例子中，`transitionFromViewController：toViewController：duration：options：animations：completion：`方法自动更新容器的视图层次结构，所以你不需要自己添加和移除视图。
+
+清单5-3 两个子视图控制器之间的转换
+
+```
+- (void)cycleFromViewController: (UIViewController*) oldVC
+               toViewController: (UIViewController*) newVC {
+   // Prepare the two view controllers for the change.
+   [oldVC willMoveToParentViewController:nil];
+   [self addChildViewController:newVC];
+ 
+   // Get the start frame of the new view controller and the end frame
+   // for the old view controller. Both rectangles are offscreen.
+   newVC.view.frame = [self newViewStartFrame];
+   CGRect endFrame = [self oldViewEndFrame];
+ 
+   // Queue up the transition animation.
+   [self transitionFromViewController: oldVC toViewController: newVC
+        duration: 0.25 options:0
+        animations:^{
+            // Animate the views to their final positions.
+            newVC.view.frame = oldVC.view.frame;
+            oldVC.view.frame = endFrame;
+        }
+        completion:^(BOOL finished) {
+           // Remove the old view controller and send the final
+           // notification to the new view controller.
+           [oldVC removeFromParentViewController];
+           [newVC didMoveToParentViewController:self];
+        }];
+}
+```
 
 ##### 管理子视图控制器的外观更新
 
+在将子视图控制器添加到容器后，容器会自动将外观相关的消息转发给子视图控制器。这通常是您想要的行为，因为它确保所有事件都能正确发送。但是，有时默认行为可能会以对您的容器无意义的顺序发送这些事件。例如，如果多个孩子同时更改其视图状态，则可能需要合并这些更改，以使外观回调都以更合理的顺序同时发生。
+
+要接管外观回调的责任，请覆盖容器视图控制器中的`shouldAutomaticallyForwardAppearanceMethods`方法，并返回`NO`，如清单5-4所示。返回NO让UIKit知道你的容器视图控制器通知其子视图控制器的外观变化。
+
+清单5-4 禁用自动外观转发
+
+```
+- (BOOL) shouldAutomaticallyForwardAppearanceMethods {
+    return NO;
+}
+```
+
+当出现外观转换时，根据需要调用孩子的`beginAppearanceTransition：animated：`或`endAppearanceTransition`方法。例如，如果您的容器有一个由`child`属性引用的单个子视图控制器，那么您的容器会将这些消息转发给子视图控制器，如清单5-5所示。
+
+清单5-5 当容器出现或消失时转发外观消息
+
+```
+-(void) viewWillAppear:(BOOL)animated {
+    [self.child beginAppearanceTransition: YES animated: animated];
+}
+ 
+-(void) viewDidAppear:(BOOL)animated {
+    [self.child endAppearanceTransition];
+}
+ 
+-(void) viewWillDisappear:(BOOL)animated {
+    [self.child beginAppearanceTransition: NO animated: animated];
+}
+ 
+-(void) viewDidDisappear:(BOOL)animated {
+    [self.child endAppearanceTransition];
+}
+```
+
 ### 建立一个容器视图控制器的建议
+
+设计，开发和测试新的容器视图控制器需要时间。在实现自己的容器类时考虑以下技巧：
+
+* **只访问子视图控制器的根视图。**一个容器只应该访问每个子视图的根视图，也就是子视图属性返回的视图。
 
 ### 将控制委派给子视图控制器
 
