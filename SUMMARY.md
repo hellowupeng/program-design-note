@@ -164,4 +164,7 @@
   * 图书
     * [Spring MVC+MYBatis企业应用实战](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan.md)
       * [1、Java EE 应用](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong.md)
+        * [1.1 Java EE 应用概述](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/11-java-ee-ying-yong-gai-shu.md)
+          * [1.1.1 Java EE 应用的分层模型](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/11-java-ee-ying-yong-gai-shu/111-java-ee-ying-yong-de-fen-ceng-mo-xing.md)
+          * [1.1.2 Java EE 应用的组件](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/11-java-ee-ying-yong-gai-shu/112-java-ee-ying-yong-de-zu-jian.md)
 
