@@ -71,7 +71,7 @@ OS X 和 iOS 为使用 POSIX 线程 API 创建线程提供基于C的支持。该
 
 下面显示了两个使用 POSIX 调用创建线程的自定义函数。`LaunchThread`函数创建一个新的线程，其主例程在`PosixThreadMainRoutine`函数中实现。由于 POSIX 默认将线程创建为可连接，因此此示例更改线程的属性以创建分离的线程。将线程标记为已分离，可让系统在退出时立即为该线程回收资源。
 
-用C中创建一个线程：
+用 C 创建一个线程：
 
 ```
 #include <assert.h>
