@@ -153,6 +153,7 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
 在为主视图制作动画时，您配置动画的基本操作是相同的。您可以从过渡的上下文对象中获取所需的对象和数据，并使用该信息创建实际的动画。
 
 * 呈现动画：
+
   * 使用`viewControllerForKey：`和`viewForKey：`方法来检索过渡中涉及的视图控制器和视图。
 
   * 设置“to”视图的起始位置。将其他任何属性也设置为它们的起始值。
@@ -166,16 +167,174 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
     * 在动画块中，将“to”视图动画化为容器视图中的最终位置。
 
     * 在完成块中，调用`completeTransition：`方法并执行任何其他清理。
+
 * 解除动画：
   * 使用`viewControllerForKey：`和`viewForKey：`方法来检索过渡中涉及的视图控制器和视图。
+  * 计算“from”视图的结束位置。这个视图属于目前被解雇的视图控制器。
+
+  * 将“to”视图添加为容器视图的子视图。
+
+    在呈现期间，当过渡完成时，属于呈现（presenting）视图控制器的视图将被删除。因此，您必须在解雇操作期间将该视图添加回容器。
+
+  * 创建动画。
+
+    * 在您的动画块中，将“from”视图动画到容器视图中的最终位置。将任何其他属性也设置为它们的最终值。
+
+    * 在完成块中，从视图层次结构中移除“from”视图并调用`completeTransition：`方法。根据需要执行任何其他清理。
+
+图10-5显示了一个自定义的呈现和解除过渡，可以对角地呈现视图。在呈现过程中，呈现的视图从屏幕开始并沿对角线向上并向左移动，直至可见。在解除期间，视图颠倒了方向，向下并向右移动，直到它再次离开屏幕。
+
+图10-5 自定义呈现和解除![](/assets/A custom presentation and dismissal.png)清单10-2显示了如何实现图10-5中所示的过渡。在检索动画所需的对象之后，`animateTransition：`方法计算受影响视图的frame矩形。在呈现期间，被呈现（presented）的视图由`toView`变量表示。在解雇中，被解雇的视图由`fromView`变量表示。`presenting`属性是动画器对象本身的自定义属性，当创建动画制作器时，过渡代理设置为适当的值。
+
+清单10-2 实现对角呈现和解除动画
+
+```c
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+    // Get the set of relevant objects.
+    UIView *containerView = [transitionContext containerView];
+    UIViewController *fromVC = [transitionContext
+            viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toVC   = [transitionContext
+            viewControllerForKey:UITransitionContextToViewControllerKey];
+ 
+    UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+ 
+    // Set up some variables for the animation.
+    CGRect containerFrame = containerView.frame;
+    CGRect toViewStartFrame = [transitionContext initialFrameForViewController:toVC];
+    CGRect toViewFinalFrame = [transitionContext finalFrameForViewController:toVC];
+    CGRect fromViewFinalFrame = [transitionContext finalFrameForViewController:fromVC];
+ 
+    // Set up the animation parameters.
+    if (self.presenting) {
+        // Modify the frame of the presented view so that it starts
+        // offscreen at the lower-right corner of the container.
+        toViewStartFrame.origin.x = containerFrame.size.width;
+        toViewStartFrame.origin.y = containerFrame.size.height;
+    }
+    else {
+        // Modify the frame of the dismissed view so it ends in
+        // the lower-right corner of the container view.
+        fromViewFinalFrame = CGRectMake(containerFrame.size.width,
+                                      containerFrame.size.height,
+                                      toView.frame.size.width,
+                                      toView.frame.size.height);
+    }
+ 
+    // Always add the "to" view to the container.
+    // And it doesn't hurt to set its start frame.
+    [containerView addSubview:toView];
+    toView.frame = toViewStartFrame;
+ 
+    // Animate using the animator's own duration value.
+    [UIView animateWithDuration:[self transitionDuration:transitionContext]
+                     animations:^{
+                         if (self.presenting) {
+                             // Move the presented view into position.
+                             [toView setFrame:toViewFinalFrame];
+                         }
+                         else {
+                             // Move the dismissed view offscreen.
+                             [fromView setFrame:fromViewFinalFrame];
+                         }
+                     }
+                     completion:^(BOOL finished){
+                         BOOL success = ![transitionContext transitionWasCancelled];
+ 
+                         // After a failed presentation or successful dismissal, remove the view.
+                         if ((self.presenting && !success) || (!self.presenting && success)) {
+                             [toView removeFromSuperview];
+                         }
+ 
+                         // Notify UIKit that the transition has finished
+                         [transitionContext completeTransition:success];
+                     }];
+ 
+}
+```
 
 ##### 动画后清理
 
+在过渡动画结束时，调用`completeTransition：`方法至关重要。调用该方法会告诉UIKit过渡已完成，并且用户可能会开始使用所呈现的视图控制器。调用该方法还会触发其他完成处理程序的级联，包括`presentViewController：animated：completion：`方法和animator对象自己的`animationEnded：`方法。调用completeTransition：方法的最佳位置在动画块的完成处理程序中。
+
+因为可以取消转换，所以应该使用上下文对象的transitionWasCancelled方法的返回值来确定需要进行的清理。当呈现被取消时，动画器必须撤消对视图层次结构所做的任何修改。成功的解除需要采取类似的行动。
+
 ### 为过渡添加互动性（Interactivity）
+
+使动画可交互的最简单方法是使用`UIPercentDrivenInteractiveTransition`对象。`UIPercentDrivenInteractiveTransition`对象与您现有的动画器对象配合使用，以控制动画制作的时间。它使用您提供的完成百分比值执行此操作。您只需设置计算完成百分比值所需的事件处理代码，并在每个新事件到达时更新它。
+
+您可以使用带有或不带有子类的`UIPercentDrivenInteractiveTransition`类。如果您是子类，则使用子类的`init`方法（或`startInteractiveTransition：`方法）执行事件处理代码的一次性设置。之后，使用您的自定义事件处理代码来计算新的完成百分比值并调用`updateInteractiveTransition：`方法。当您的代码确定完成转换时，请调用`finishInteractiveTransition`方法。
+
+清单10-3显示了`UIPercentDrivenInteractiveTransition`子类的`startInteractiveTransition：`方法的自定义实现。此方法设置了一个手势识别器（pan-gesture recognizer）来跟踪触摸事件，并在动画的容器视图上安装该手势识别器。它还保存对转换上下文的引用以供以后使用。
+
+清单10-3 配置一个百分比驱动的交互式动画器
+
+```
+- (void)startInteractiveTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+   // Always call super first.
+   [super startInteractiveTransition:transitionContext];
+ 
+   // Save the transition context for future reference.
+   self.contextData = transitionContext;
+ 
+   // Create a pan gesture recognizer to monitor events.
+   self.panGesture = [[UIPanGestureRecognizer alloc]
+                        initWithTarget:self action:@selector(handleSwipeUpdate:)];
+   self.panGesture.maximumNumberOfTouches = 1;
+ 
+   // Add the gesture recognizer to the container view.
+   UIView* container = [transitionContext containerView];
+   [container addGestureRecognizer:self.panGesture];
+}
+```
+
+手势识别器为每个到达的新事件调用其操作方法。操作方法的实现可以使用手势识别器的状态信息来确定手势是成功，失败还是仍在进行中。同时，您可以使用最新的触摸事件信息来计算手势的新百分比值。
+
+清单10-4显示了清单10-3中配置的平移手势识别器调用的方法。当新事件到达时，此方法使用垂直行进距离来计算动画的完成百分比。当手势结束时，该方法完成过渡。
+
+清单10-4使用事件更新动画进度
+
+```
+-(void)handleSwipeUpdate:(UIGestureRecognizer *)gestureRecognizer {
+    UIView* container = [self.contextData containerView];
+ 
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        // Reset the translation value at the beginning of the gesture.
+        [self.panGesture setTranslation:CGPointMake(0, 0) inView:container];
+    }
+    else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        // Get the current translation value.
+        CGPoint translation = [self.panGesture translationInView:container];
+ 
+        // Compute how far the gesture has travelled vertically,
+        //  relative to the height of the container view.
+        CGFloat percentage = fabs(translation.y / CGRectGetHeight(container.bounds));
+ 
+        // Use the translation value to update the interactive animator.
+        [self updateInteractiveTransition:percentage];
+    }
+    else if (gestureRecognizer.state >= UIGestureRecognizerStateEnded) {
+        // Finish the transition and remove the gesture recognizer.
+        [self finishInteractiveTransition];
+        [[self.contextData containerView] removeGestureRecognizer:self.panGesture];
+    }
+}
+```
+
+> **注意**
+>
+> 你计算的值代表整个动画长度的完成百分比。对于交互式动画，您可能需要避免非线性效应，例如动画本身的初始速度，阻尼值和非线性完成曲线。这种影响倾向于将事件的触摸位置与任何底层视图的移动分开。
 
 ### 创建与过渡同时运行的动画
 
+参与过渡的视图控制器可以在任何呈现或过渡动画之上执行其他动画。例如，被呈现的（presented）视图控制器可以在过渡期间对其自己的视图层次结构进行动画处理，并在过渡发生时添加运动效果或其他视觉反馈。任何对象都可以创建动画，只要它能够访问被呈现（presented）或呈现（presenting）的视图控制器的`transitionCoordinator`属性即可。过渡协调器只在过渡过程中才存在。
+
+要创建动画，请调用过渡协调器的`animateAlongsideTransition：completion：`或`animateAlongsideTransitionInView：animation：completion：`方法。您提供的块将存储直到过渡动画开始，此时它们将与其余的过渡动画一起执行。
+
 ### 在动画中使用呈现控制器
+
+
 
 ###### 参考资料
 
