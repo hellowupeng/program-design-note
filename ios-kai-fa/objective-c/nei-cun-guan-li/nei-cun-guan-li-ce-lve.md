@@ -123,5 +123,9 @@ Core Foundation 对象有类似的内存管理规则。然而，Cocoa 和 Core F
 MyClass *myInstance = [MyClass createInstance];
 ```
 
+###### 参考资料
+
+1. [Memory Management Policy](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmRules.html#//apple_ref/doc/uid/20000994-BAJHFBGH)
+
 
 
