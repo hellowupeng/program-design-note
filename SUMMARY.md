@@ -171,4 +171,6 @@
         * [1.2 轻量级 Java EE 应用相关技术](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu.md)
           * [1.2.1 JSP、Servlet 和 JavaBean 及替代技术](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu/121-jspservlet-he-javabean-ji-ti-dai-ji-zhu.md)
           * [1.2.2 MyBatis 及替代技术](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu/122-mybatis-ji-ti-dai-ji-zhu.md)
+          * [1.2.3 Spring4 及替代技术](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu/123-spring4-ji-ti-dai-ji-zhu.md)
+          * [1.2.4 使用开源框架的好处](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu/124-shi-yong-kai-yuan-kuang-jia-de-hao-chu.md)
 
