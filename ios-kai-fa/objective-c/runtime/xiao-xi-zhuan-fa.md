@@ -62,14 +62,14 @@ Objective-C 编程语言中“远程消息传递”中讨论的代理就是这�
 
 ##### 转发和继承
 
-虽然转发模仿继承，NSObject 类永远不会混淆这两者。像 respondsToSelector：和 isKindOfClass 这样的方法：仅查看继承层次结构，从不查看转发链。例如，将询问 Warrior 对象是否响应 `negotiate` 消息：
+虽然转发模仿继承，NSObject 类永远不会混淆这两者。像 respondsToSelector：和 `isKindOfClass` 这样的方法：仅查看继承层次结构，从不查看转发链。例如，将询问 Warrior 对象是否响应 `negotiate` 消息：
 
 ```
 if ( [aWarrior respondsToSelector:@selector(negotiate)] )
     ...
 ```
 
-答案是否定的，即使它可以毫无错误地接收谈判信息，并在某种意义上将它们转发给外交官。
+答案是否定的，即使它可以毫无错误地接收`negotiate`信息，并在某种意义上将它们转发给 Warrior。
 
 如果你希望你的对象表现得好像他们真的继承了它们转发消息的对象的行为一样，你需要重新实现 respondsToSelector：和isKindOfClass：方法来包含你的转发算法：
 
