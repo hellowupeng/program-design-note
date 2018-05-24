@@ -112,12 +112,11 @@ UIKit将调用`showViewController：sender：`和`showDetailViewController：sen
    // The new view controller configures a Cancel and Done button for the
    // navigation bar.
    RecipeAddViewController *addController = [[RecipeAddViewController alloc] init];
- 
+
    addController.modalPresentationStyle = UIModalPresentationFullScreen;
    addController.transitionStyle = UIModalTransitionStyleCoverVertical;
    [self presentViewController:addController animated:YES completion: nil];
 }
-
 ```
 
 ##### 用popover呈现视图控制器
@@ -151,9 +150,9 @@ UIKit将调用`showViewController：sender：`和`showDetailViewController：sen
 ```
 UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SecondStoryboard" bundle:nil];
 MyViewController* myVC = [sb instantiateViewControllerWithIdentifier:@"MyViewController"];
- 
+
 // Configure the view controller.
- 
+
 // Display the view controller
 [self presentViewController:myVC animated:YES completion:nil];
 ```
