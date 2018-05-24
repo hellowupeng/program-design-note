@@ -169,6 +169,7 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
     * 在完成块中，调用`completeTransition：`方法并执行任何其他清理。
 
 * 解除动画：
+
   * 使用`viewControllerForKey：`和`viewForKey：`方法来检索过渡中涉及的视图控制器和视图。
   * 计算“from”视图的结束位置。这个视图属于目前被解雇的视图控制器。
 
@@ -196,16 +197,16 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
             viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC   = [transitionContext
             viewControllerForKey:UITransitionContextToViewControllerKey];
- 
+
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
- 
+
     // Set up some variables for the animation.
     CGRect containerFrame = containerView.frame;
     CGRect toViewStartFrame = [transitionContext initialFrameForViewController:toVC];
     CGRect toViewFinalFrame = [transitionContext finalFrameForViewController:toVC];
     CGRect fromViewFinalFrame = [transitionContext finalFrameForViewController:fromVC];
- 
+
     // Set up the animation parameters.
     if (self.presenting) {
         // Modify the frame of the presented view so that it starts
@@ -221,12 +222,12 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
                                       toView.frame.size.width,
                                       toView.frame.size.height);
     }
- 
+
     // Always add the "to" view to the container.
     // And it doesn't hurt to set its start frame.
     [containerView addSubview:toView];
     toView.frame = toViewStartFrame;
- 
+
     // Animate using the animator's own duration value.
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                      animations:^{
@@ -241,16 +242,16 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
                      }
                      completion:^(BOOL finished){
                          BOOL success = ![transitionContext transitionWasCancelled];
- 
+
                          // After a failed presentation or successful dismissal, remove the view.
                          if ((self.presenting && !success) || (!self.presenting && success)) {
                              [toView removeFromSuperview];
                          }
- 
+
                          // Notify UIKit that the transition has finished
                          [transitionContext completeTransition:success];
                      }];
- 
+
 }
 ```
 
@@ -274,15 +275,15 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
 - (void)startInteractiveTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
    // Always call super first.
    [super startInteractiveTransition:transitionContext];
- 
+
    // Save the transition context for future reference.
    self.contextData = transitionContext;
- 
+
    // Create a pan gesture recognizer to monitor events.
    self.panGesture = [[UIPanGestureRecognizer alloc]
                         initWithTarget:self action:@selector(handleSwipeUpdate:)];
    self.panGesture.maximumNumberOfTouches = 1;
- 
+
    // Add the gesture recognizer to the container view.
    UIView* container = [transitionContext containerView];
    [container addGestureRecognizer:self.panGesture];
@@ -298,7 +299,7 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
 ```
 -(void)handleSwipeUpdate:(UIGestureRecognizer *)gestureRecognizer {
     UIView* container = [self.contextData containerView];
- 
+
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
         // Reset the translation value at the beginning of the gesture.
         [self.panGesture setTranslation:CGPointMake(0, 0) inView:container];
@@ -306,11 +307,11 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
     else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
         // Get the current translation value.
         CGPoint translation = [self.panGesture translationInView:container];
- 
+
         // Compute how far the gesture has travelled vertically,
         //  relative to the height of the container view.
         CGFloat percentage = fabs(translation.y / CGRectGetHeight(container.bounds));
- 
+
         // Use the translation value to update the interactive animator.
         [self updateInteractiveTransition:percentage];
     }
@@ -333,8 +334,6 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
 要创建动画，请调用过渡协调器的`animateAlongsideTransition：completion：`或`animateAlongsideTransitionInView：animation：completion：`方法。您提供的块将存储直到过渡动画开始，此时它们将与其余的过渡动画一起执行。
 
 ### 在动画中使用呈现控制器
-
-
 
 ###### 参考资料
 
