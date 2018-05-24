@@ -188,7 +188,42 @@
 
 ![](/assets/Bevel join.png)
 
+线帽指定CGContextStrokePath用于绘制线的端点的方法。
+
+Quartz支持表3-3中描述的线帽样式。
+
+* Butt cap
+  ![](/assets/Butt cap.png)
+* Round cap
+
+  ![](/assets/Round cap.png)
+
+* Projecting square cap
+
+  ![](/assets/Projecting square cap.png)
+
+闭合的子路径将起始点视为连接的线段之间的连接点;起点使用选定的线连接（line-join）方法呈现。相反，如果通过添加连接到起点的线段来关闭路径，则路径的两端都将使用选定的线头方法绘制。
+
+线 dash pattern 允许您沿着描边路径绘制分段线。您可以通过指定破折号数组（dash array）和破折号相位（dash phase）作为`CGContextSetLineDash`的参数来控制沿着该线的破折号段（dash segments）的大小和位置：
+
+```
+void CGContextSetLineDash (
+    CGContextRef ctx,
+    CGFloat phase,
+    const CGFloat lengths[],
+    size_t count
+);
+```
+
+length 参数的元素指定了 dashes 的宽度，在线条的涂漆和未涂漆部分之间交替。phase 参数指定 dash pattern 的起点。图3-11显示了一些线条 dash patterns。
+
+![](/assets/Examples of line dash patterns.png)
+
+描边颜色空间确定Quartz解释描边颜色值的方式。您还可以指定封装颜色和颜色空间的Quartz颜色（`CGColorRef`数据类型）。
+
 ##### 用于描边路径的函数
+
+
 
 ##### 填充路径
 
