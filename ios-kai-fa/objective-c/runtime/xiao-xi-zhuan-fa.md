@@ -40,7 +40,7 @@
 
 forwardInvocation：方法可以充当无法识别的消息的分发中心，将它们分发给不同的接收者。或者它可以是一个中转站，将所有消息发送到相同的目的地。它可以将一条消息翻译成另一条消息，或者简单地“吞下”一些消息，因此没有响应，也没有错误。forwardInvocation：方法也可以将多个消息合并为一个响应。
 
-> 注意：forwardInvocation：方法只有在它们不调用标称接收方中的现有方法时才会处理消息。例如，如果您希望您的对象将 negotiate 消息转发给另一个对象，则它不能拥有自己的协商方法。如果是这样，该消息将永远不会达到 forwardInvocation :.
+> 注意：`forwardInvocation：`方法只有在它们不调用接收方中的现有方法时才会处理消息。例如，如果您希望您的对象将 `negotiate` 消息转发给另一个对象，则它不能拥有自己的 `negotiate` 方法。如果是这样，该消息将永远不会达到`forwardInvocation :`。
 
 ##### 转发和多重继承
 
@@ -101,8 +101,6 @@ if ( [aWarrior respondsToSelector:@selector(negotiate)] )
     return signature;
 }
 ```
-
-
 
 
 
