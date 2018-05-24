@@ -64,11 +64,99 @@
 
 ### 呈现视图控制器
 
+有几种方法可以启动视图控制器的呈现：
 
+* 使用segue自动呈现视图控制器。segue使用您在Interface Builder中指定的信息实例化并呈现视图控制器。
+
+* 使用`showViewController：sender：`或`showDetailViewController：sender：`方法显示视图控制器。在自定义视图控制器中，您可以将这些方法的行为更改为更适合您的视图控制器的行为。
+
+* 调用`presentViewController：animated：completion：`方法以模态方式呈现视图控制器。
+
+##### 显示视图控制器
+
+当使用`showViewController：sender：`和`showDetailViewController：sender：`方法时，在屏幕上获取新视图控制器的过程很简单：
+
+1. 创建您想要呈现的视图控制器对象。在创建视图控制器时，您有责任使用任何需要执行其任务的数据对其进行初始化。
+
+2. 将新视图控制器的`modalPresentationStyle`属性设置为偏好的呈现样式。这种样式可能不会用在最终的呈现样式中。
+
+3. 将视图控制器的`modalTransitionStyle`属性设置为所需的过渡动画样式。这种样式可能不会用在最终的动画中。
+
+4. 调用当前视图控制器的`showViewController：sender：`和`showDetailViewController：sender：`方法。
+
+UIKit将调用`showViewController：sender：`和`showDetailViewController：sender：`方法转发给相应的呈现视图控制器。该视图控制器可以决定如何最好地执行呈现，并可根据需要更改呈现和过渡样式。例如，导航控制器可能会将视图控制器推到其导航堆栈上。
+
+##### 以模态方式呈现视图控制器
+
+当直接呈现视图控制器时，您可以告诉UIKit如何显示新的视图控制器以及如何在屏幕上显示动画。
+
+1. 创建您想要呈现的视图控制器对象。
+
+   在创建视图控制器时，您有责任使用任何需要执行其任务的数据对其进行初始化。
+
+2. 将新视图控制器的`modalPresentationStyle`属性设置为所需的呈现样式。
+
+3. 将视图控制器的`modalTransitionStyle`属性设置为所需的动画样式。
+
+4. 调用当前视图控制器的`presentViewController：animated：completion：`方法。
+
+调用`presentViewController：animated：completion：`方法的视图控制器可能不是实际执行模态呈现的视图控制器。呈现样式决定了如何呈现视图控制器，包括呈现视图控制器所需的特性。例如，全屏呈现必须由全屏视图控制器启动。如果当前呈现的视图控制器不合适，UIKit将遍历视图控制器层次结构，直到找到一个为止。模态呈现完成后，UIKit将更新受影响的视图控制器的`presentingViewController`和`presentedViewController`属性。
+
+清单8-1演示了如何以编程方式呈现视图控制器。当用户添加新食谱（recipe）时，应用程序会通过显示导航控制器来提示用户有关食谱的基本信息。导航控制器被选中，这样就会有一个标准的放置取消和完成按钮的地方。使用导航控制器还可以使未来扩展新食谱界面变得更加容易。您只需在导航堆栈上推送新的视图控制器即可。
+
+清单8-1 以编程方式呈现视图控制器
+
+```
+- (void)add:(id)sender {
+   // Create the root view controller for the navigation controller
+   // The new view controller configures a Cancel and Done button for the
+   // navigation bar.
+   RecipeAddViewController *addController = [[RecipeAddViewController alloc] init];
+ 
+   addController.modalPresentationStyle = UIModalPresentationFullScreen;
+   addController.transitionStyle = UIModalTransitionStyleCoverVertical;
+   [self presentViewController:addController animated:YES completion: nil];
+}
+
+```
+
+##### 用popover呈现视图控制器
+
+在展示它们之前，Popovers需要额外的配置。将模态呈现样式设置为`UIModalPresentationPopover`后，配置以下与popover式相关的属性：
+
+* 将视图控制器的`preferredContentSize`属性设置为所需的大小。
+
+* 使用关联的`UIPopoverPresentationController`对象设置popover定位点（anchor point），该对象可从视图控制器的`popoverPresentationController`属性访问。只设置下列其中一项：
+
+  * 将`barButtonItem`属性设置为一个bar button item。
+
+  * 将`sourceView`和`sourceRect`属性设置为您的某个视图中的特定区域。
+
+您可以使用UIPopoverPresentationController对象根据需要对popover的外观进行其他调整。popover呈现控制器还支持可用于在呈现过程中响应更改的代理对象。例如，当popover出现，消失或在屏幕上重新定位时，您可以使用委托进行响应。
 
 ### 关闭呈现的视图控制器
 
-### 呈现定义在不同故事板中的视图控制器
+要关闭一个呈现的视图控制器，请调用呈现（presenting）视图控制器的`dismissViewControllerAnimated：completion：`方法。您也可以在被呈现（presented）的视图控制器本身上调用此方法。当您在被呈现（presented）的视图控制器上调用该方法时，UIKit会自动将该请求转发给呈现（presenting）视图控制器。
+
+解除视图控制器前始终保存任何重要信息。关闭视图控制器会将其从视图控制器层次结构中删除，并从屏幕中删除其视图。如果您没有强烈的引用存储在别处的视图控制器，解除它将释放与其关联的内存。
+
+如果呈现的视图控制器必须将数据返回到呈现视图控制器，请使用委托设计模式来促进传输。委托可以更轻松地在应用程序的不同部分重用视图控制器。通过委托，被呈现（presented）的视图控制器存储对实现正式协议中方法的委托对象的引用。当它收集结果时，被呈现（presented）的视图控制器会在其委托上调用这些方法。在典型的实现中，呈现（presenting）视图控制器使其自己成为其呈现（presented）的视图控制器的代理。
+
+### 呈现定义在不同故事板（Storyboard）中的视图控制器
+
+尽管您可以在同一个故事板中的视图控制器之间创建segues，但不能在故事板之间创建segues。当你想显示一个存储在不同故事板中的视图控制器时，你必须在显示它之前明确地实例化该视图控制器，如清单8-2所示。该示例以模态方式呈现视图控制器，但您可以将其推到导航控制器上或以其他方式显示。
+
+清单8-2 从故事板载入视图控制器
+
+```
+UIStoryboard* sb = [UIStoryboard storyboardWithName:@"SecondStoryboard" bundle:nil];
+MyViewController* myVC = [sb instantiateViewControllerWithIdentifier:@"MyViewController"];
+ 
+// Configure the view controller.
+ 
+// Display the view controller
+[self presentViewController:myVC animated:YES completion:nil];
+```
 
 
 
