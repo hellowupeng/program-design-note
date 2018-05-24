@@ -173,4 +173,7 @@
           * [1.2.2 MyBatis 及替代技术](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu/122-mybatis-ji-ti-dai-ji-zhu.md)
           * [1.2.3 Spring4 及替代技术](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu/123-spring4-ji-ti-dai-ji-zhu.md)
           * [1.2.4 使用开源框架的好处](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu/124-shi-yong-kai-yuan-kuang-jia-de-hao-chu.md)
+      * 2、Spring MVC 简介
+        * 2.1 MVC 思想概述
+          * [2.1.1 传统 Model1 和 Model2](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/211-chuan-tong-model1-he-model2.md)
 
