@@ -167,4 +167,5 @@
         * [1.1 Java EE 应用概述](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/11-java-ee-ying-yong-gai-shu.md)
           * [1.1.1 Java EE 应用的分层模型](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/11-java-ee-ying-yong-gai-shu/111-java-ee-ying-yong-de-fen-ceng-mo-xing.md)
           * [1.1.2 Java EE 应用的组件](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/11-java-ee-ying-yong-gai-shu/112-java-ee-ying-yong-de-zu-jian.md)
+          * [1.1.3 Java EE 应用的结构和优势](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/11-java-ee-ying-yong-gai-shu/113-java-ee-ying-yong-de-jie-gou-he-you-shi.md)
 
