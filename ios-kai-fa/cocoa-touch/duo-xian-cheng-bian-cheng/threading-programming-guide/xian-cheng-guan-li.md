@@ -28,8 +28,6 @@ OS X 或 iOS 中的每个进程（应用程序）都由一个或多个线程组�
 
 该值反映了创建线程的初始调用与线程入口点例程开始执行的时间之间的时间。
 
-
-
 编写线程代码时需要考虑的另一个成本是生产成本。设计线程应用程序有时可能需要对组织应用程序数据结构的方式进行根本性更改。为避免使用同步，进行这些更改可能是必要的，这可能会对设计不当的应用程序造成巨大的性能损失。设计这些数据结构并调试线程代码中的问题可能会增加开发线程应用程序所需的时间。但是，避免这些成本会在运行时造成更大的问题，但是，如果您的线程花费太多时间等待锁定或什么都不做。
 
 ### 创建一个线程
@@ -67,7 +65,7 @@ NSThread* myThread = [[NSThread alloc] initWithTarget:self
 
 如果您有一个线程当前正在运行的`NSThread`对象，则可以将消息发送到该线程的一种方式是使用应用程序中几乎任何对象的`performSelector：onThread：withObject：waitUntilDone：`方法。在OS X v10.5中引入了对线程（主线程除外）执行选择器的支持，并且是在线程之间进行通信的便捷方式。使用此技术发送的消息由其他线程直接执行，作为其正常运行循环处理的一部分。以这种方式进行通信时，您仍然可能需要某种形式的同步，但比在线程之间设置通信端口更简单。
 
-##### 使用 POSIX 线程
+##### 使用 POSIX（可移植操作系统接口） 线程
 
 OS X 和 iOS 为使用 POSIX 线程 API 创建线程提供基于C的支持。该技术实际上可以用于任何类型的应用程序（包括Cocoa和Cocoa Touch应用程序），如果您正在为多个平台编写软件，该技术可能会更方便。你使`pthread_create`来创建 POSIX 线程。
 
@@ -78,28 +76,28 @@ OS X 和 iOS 为使用 POSIX 线程 API 创建线程提供基于C的支持。该
 ```
 #include <assert.h>
 #include <pthread.h>
- 
+
 void* PosixThreadMainRoutine(void* data)
 {
     // Do some work here.
- 
+
     return NULL;
 }
- 
+
 void LaunchThread()
 {
     // Create the thread using POSIX routines.
     pthread_attr_t  attr;
     pthread_t       posixThreadID;
     int             returnVal;
- 
+
     returnVal = pthread_attr_init(&attr);
     assert(!returnVal);
     returnVal = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
     assert(!returnVal);
- 
+
     int     threadError = pthread_create(&posixThreadID, &attr, &PosixThreadMainRoutine, NULL);
- 
+
     returnVal = pthread_attr_destroy(&attr);
     assert(!returnVal);
     if (threadError != 0)
@@ -173,9 +171,9 @@ void LaunchThread()
 - (void)myThreadMainRoutine
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; // Top-level pool
- 
+
     // Do thread work here.
- 
+
     [pool release];  // Release the objects in the pool.
 }
 ```
@@ -204,22 +202,22 @@ OS X 和 iOS 为在每个线程中实现运行循环提供了内置支持。应�
     BOOL moreWorkToDo = YES;
     BOOL exitNow = NO;
     NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
- 
+
     // Add the exitNow BOOL to the thread dictionary.
     NSMutableDictionary* threadDict = [[NSThread currentThread] threadDictionary];
     [threadDict setValue:[NSNumber numberWithBool:exitNow] forKey:@"ThreadShouldExitNow"];
- 
+
     // Install an input source.
     [self myInstallCustomInputSource];
- 
+
     while (moreWorkToDo && !exitNow)
     {
         // Do one chunk of a larger body of work here.
         // Change the value of the moreWorkToDo Boolean when done.
- 
+
         // Run the run loop but timeout immediately if the input source isn't waiting to fire.
         [runLoop runUntilDate:[NSDate date]];
- 
+
         // Check to see if an input source handler changed the exitNow value.
         exitNow = [[threadDict valueForKey:@"ThreadShouldExitNow"] boolValue];
     }
