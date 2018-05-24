@@ -64,7 +64,7 @@
         * [呈现（Presentation）和过渡（Transition）](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/cheng-xian-ff08-presentation-ff09-he-guo-du-ff08-transition.md)
           * [呈现视图控制器](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/cheng-xian-ff08-presentation-ff09-he-guo-du-ff08-transition/cheng-xian-shi-tu-kong-zhi-qi.md)
           * [使用 Segues](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/cheng-xian-ff08-presentation-ff09-he-guo-du-ff08-transition/shi-yong-segues.md)
-          * 自定义过渡（Transition）动画
+          * [自定义过渡（Transition）动画](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/cheng-xian-ff08-presentation-ff09-he-guo-du-ff08-transition/zi-ding-yi-guo-du-ff08-transition-ff09-dong-hua.md)
           * 创建自定义呈现（Presentation）
         * [Adaptivity 和 Size 变化](ios-kai-fa/cocoa-touch/ui/shi-tu-kong-zhi-qi/adaptivity-he-size-bian-hua.md)
       * [iOS 视图编程指南](ios-kai-fa/cocoa-touch/ui/ios-shi-tu-bian-cheng-zhi-nan.md)
