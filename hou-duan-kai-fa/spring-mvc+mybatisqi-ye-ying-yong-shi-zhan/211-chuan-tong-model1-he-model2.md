@@ -9,5 +9,9 @@ Java Web 应用的结构经历了 Model1 和 Model2 两个时代，从 Model1 �
   ![](/assets/Model2 的流程.png)
   Model2 下 JSP 不再承担控制器责任，仅是表现层角色，仅用于将结果呈现给用户。JSP 页面的请求与 Servlet（控制器）交互，而 Servlet 负责与后台的 JavaBean 通信。在 Model2 模式下，模型（Model）由 JavaBean 充当，视图（View）由 JSP 页面充当，控制器（Controller）由 Servlet 充当。
 
+> 提示
+>
+> 从某种程度上讲，Model2 为了降低系统后期维护的复杂度，导致前期开发的高复杂度。
+
 
 
