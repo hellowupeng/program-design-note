@@ -335,6 +335,10 @@ UIKit提供了一组用于呈现视图控制器的标准过渡样式，您可以
 
 ### 在动画中使用呈现控制器
 
+对于自定义呈现，您可以提供自己的呈现控制器，为呈现视图控制器提供自定义外观。呈现控制器管理与视图控制器及其内容分离的任何自定义镶边。例如，放置在视图控制器视图后面的调光视图将由呈现控制器管理。它不管理特定视图控制器视图的事实意味着您可以在您的应用中使用与任何视图控制器相同的呈现控制器。
+
+您可以从呈现的视图控制器的过渡代理中提供自定义呈现控制器。视图控制器的`modalTransitionStyle`属性必须是`UIModalPresentationCustom`。）呈现控制器与任何动画器对象并行运行。随着动画器对象将视图控制器的视图制作成动画，呈现控制器将任何其他视图动画化。在过渡结束时，呈现控制器有机会对视图层次结构执行任何最终调整。
+
 ###### 参考资料
 
 1. [Customizing the Transition Animations](https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/CustomizingtheTransitionAnimations.html#//apple_ref/doc/uid/TP40007457-CH16-SW1)
