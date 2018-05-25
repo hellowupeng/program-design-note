@@ -161,6 +161,7 @@
   * [Linux](hou-duan-kai-fa/linux.md)
   * [Shell](hou-duan-kai-fa/shell.md)
   * [Java](hou-duan-kai-fa/java.md)
+    * [菜鸟教程 - Java 教程](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng.md)
   * 图书
     * [Spring MVC+MYBatis企业应用实战](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan.md)
       * [1、Java EE 应用](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong.md)
