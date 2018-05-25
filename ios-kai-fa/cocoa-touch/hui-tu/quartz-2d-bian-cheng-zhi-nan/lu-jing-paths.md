@@ -225,9 +225,65 @@ length 参数的元素指定了 dashes 的宽度，在线条的涂漆和未涂�
 
 Quartz提供了表3-4中所示的用于描边当前路径的函数。一些是用于描边矩形或椭圆的便利函数。
 
+表3-4 描边路径的功能
+
+* `CGContextStrokePath`：描边当前路径。
+
+* `CGContextStrokeRect`：描边指定的矩形。
+
+* `CGContextStrokeRectWithWidth`：使用指定的线条宽度描边指定的矩形。
+
+* `CGContextStrokeEllipseInRect`：描边一个适合指定矩形内的椭圆。
+
+* `CGContextStrokeLineSegments`：描边一系列线条。
+
+* `CGContextDrawPath`：如果您传递常量kCGPathStroke，则会描边当前路径。
+
+函数`CGContextStrokeLineSegments`等同于以下代码：
+
+```
+CGContextBeginPath (context);
+for (k = 0; k < count; k += 2) {
+    CGContextMoveToPoint(context, s[k].x, s[k].y);
+    CGContextAddLineToPoint(context, s[k+1].x, s[k+1].y);
+}
+CGContextStrokePath(context);
+```
+
 ##### 填充路径
 
+填充当前路径时，Quartz的行为就好像路径中包含的每个子路径都已关闭。然后它使用这些闭合的子路径并计算要填充的像素。Quartz可以用两种方法计算填充区域。椭圆和矩形等简单路径具有明确的区域。但是如果你的路径是由重叠的段组成的，或者如果路径包含多个子路径，例如图3-12中显示的同心圆，则可以使用两条规则来确定填充区域。
+
+默认填充规则称为非零卷数规则（_nonzero winding number rule_）。要确定是否应绘制特定点，请从该点开始绘制超出图形边界的线。从0开始计数，每当路径段从左到右越过该行时加1，每当路径段从右向左越过该行时减1。如果结果为0，则该点不被绘制。否则，该点被涂上。路径段的绘制方向会影响结果。图3-12显示了使用非零卷数规则填充的两组内外圆。当每个圆圈以相同的方向绘制时，两个圆圈都被填充。当圆圈的方向相反时，内圆不填充。
+
+您可以选择使用偶奇数规则（_even-odd rule_）。要确定是否应绘制特定点，请从该点开始绘制超出图形边界的线。计算线路交叉的路径段的数量。如果结果很奇数，则该点被绘制。如果结果是偶数，那么这个点就不会被绘制。路径段的绘制方向不会影响结果。如图3-12所示，绘制每个圆圈的方向并不重要，填充将始终如图所示。
+
+图3-12 使用不同的填充规则填充的同心圆
+
+![](/assets/Concentric circles filled using different fill rules.png)
+
+Quartz提供了填充当前路径的表3-5中所示的函数。一些用于描边矩形或椭圆的便利函数。
+
+表3-5 填充路径的函数
+
+* `CGContextEOFillPath`：使用偶奇数规则填充当前路径。
+* `CGContextFillPath`：使用非零卷积数规则填充当前路径。
+
+* `CGContextFillRect`：填充适合指定矩形内的区域。
+
+* `CGContextFillRects`：填充适合指定矩形内的区域。
+
+* `CGContextFillEllipseInRect`：填充适合指定矩形内的椭圆。
+
+* `CGContextDrawPath`：如果传入 `kCGPathFill`（非零卷积数规则）或`kCGPathEOFill`（偶奇数规则），则填充当前路径。
+
 ##### 设置混合模式
+
+混合模式指定Quartz如何应用于背景上的绘制。Quartz默认使用普通混合模式，它使用以下公式将前景绘画与背景绘画相结合：
+
+```
+result = (alpha * foreground) + (1 - alpha) * background
+```
 
 ### 剪切到一条路径
 
