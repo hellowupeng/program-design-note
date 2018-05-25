@@ -20,6 +20,12 @@ Controller 接口的实现类可以通过 handleRequest 方法传递的参数访
 2. 配置前端控制器
 3. 配置 Spring MVC 的 Controller
 4. Controller 类的实现
+   > 提示
+   > Spring MVC 建议把所有的视图页面存放在 WEB-INF 文件夹下，这样可以保护视图页面，避免直接向视图页面发送请求。
+
+5. View 页面
+
+6. 测试应用
 
 
 
