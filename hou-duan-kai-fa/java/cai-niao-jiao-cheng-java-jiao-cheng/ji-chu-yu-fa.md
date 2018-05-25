@@ -24,5 +24,28 @@ public class HelloWorld {
 * **源文件：**源文件名必须和类名相同。（如果文件名和类名不相同则会导致编译错误）
 * **主方法入口：**所有的Java 程序由 **public static void main\(String \[\]args\) **方法开始执行。
 
+##### Java 修饰符
+
+* 访问控制修饰符：default，public，protected，private
+* 非访问控制修饰符：final，abstract，strictfp
+
+##### Java 变量
+
+* 局部变量
+* 类变量（静态变量）
+* 成员变量（非静态变量）
+
+##### Java 数组
+
+数组是存储在堆上的对象。
+
+##### Java 枚举
+
+枚举限制变量只能是预先设定好的值。使用枚举可以减少代码中的 bug。
+
+
+
+
+
 
 
