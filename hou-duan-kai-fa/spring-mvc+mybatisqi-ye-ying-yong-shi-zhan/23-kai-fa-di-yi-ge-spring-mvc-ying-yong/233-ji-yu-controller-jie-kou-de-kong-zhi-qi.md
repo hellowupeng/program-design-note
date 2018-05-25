@@ -18,6 +18,7 @@ Controller 接口的实现类可以通过 handleRequest 方法传递的参数访
 
 1. 增加 Spring 的支持
 2. 配置前端控制器
+3. 配置 Spring MVC 的 Controller
 
 
 
