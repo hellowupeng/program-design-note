@@ -185,4 +185,5 @@
         * [2.3 开发第一个 Spring MVC 应用](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/23-kai-fa-di-yi-ge-spring-mvc-ying-yong.md)
           * [2.3.1 Spring 的下载和安装](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/23-kai-fa-di-yi-ge-spring-mvc-ying-yong/231-spring-de-xia-zai-he-an-zhuang.md)
           * [2.3.2 Spring MVC 的 DispatcherServlet](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/23-kai-fa-di-yi-ge-spring-mvc-ying-yong/232.md)
+          * [2.3.3 基于 Controller 接口的控制器](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/23-kai-fa-di-yi-ge-spring-mvc-ying-yong/233-ji-yu-controller-jie-kou-de-kong-zhi-qi.md)
 
