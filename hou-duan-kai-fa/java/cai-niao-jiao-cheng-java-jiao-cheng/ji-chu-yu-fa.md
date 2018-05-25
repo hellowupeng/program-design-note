@@ -27,7 +27,7 @@ public class HelloWorld {
 ##### Java 修饰符
 
 * 访问控制修饰符：default，public，protected，private
-* 非访问控制修饰符：final，abstract，strictfp
+* 非访问控制修饰符：final，abstract，strictfp（严格,精准）
 
 ##### Java 变量
 
@@ -42,4 +42,12 @@ public class HelloWorld {
 ##### Java 枚举
 
 枚举限制变量只能是预先设定好的值。使用枚举可以减少代码中的 bug。
+
+##### 接口
+
+接口可理解为对象间相互通信的协议，接口在继承中扮演很重要的角色。
+
+接口只定义派生要用到的方法，但是方法的具体实现完全取决于派生类。
+
+
 
