@@ -30,7 +30,13 @@ Controller 接口的实现类可以通过 handleRequest 方法传递的参数访
 
 ### 示例：基于注解的控制器
 
+所有步骤和”第一个 Spring MVC 应用“示例一样，只是修改两个地方。
 
+1. Controller 类的实现
+   org.springframework.stereotype.Controller 注释类型用于指示 Spring 类的实例是一个控制器。org.springframework.web.bind.annotation.RequestMapping 注释类型用来映射一个请求和请求的方法。value="/hello" 表示请求由 hello 方法进行处理。方法返回一个包含视图名或视图名和模型的 ModelAndView 对象。
+
+1. 修改 Spring MVC 的配置文件
+2. 测试
 
 
 
