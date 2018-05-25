@@ -49,5 +49,9 @@ public class HelloWorld {
 
 接口只定义派生要用到的方法，但是方法的具体实现完全取决于派生类。
 
+##### Java 源程序与编译型运行区别
+
+![](/assets/Java 源程序与编译型运行区别.png)
+
 
 
