@@ -43,9 +43,3 @@ public class HelloWorld {
 
 枚举限制变量只能是预先设定好的值。使用枚举可以减少代码中的 bug。
 
-
-
-
-
-
-
