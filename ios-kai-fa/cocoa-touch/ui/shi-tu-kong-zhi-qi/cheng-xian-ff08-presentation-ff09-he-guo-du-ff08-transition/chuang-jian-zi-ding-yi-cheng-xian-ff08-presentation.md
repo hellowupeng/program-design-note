@@ -88,7 +88,7 @@ UIKit为标准呈现样式提供了呈现控制器。当您将视图控制器的
 - (CGRect)frameOfPresentedViewInContainerView {
     CGRect presentedViewFrame = CGRectZero;
     CGRect containerBounds = [[self containerView] bounds];
- 
+
     presentedViewFrame.size = CGSizeMake(floorf(containerBounds.size.width / 2.0),
                                          containerBounds.size.height);
     presentedViewFrame.origin.x = containerBounds.size.width -
@@ -129,15 +129,15 @@ UIKit为标准呈现样式提供了呈现控制器。当您将视图控制器的
     // Get critical information about the presentation.
     UIView* containerView = [self containerView];
     UIViewController* presentedViewController = [self presentedViewController];
- 
+
     // Set the dimming view to the size of the container's
     // bounds, and make it transparent initially.
     [[self dimmingView] setFrame:[containerView bounds]];
     [[self dimmingView] setAlpha:0.0];
- 
+
     // Insert the dimming view below everything else.
     [containerView insertSubview:[self dimmingView] atIndex:0];
- 
+
     // Set up the animations for fading in the dimming view.
     if([presentedViewController transitionCoordinator]) {
         [[presentedViewController transitionCoordinator]
@@ -152,8 +152,6 @@ UIKit为标准呈现样式提供了呈现控制器。当您将视图控制器的
     }
 }
 ```
-
-
 
 ### 将您的呈现控制器“售卖”给UIKit
 
