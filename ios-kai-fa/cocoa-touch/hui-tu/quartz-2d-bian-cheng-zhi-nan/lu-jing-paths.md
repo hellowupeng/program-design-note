@@ -341,7 +341,9 @@ CGContextClip (context);
 
 * CGContextClipToMask
 
+参考资料
 
+1. [Paths](https://developer.apple.com/library/content/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_paths/dq_paths.html#//apple_ref/doc/uid/TP30001066-CH211-TPXREF101)
 
 
 
