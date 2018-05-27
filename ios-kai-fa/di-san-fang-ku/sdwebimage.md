@@ -25,9 +25,73 @@ SDWebImage 提供一个 UIImageView 的分类以支持加载远程图片，具�
 
 ##### 图片下载
 
+###### SDWebImageDownloader
 
+1. 单例，图片下载器，负责图片异步下载
+2. 图片的下载操作放在一个 NSOperationQueue 并发操作队列中，队列默认最大并发数是 6
+3. 每个图片对应一些回调（下载进度，完成回调等），回调信息会保存在 downloader 的 URLCallbacks 中（一个字典，key 是 url 地址，value 是图片下载回调数组），URLCallbacks 可能被多个线程访问，所以 downloader 把下载任务放在一个 barrierQueue 中，并设置屏障保证同一时间只有一个线程访问 URLCallbacks。在创建回调 URLCallbacks 的 block 中创建一个 NSOperation 并添加到 NSOperationQueue 中。
+4. 每个图片下载都是一个 operation，创建后添加到一个操作队列中，SDWebImage 定义了一个协议 SDWebImageOperation 作为图片下载操作的基础协议，声明了一个 cancel 方法，用于取消操作。
+   ```
+   @protocol SDWebImageOperation <NSObject>
+   - (void)cancel;
+   @end
+   ```
+
+5. 对于图片的下载，SDWebImageDownloaderOperation 完全依赖于 NSURLConnection 类，实现了 NSURLConnectionDataDelegate 协议的方法来跟踪图片下载进度。
+
+###### SDWebImageDownloaderOperation
+
+1. 继承自 NSOperation 类，没有简单实现 main 方法，而是采用更加灵活的 start 方法，以便自己管理下载的状态。
+2. start 方法中创建了下载使用的 NSURLConnection 对象，开启了图片的下载，并抛出一个下载开始的通知。
+3. 下载的核心是利用 NSURLSession 加载数据，每个图片下载都有一个 operation 操作来完成，并将这些操作放到一个操作队列中，这样可以实现图片的并发下载。
+
+###### SDWebImageDecoder
+
+（异步对图片进行解码）
 
 ##### 缓存
+
+下载完图片后缓存到本地，再获取同一张图片时，直接从本地获取，减少网络流量，提升用户体验，能快速从本地获取呈现给用户。
+
+SDWebImage 提供了对图片进行缓存，主要由 SDImageCache 完成。该类负责处理内存缓存以及一个可选的磁盘缓存，其中磁盘缓存的写操作是异步的，不会对 UI 造成影响。
+
+1. 内存缓存及磁盘缓存
+   1. 内存缓存的处理由 NSCache 对象实现，NSCache 类似与 NSDictionary，存储 key-value 对，通常使用缓存类临时存储短时间使用但创建昂贵的对象，重用这些对象可以优化性能，同时这些对象对于内存来说不是紧要的，如果内存紧张就会自动释放。
+   2. 磁盘缓存的处理使用 NSFileManager 对象实现，图片存储的位置位于 cache 文件夹，另外 SDImageCache 还定义了一个串行队列来处理存储图片。
+   3. SDImageCache 提供了大量方法来缓存、获取、移除及清空图片。对于图片的索引，我们通过一个 key 来索引，在内存中，将其作为 NSCache 的 key 值，在磁盘中，用这个 key 值作为图片的文件名，使用 url 作为 key。
+2. 存储图片
+   现在内存中放置一份缓存，如果需要缓存到磁盘，将磁盘缓存操作作为一个 task 放到 串行队列中处理，会先检查图片格式，将其转换为相应的图片数据，最后把数据写入磁盘中（文件名是对 key 值做 MD5 后的串）。
+3. 查询图片
+   内存和磁盘查询图片 API：
+   ```
+   - (UIImage *)imageFromMemoryCacheForKey:(NSString *)key;
+   - (UIImage *)imageFromDiskCacheForKey:(NSString *)key;
+   ```
+
+   查看本地是否存在 key 指定的图片，API：
+
+   ```
+   - (NSOperation *)queryDiskCacheForKey:(NSString *)key done:(SDWebImageQueryCompleteBlock)doneBlock;
+   ```
+
+4. 移除图片
+   移除图片 API：
+   ```
+   - (void)removeImageForKey:(NSString *)key;
+   - (void)removeImageForKey:(NSString *)key withCompletion:(SDWebImageNoParamsBlock)completion;
+   - (void)removeImageForKey:(NSString *)key fromDisk:(BOOL)fromDisk;
+   - (void)removeImageForKey:(NSString *)key fromDisk:(BOOL)fromDisk withCompletion:(SDWebImageNoParamsBlock)completion; 
+   ```
+5. 清理图片（磁盘）
+   清空磁盘图片可以选择完全情况和部分清空，部分清空就是把缓存文件夹删除
+   ```
+   - (void)clearDisk;
+   - (void)clearDiskOnCompletion:(SDWebImageNoParamsBlock)completion;
+   ```
+
+   部分清理 会根据设置的一些参数移除部分文件，主要有两个指标：文件的缓存有效期（maxCacheAge: 默认是一周）和最大缓存空间大小（maxCacheSize: ）
+
+小结
 
 ##### SDWebImageManger
 
