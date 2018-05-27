@@ -31,6 +31,7 @@ SDWebImage 提供一个 UIImageView 的分类以支持加载远程图片，具�
 2. 图片的下载操作放在一个 NSOperationQueue 并发操作队列中，队列默认最大并发数是 6
 3. 每个图片对应一些回调（下载进度，完成回调等），回调信息会保存在 downloader 的 URLCallbacks 中（一个字典，key 是 url 地址，value 是图片下载回调数组），URLCallbacks 可能被多个线程访问，所以 downloader 把下载任务放在一个 barrierQueue 中，并设置屏障保证同一时间只有一个线程访问 URLCallbacks。在创建回调 URLCallbacks 的 block 中创建一个 NSOperation 并添加到 NSOperationQueue 中。
 4. 每个图片下载都是一个 operation，创建后添加到一个操作队列中，SDWebImage 定义了一个协议 SDWebImageOperation 作为图片下载操作的基础协议，声明了一个 cancel 方法，用于取消操作。
+
    ```
    @protocol SDWebImageOperation <NSObject>
    - (void)cancel;
@@ -61,8 +62,9 @@ SDWebImage 提供了对图片进行缓存，主要由 SDImageCache 完成。该�
    3. SDImageCache 提供了大量方法来缓存、获取、移除及清空图片。对于图片的索引，我们通过一个 key 来索引，在内存中，将其作为 NSCache 的 key 值，在磁盘中，用这个 key 值作为图片的文件名，使用 url 作为 key。
 2. 存储图片
    现在内存中放置一份缓存，如果需要缓存到磁盘，将磁盘缓存操作作为一个 task 放到 串行队列中处理，会先检查图片格式，将其转换为相应的图片数据，最后把数据写入磁盘中（文件名是对 key 值做 MD5 后的串）。
-3. 查询图片
+3. 查询图片  
    内存和磁盘查询图片 API：
+
    ```
    - (UIImage *)imageFromMemoryCacheForKey:(NSString *)key;
    - (UIImage *)imageFromDiskCacheForKey:(NSString *)key;
@@ -74,16 +76,19 @@ SDWebImage 提供了对图片进行缓存，主要由 SDImageCache 完成。该�
    - (NSOperation *)queryDiskCacheForKey:(NSString *)key done:(SDWebImageQueryCompleteBlock)doneBlock;
    ```
 
-4. 移除图片
+4. 移除图片  
    移除图片 API：
+
    ```
    - (void)removeImageForKey:(NSString *)key;
    - (void)removeImageForKey:(NSString *)key withCompletion:(SDWebImageNoParamsBlock)completion;
    - (void)removeImageForKey:(NSString *)key fromDisk:(BOOL)fromDisk;
-   - (void)removeImageForKey:(NSString *)key fromDisk:(BOOL)fromDisk withCompletion:(SDWebImageNoParamsBlock)completion; 
+   - (void)removeImageForKey:(NSString *)key fromDisk:(BOOL)fromDisk withCompletion:(SDWebImageNoParamsBlock)completion;
    ```
-5. 清理图片（磁盘）
+
+5. 清理图片（磁盘）  
    清空磁盘图片可以选择完全情况和部分清空，部分清空就是把缓存文件夹删除
+
    ```
    - (void)clearDisk;
    - (void)clearDiskOnCompletion:(SDWebImageNoParamsBlock)completion;
