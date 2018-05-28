@@ -167,6 +167,7 @@
       * [基础语法](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/ji-chu-yu-fa.md)
       * [Java 对象和类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-dui-xiang-he-lei.md)
       * [Java 基本数据类型](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-dui-xiang-he-lei/java-ji-ben-shu-ju-lei-xing.md)
+      * [Java 变量类型](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-bian-liang-lei-xing.md)
   * 图书
     * [Spring MVC+MYBatis企业应用实战](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan.md)
       * [1、Java EE 应用](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong.md)
