@@ -169,6 +169,9 @@
       * [Java 基本数据类型](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-dui-xiang-he-lei/java-ji-ben-shu-ju-lei-xing.md)
       * [Java 变量类型](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-bian-liang-lei-xing.md)
       * [Java 修饰符](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-xiu-shi-fu.md)
+      * [Java 运算符](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-yun-suan-fu.md)
+      * [Java Number & Math 类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-number-and-math-lei.md)
+      * [Java Character 类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-character-lei.md)
     * [注解](hou-duan-kai-fa/java/zhu-jie.md)
   * 图书
     * [Spring MVC+MYBatis企业应用实战](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan.md)
