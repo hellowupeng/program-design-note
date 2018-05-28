@@ -205,4 +205,6 @@
     * [SQL 简介](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-jian-jie.md)
     * [SQL 语法](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-yu-fa.md)
     * [SQL SELECT 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-select-yu-ju.md)
+    * [SQL SELECT DISTINCT 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-select-distinct-yu-ju.md)
+    * [SQL WHERE 子句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-where-zi-ju.md)
 
