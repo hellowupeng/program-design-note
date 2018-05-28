@@ -96,11 +96,31 @@ SDWebImage 提供了对图片进行缓存，主要由 SDImageCache 完成。该�
 
    部分清理 会根据设置的一些参数移除部分文件，主要有两个指标：文件的缓存有效期（maxCacheAge: 默认是一周）和最大缓存空间大小（maxCacheSize: ）
 
-小结
+##### 小结
+
+SDImageCache 除了提供以上 API，还提供了获取缓存大小，缓存中图片数据等 API。
 
 ##### SDWebImageManger
 
+实际使用中并不直接使用SDWebImageDownloader和SDImageCache类对图片进行下载和存储，而是使用SDWebImageManager来管理。包括平常使用UIImageView+WebCache等控件的分类，都是使用SDWebImageManager来处理，该对象内部定义了一个图片下载器（SDWebImageDownloader）和图片缓存（SDImageCache）。
+
 ##### 视图扩展
+
+### 技术点
+
+1、dispatch\_barrier\_sync函数，用于对操作设置顺序，确保在执行完任务后再确保后续操作。常用于确保线程安全性操作。
+
+2、NSMutableURLRequest：用于创建一个网络请求对象，可以根据需要来配置请求报头等信息
+
+3、NSOperation及NSOperationQueue：操作队列是OC中一种告诫的并发处理方法，基于GCD实现，相对于GCD来说，操作队列的优点是可以取消在任务处理队列中的任务，另外在管理操作间的依赖关系方面容易一些，对SDWebImage中我们看到如何使用依赖将下载顺序设置成后进先出的顺序
+
+4、NSURLSession：用于网络请求及相应处理
+
+5、NSCache类：一个类似于集合的容器，存储key-value对，这一点类似于nsdictionary类，我们通常用使用缓存来临时存储短时间使用但创建昂贵的对象。重用这些对象可以优化性能，因为它们的值不需要重新计算。另外一方面，这些对象对于程序来说不是紧要的，在内存紧张时会被丢弃
+
+6、清理缓存图片的策略：特别是最大缓存空间大小的设置。如果所有缓存文件的总大小超过这一大小，则会按照文件最后修改时间的逆序，以每次一半的递归来移除那些过早的文件，直到缓存的实际大小小于我们设置的最大使用空间。
+
+7、图片解压操作：这一操作可以查看SDWebImageDecoder.m中+decodedImageWithImage方法的实现。
 
 
 
