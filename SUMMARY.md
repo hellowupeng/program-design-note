@@ -12,7 +12,7 @@
     * [线性表](chapter1/shu-ju-jie-gou-yu-suan-fa/xian-xing-biao.md)
   * [算法](chapter1/chang-yong-suan-fa.md)
     * [动态规划](chapter1/chang-yong-suan-fa/dong-tai-gui-hua.md)
-    * LeetCode算法题目
+    * [LeetCode算法题目](chapter1/chang-yong-suan-fa/leetcodesuan-fa-ti-mu.md)
     * [面试题](chapter1/chang-yong-suan-fa/mian-shi-ti.md)
     * [图书](chapter1/chang-yong-suan-fa/book.md)
       * [算法图解](chapter1/chang-yong-suan-fa/book/suan-fa-tu-jie.md)
@@ -113,6 +113,9 @@
         * [图形上下文（Graphics Contexts）](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan/tu-xingshang-xia-wen-ff08-graphics-contexts.md)
         * [路径 Paths](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan/lu-jing-paths.md)
         * [颜色和颜色空间](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan/yan-se-he-yan-se-kong-jian.md)
+        * [变换](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan/bian-huan.md)
+        * [图案](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan/mo-shi.md)
+        * [阴影](ios-kai-fa/cocoa-touch/hui-tu/quartz-2d-bian-cheng-zhi-nan/yin-ying.md)
     * [音频](ios-kai-fa/cocoa-touch/yin-pin.md)
       * 音频编码
     * [视频](ios-kai-fa/cocoa-touch/shi-pin.md)
