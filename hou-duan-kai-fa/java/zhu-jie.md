@@ -24,7 +24,7 @@ public class Test {
 
 ### 元注解
 
- 元注解是可以注解到注解上的注解，或者说元注解是一种基本注解，能够应用到其他的注解上面。
+元注解是可以注解到注解上的注解，或者说元注解是一种基本注解，能够应用到其他的注解上面。
 
 （元注解也是一张标签，但是它是一张特殊的标签，它的作用和目的是给其他普通的标签进行解释说明的。）
 
@@ -133,7 +133,7 @@ public class SuperMan {}
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TestAnnotation {
     int id();
-    
+
     String msg();
 }
 ```
@@ -155,9 +155,9 @@ public class Test {}
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TestAnnotation {
-    
+
     public int id() default -1;
-    
+
     public String msg() default "Hi";
 }
 ```
@@ -219,7 +219,7 @@ public class Hero {
     public void say() {
         System.out.println("Nothing has to say!");
     }
-    
+
     public void speak() {
         System.out.println("I have a dream!");
     }
@@ -295,7 +295,7 @@ public class Test {
         boolean hasAnnotation = Test.class.isAnnotationPresent(TestAnnotation.class);
         if (hasAnnotation) {
             TestAnnotation testAnnotation = Test.class.getAnnotation(TestAnnotation.class);
-            
+
             System.out.println("id:"+testAnnotation.id());
             System.out.println("msg:"+testAnnotation.msg());
         }
