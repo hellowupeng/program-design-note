@@ -172,6 +172,8 @@
       * [Java 运算符](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-yun-suan-fu.md)
       * [Java Number & Math 类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-number-and-math-lei.md)
       * [Java Character 类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-character-lei.md)
+      * [Java String 类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-string-lei.md)
+      * [Java StringBuffer 和 StringBuilder 类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-stringbuffer-he-stringbuilder-lei.md)
     * [注解](hou-duan-kai-fa/java/zhu-jie.md)
   * 图书
     * [Spring MVC+MYBatis企业应用实战](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan.md)
