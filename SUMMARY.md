@@ -179,6 +179,9 @@
       * [Java StringBuffer 和 StringBuilder 类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-stringbuffer-he-stringbuilder-lei.md)
       * [Java 数组](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-shu-zu.md)
       * [Java 方法](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-fang-fa.md)
+      * [Java 流（Stream）、文件（File）和 IO](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-liu-ff08-stream-ff09-3001-wen-jian-ff08-file-ff09-he-io.md)
+      * [Java Scanner 类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-scanner-lei.md)
+      * [Java 异常处理](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-yi-chang-chu-li.md)
     * [注解](hou-duan-kai-fa/java/zhu-jie.md)
   * 图书
     * [Spring MVC+MYBatis企业应用实战](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan.md)
