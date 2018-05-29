@@ -237,4 +237,5 @@
     * [SQL ORDER BY 关键字](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-order-by-guan-jian-zi.md)
     * [SQL INSERT INTO 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-insert-into-yu-ju.md)
     * [SQL UPDATE 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-update-yu-ju.md)
+    * [SQL DELETE 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-delete-yu-ju.md)
 
