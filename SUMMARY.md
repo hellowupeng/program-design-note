@@ -254,6 +254,9 @@
         * [7.2 文件下载](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/7spring-mvc-de-wen-jian-shang-chuan-xia-zai-he-lan-jie-qi-ji-zhi/72-wen-jian-xia-zai.md)
         * [7.3 拦截器](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/7spring-mvc-de-wen-jian-shang-chuan-xia-zai-he-lan-jie-qi-ji-zhi/73-lan-jie-qi.md)
       * [8、MyBatis简介](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/8mybatisjian-jie.md)
+        * [8.1 ORM和MyBatis](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/8mybatisjian-jie/81-ormhe-mybatis.md)
+          * [8.1.1 对象/关系数据库映射（ORM）](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/8mybatisjian-jie/81-ormhe-mybatis/811-dui-8c61-guan-xi-shu-ju-ku-ying-she-ff08-orm.md)
+          * [8.1.2 基本映射方式](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/8mybatisjian-jie/81-ormhe-mybatis/812-ji-ben-ying-she-fang-shi.md)
   * Spring Framework
     * [Spring Framework 5 新特性](hou-duan-kai-fa/spring-framework-5.md)
   * [SQL 教程（菜鸟教程）](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng.md)
