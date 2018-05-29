@@ -249,6 +249,11 @@
           * [6.4.1 Spring 的 Validation 校验框架](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/6spring-mvcde-shu-ju-zhuan-huan-3001-ge-shi-hua-he-shu-ju-xiao-yan/64-shu-ju-xiao-yan/641-spring-de-validation-xiao-yan-kuang-jia.md)
           * [6.4.2 JSR 303校验](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/6spring-mvcde-shu-ju-zhuan-huan-3001-ge-shi-hua-he-shu-ju-xiao-yan/64-shu-ju-xiao-yan/642-jsr-303xiao-yan.md)
         * [6.5 本章小结](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/6spring-mvcde-shu-ju-zhuan-huan-3001-ge-shi-hua-he-shu-ju-xiao-yan/65-ben-zhang-xiao-jie.md)
+      * [7、Spring MVC 的文件上传下载和拦截器机制](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/7spring-mvc-de-wen-jian-shang-chuan-xia-zai-he-lan-jie-qi-ji-zhi.md)
+        * [7.1 文件上传](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/7spring-mvc-de-wen-jian-shang-chuan-xia-zai-he-lan-jie-qi-ji-zhi/71-wen-jian-shang-chuan.md)
+        * [7.2 文件下载](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/7spring-mvc-de-wen-jian-shang-chuan-xia-zai-he-lan-jie-qi-ji-zhi/72-wen-jian-xia-zai.md)
+        * [7.3 拦截器](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/7spring-mvc-de-wen-jian-shang-chuan-xia-zai-he-lan-jie-qi-ji-zhi/73-lan-jie-qi.md)
+      * [8、MyBatis简介](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/8mybatisjian-jie.md)
   * Spring Framework
     * [Spring Framework 5 新特性](hou-duan-kai-fa/spring-framework-5.md)
   * [SQL 教程（菜鸟教程）](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng.md)
