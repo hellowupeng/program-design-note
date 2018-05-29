@@ -247,6 +247,8 @@
         * [6.3 数据格式化](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/6spring-mvcde-shu-ju-zhuan-huan-3001-ge-shi-hua-he-shu-ju-xiao-yan/63-shu-ju-ge-shi-hua.md)
         * [6.4 数据校验](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/6spring-mvcde-shu-ju-zhuan-huan-3001-ge-shi-hua-he-shu-ju-xiao-yan/64-shu-ju-xiao-yan.md)
           * [6.4.1 Spring 的 Validation 校验框架](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/6spring-mvcde-shu-ju-zhuan-huan-3001-ge-shi-hua-he-shu-ju-xiao-yan/64-shu-ju-xiao-yan/641-spring-de-validation-xiao-yan-kuang-jia.md)
+          * [6.4.2 JSR 303校验](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/6spring-mvcde-shu-ju-zhuan-huan-3001-ge-shi-hua-he-shu-ju-xiao-yan/64-shu-ju-xiao-yan/642-jsr-303xiao-yan.md)
+        * [6.5 本章小结](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/6spring-mvcde-shu-ju-zhuan-huan-3001-ge-shi-hua-he-shu-ju-xiao-yan/65-ben-zhang-xiao-jie.md)
   * Spring Framework
     * [Spring Framework 5 新特性](hou-duan-kai-fa/spring-framework-5.md)
   * [SQL 教程（菜鸟教程）](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng.md)
