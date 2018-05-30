@@ -185,6 +185,7 @@
       * [Java 继承](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-ji-cheng.md)
       * [Java 重写（Override）与重载（Overload）](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-zhong-xie-ff08-override-ff09-yu-zhong-zai-ff08-overload.md)
       * [Java 多态](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-duo-tai.md)
+      * [Java 抽象类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-chou-xiang-lei.md)
     * [注解](hou-duan-kai-fa/java/zhu-jie.md)
   * 图书
     * [Spring MVC+MYBatis企业应用实战](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan.md)
