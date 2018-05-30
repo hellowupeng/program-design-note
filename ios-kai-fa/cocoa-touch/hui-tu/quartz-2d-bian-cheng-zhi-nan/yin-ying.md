@@ -82,24 +82,24 @@ void MyDrawWithShadows (CGContextRef myContext, // 1
     CGFloat           myColorValues[] = {1, 0, 0, .6};// 3
     CGColorRef      myColor;// 4
     CGColorSpaceRef myColorSpace;// 5
- 
+
     CGContextSaveGState(myContext);// 6
- 
+
     CGContextSetShadow (myContext, myShadowOffset, 5); // 7
     // Your drawing code here// 8
     CGContextSetRGBFillColor (myContext, 0, 1, 0, 1);
     CGContextFillRect (myContext, CGRectMake (wd/3 + 75, ht/2 , wd/4, ht/4));
- 
+
     myColorSpace = CGColorSpaceCreateDeviceRGB ();// 9
     myColor = CGColorCreate (myColorSpace, myColorValues);// 10
     CGContextSetShadowWithColor (myContext, myShadowOffset, 5, myColor);// 11
     // Your drawing code here// 12
     CGContextSetRGBFillColor (myContext, 0, 0, 1, 1);
     CGContextFillRect (myContext, CGRectMake (wd/3-75,ht/2-100,wd/4,ht/4));
- 
+
     CGColorRelease (myColor);// 13
     CGColorSpaceRelease (myColorSpace); // 14
- 
+
     CGContextRestoreGState(myContext);// 15
 }
 ```
@@ -135,8 +135,6 @@ void MyDrawWithShadows (CGContextRef myContext, // 1
 14. 释放颜色空间对象，因为它不再需要。
 
 15. 将图形状态恢复到设置阴影之前的状态。
-
-
 
 
 
