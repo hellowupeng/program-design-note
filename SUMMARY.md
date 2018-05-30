@@ -288,4 +288,5 @@
     * [SQL INSERT INTO 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-insert-into-yu-ju.md)
     * [SQL UPDATE 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-update-yu-ju.md)
     * [SQL DELETE 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-delete-yu-ju.md)
+  * [MySQL 教程（菜鸟教程）](hou-duan-kai-fa/mysql-jiao-cheng.md)
 
