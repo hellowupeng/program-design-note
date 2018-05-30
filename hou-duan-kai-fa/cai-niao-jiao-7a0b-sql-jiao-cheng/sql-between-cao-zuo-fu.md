@@ -41,5 +41,3 @@ WHERE date BETWEEN '2016-05-10' AND '2016-05-14';
 
 
 
-
-
