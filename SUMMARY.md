@@ -182,6 +182,8 @@
       * [Java 流（Stream）、文件（File）和 IO](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-liu-ff08-stream-ff09-3001-wen-jian-ff08-file-ff09-he-io.md)
       * [Java Scanner 类](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-scanner-lei.md)
       * [Java 异常处理](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-yi-chang-chu-li.md)
+      * [Java 继承](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-ji-cheng.md)
+      * [Java 重写（Override）与重载（Overload）](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-zhong-xie-ff08-override-ff09-yu-zhong-zai-ff08-overload.md)
     * [注解](hou-duan-kai-fa/java/zhu-jie.md)
   * 图书
     * [Spring MVC+MYBatis企业应用实战](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan.md)
