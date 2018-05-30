@@ -294,6 +294,7 @@
     * [SQL IN 操作符](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-in-cao-zuo-fu.md)
     * [SQL BETWEEN 操作符](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-between-cao-zuo-fu.md)
     * [SQL 别名](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-bie-ming.md)
+    * [SQL 连接（JOIN）](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-lian-jie-ff08-join.md)
   * [MySQL 教程（菜鸟教程）](hou-duan-kai-fa/mysql-jiao-cheng.md)
     * [MySQL 安装](hou-duan-kai-fa/mysql-jiao-cheng/mysql-an-zhuang.md)
     * [MySQL 管理](hou-duan-kai-fa/mysql-jiao-cheng/mysql-guan-li.md)
