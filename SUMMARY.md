@@ -335,4 +335,5 @@
     * [MySQL 创建数据库](hou-duan-kai-fa/mysql-jiao-cheng/mysql-chuang-jian-shu-ju-ku.md)
     * [MySQL 删除数据库](hou-duan-kai-fa/mysql-jiao-cheng/mysql-shan-chu-shu-ju-ku.md)
     * [MySQL 选择数据库](hou-duan-kai-fa/mysql-jiao-cheng/mysql-xuan-ze-shu-ju-ku.md)
+    * [MySQL 数据类型](hou-duan-kai-fa/mysql-jiao-cheng/mysql-shu-ju-lei-xing.md)
 
