@@ -120,7 +120,7 @@ OpenGL中，GPU屏幕渲染有以下两种方式：
 
 * layer.shadows，\(表示相关的shadow开头的属性\)，使用shadowPath代替。
 
-  两种不同方式来绘制阴影： 
+  两种不同方式来绘制阴影：
 
   不使用shadowPath![](/assets/不使用shadowPath.png)使用shadowPath：![](/assets/使用shadowPath.png)性能差别，如下图：![](/assets/阴影性能差别.png)
 
@@ -162,7 +162,7 @@ OpenGL中，GPU屏幕渲染有以下两种方式：
 
 ###### 异步渲染
 
-在子线程绘制，主线程渲染。例如 [VVeboTableViewDemo](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fjohnil%2FVVeboTableViewDemo)![](/assets/异步渲染.png)
+在子线程绘制，主线程渲染。例如 [VVeboTableViewDemo](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fjohnil%2FVVeboTableViewDemo)![](/assets/异步渲染.png)
 
 ##### 理性使用-drawRect:
 
@@ -178,7 +178,7 @@ OpenGL中，GPU屏幕渲染有以下两种方式：
 
 * 利用[runloop](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdiwu%2FRunLoopWorkDistribution)提高滑动流畅性，在滑动停止的时候再加载内容，像那种一闪而过的（快速滑动），就没有必要加载，可以使用默认的占位符填充内容。
 
-### [关于性能测试](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2F100mango%2Fzen%2Fblob%2Fmaster%2FWWDC%25E5%25BF%2583%25E5%25BE%2597%25EF%25BC%259AAdvanced%2520Graphics%2520and%2520Animations%2520for%2520iOS%2520Apps%2FAdvanced%2520Graphics%2520and%2520Animations%2520for%2520iOS%2520Apps.md%23%25E6%25B5%258B%25E8%25AF%2595%25E5%25B7%25A5%25E5%2585%25B7)
+### [关于性能测试](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2F100mango%2Fzen%2Fblob%2Fmaster%2FWWDC%E5%BF%83%E5%BE%97%EF%BC%9AAdvanced Graphics and Animations for iOS Apps%2FAdvanced Graphics and Animations for iOS Apps.md%23%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7)
 
 在出现图像性能问题，滑动，动画不够流畅之后，我们首先要做的就是定位出问题的所在。而这个过程并不是只靠经验和穷举法探索，我们应该用有脉络，有顺序的科学的手段进行探索。
 
@@ -216,7 +216,7 @@ OpenGL中，GPU屏幕渲染有以下两种方式：
 
 * [iOS 保持界面流畅的技巧](https://link.juejin.im/?target=https%3A%2F%2Fblog.ibireme.com%2F2015%2F11%2F12%2Fsmooth_user_interfaces_for_ios%2F)
 
-* [Advanced Graphics and Animations for iOS Apps\(session 419\)](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2F100mango%2Fzen%2Fblob%2Fmaster%2FWWDC%25E5%25BF%2583%25E5%25BE%2597%25EF%25BC%259AAdvanced%2520Graphics%2520and%2520Animations%2520for%2520iOS%2520Apps%2FAdvanced%2520Graphics%2520and%2520Animations%2520for%2520iOS%2520Apps.md)
+* [Advanced Graphics and Animations for iOS Apps\(session 419\)](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2F100mango%2Fzen%2Fblob%2Fmaster%2FWWDC%E5%BF%83%E5%BE%97%EF%BC%9AAdvanced Graphics and Animations for iOS Apps%2FAdvanced Graphics and Animations for iOS Apps.md)
 
 * [使用 ASDK 性能调优 - 提升 iOS 界面的渲染性能](https://link.juejin.im/?target=https%3A%2F%2Fdraveness.me%2Fasdk-rendering)
 
