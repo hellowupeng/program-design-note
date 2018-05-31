@@ -331,4 +331,8 @@
   * [MySQL 教程（菜鸟教程）](hou-duan-kai-fa/mysql-jiao-cheng.md)
     * [MySQL 安装](hou-duan-kai-fa/mysql-jiao-cheng/mysql-an-zhuang.md)
     * [MySQL 管理](hou-duan-kai-fa/mysql-jiao-cheng/mysql-guan-li.md)
+    * [MySQL 连接](hou-duan-kai-fa/mysql-jiao-cheng/mysql-lian-jie.md)
+    * [MySQL 创建数据库](hou-duan-kai-fa/mysql-jiao-cheng/mysql-chuang-jian-shu-ju-ku.md)
+    * [MySQL 删除数据库](hou-duan-kai-fa/mysql-jiao-cheng/mysql-shan-chu-shu-ju-ku.md)
+    * [MySQL 选择数据库](hou-duan-kai-fa/mysql-jiao-cheng/mysql-xuan-ze-shu-ju-ku.md)
 
