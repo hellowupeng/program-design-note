@@ -199,6 +199,9 @@
       * [Java 封装](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-feng-zhuang.md)
       * [Java 接口](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-jie-kou.md)
       * [Java 包](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-bao.md)
+      * [Java 数据结构](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-shu-ju-jie-gou.md)
+      * [Java 集合框架](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-ji-he-kuang-jia.md)
+      * [Java 泛型](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-fan-xing.md)
     * [注解](hou-duan-kai-fa/java/zhu-jie.md)
   * 图书
     * [Spring MVC+MYBatis企业应用实战](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan.md)
