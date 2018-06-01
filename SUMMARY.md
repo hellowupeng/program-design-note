@@ -134,6 +134,18 @@
       * 音频编码
     * [视频](ios-kai-fa/cocoa-touch/shi-pin.md)
       * [视频编码](ios-kai-fa/cocoa-touch/shi-pin/shi-pin-bian-ma.md)
+    * [Text](ios-kai-fa/cocoa-touch/text-bian-cheng.md)
+      * [iOS Text 编程指南](ios-kai-fa/cocoa-touch/text-bian-cheng/ios-text-bian-cheng-zhi-nan.md)
+        * [在iOS中显示文字内容](ios-kai-fa/cocoa-touch/text-bian-cheng/ios-text-bian-cheng-zhi-nan/zai-ios-zhong-xian-shi-wen-zi-nei-rong.md)
+        * [印刷概念](ios-kai-fa/cocoa-touch/text-bian-cheng/ios-text-bian-cheng-zhi-nan/yin-shua-gai-nian.md)
+        * [管理文本字段和文本视图](ios-kai-fa/cocoa-touch/text-bian-cheng/ios-text-bian-cheng-zhi-nan/guan-li-wen-ben-zi-duan-he-wen-ben-shi-tu.md)
+        * [管理键盘](ios-kai-fa/cocoa-touch/text-bian-cheng/ios-text-bian-cheng-zhi-nan/managing-the-keyboard.md)
+        * [复制，剪切和粘贴操作](ios-kai-fa/cocoa-touch/text-bian-cheng/ios-text-bian-cheng-zhi-nan/fu-zhi-ff0c-jian-qie-he-nian-tie-cao-zuo.md)
+        * [数据输入的自定义视图](ios-kai-fa/cocoa-touch/text-bian-cheng/ios-text-bian-cheng-zhi-nan/shu-ju-shu-ru-de-zi-ding-yi-shi-tu.md)
+        * 显示和管理编辑菜单
+        * [使用 Text Kit 绘制和管理文本](ios-kai-fa/cocoa-touch/text-bian-cheng/ios-text-bian-cheng-zhi-nan/shi-yong-text-kit-hui-zhi-he-guan-li-wen-ben.md)
+        * [底层文本处理技术](ios-kai-fa/cocoa-touch/text-bian-cheng/ios-text-bian-cheng-zhi-nan/di-ceng-wen-ben-chu-li-ji-zhu.md)
+      * [Core Text 编程指南](ios-kai-fa/cocoa-touch/text-bian-cheng/core-text-bian-cheng-zhi-nan.md)
   * [第三方库](ios-kai-fa/di-san-fang-ku.md)
     * [AFNetworking](ios-kai-fa/di-san-fang-ku/afnetworking.md)
     * [SDWebImage](ios-kai-fa/di-san-fang-ku/sdwebimage.md)
