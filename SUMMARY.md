@@ -350,6 +350,10 @@
     * [SQL RIGHT JOIN 关键字](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-right-join-guan-jian-zi.md)
     * [SQL FULL OUTER JOIN 关键字](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-full-outer-join-guan-jian-zi.md)
     * [SQL UNION 操作符](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-union-cao-zuo-fu.md)
+    * [SQL SELECT INTO 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-select-into-yu-ju.md)
+    * [SQL INSERT INTO SELECT 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-insert-into-select-yu-ju.md)
+    * [SQL CREATE DATABASE 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-create-database-yu-ju.md)
+    * [SQL CREATE TABLE 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-create-table-yu-ju.md)
   * [MySQL 教程（菜鸟教程）](hou-duan-kai-fa/mysql-jiao-cheng.md)
     * [MySQL 安装](hou-duan-kai-fa/mysql-jiao-cheng/mysql-an-zhuang.md)
     * [MySQL 管理](hou-duan-kai-fa/mysql-jiao-cheng/mysql-guan-li.md)
@@ -358,4 +362,5 @@
     * [MySQL 删除数据库](hou-duan-kai-fa/mysql-jiao-cheng/mysql-shan-chu-shu-ju-ku.md)
     * [MySQL 选择数据库](hou-duan-kai-fa/mysql-jiao-cheng/mysql-xuan-ze-shu-ju-ku.md)
     * [MySQL 数据类型](hou-duan-kai-fa/mysql-jiao-cheng/mysql-shu-ju-lei-xing.md)
+  * SQL INSERT INTO SELECT 语句
 
