@@ -109,7 +109,6 @@
         * [Core Data 与 OS X 整合](ios-kai-fa/cocoa-touch/shu-ju-chi-jiu-hua/core-data/core-data-yu-os-x-zheng-he.md)
         * [管理对象生命周期](ios-kai-fa/cocoa-touch/shu-ju-chi-jiu-hua/core-data/guan-li-dui-xiang-sheng-ming-zhou-qi.md)
         * [高级话题](ios-kai-fa/cocoa-touch/shu-ju-chi-jiu-hua/core-data/gao-ji-hua-ti.md)
-    * [常用设计模式](ios-kai-fa/cocoa-touch/chang-yong-she-ji-mo-shi.md)
     * [事件处理](ios-kai-fa/cocoa-touch/shi-jian-xiang-ying.md)
       * [关于事件](ios-kai-fa/cocoa-touch/shi-jian-xiang-ying/guan-yu-shi-jian.md)
       * [手势识别器](ios-kai-fa/cocoa-touch/shi-jian-xiang-ying/shou-shi-shi-bie-qi.md)
