@@ -177,13 +177,35 @@ UIKit框架提供了检测常见手势的预定义手势识别器。 在可能�
 
 ##### 响应连续手势
 
-### 定义手势识别器如何相互作用
+清单1-5以与手势相同的旋转角度显示“旋转”图像，并且当用户停止旋转时，动画化图像，使其在旋转回水平时淡出原位。随着用户旋转他的手指，不断调用`showGestureForRotationRecognizer：`方法，直到两个手指都抬起。
 
-### 手势识别器解释原始触摸事件
+清单1-5响应旋转手势
 
-### 调整触摸到视图的传递
+```
+// Respond to a rotation gesture
+- (IBAction)showGestureForRotationRecognizer:(UIRotationGestureRecognizer
+*)recognizer {
+       // Get the location of the gesture
+       CGPoint location = [recognizer locationInView:self.view];
+       // Set the rotation angle of the image view to
+       // match the rotation of the gesture
+       CGAffineTransform transform = CGAffineTransformMakeRotation([recognizer
+rotation]);
+       self.imageView.transform = transform;
+       // Display an image view at that location
+       [self drawImageForGestureRecognizer:recognizer atPoint:location];
+      // If the gesture has ended or is canceled, begin the animation
+      // back to horizontal and fade out
+      if (([recognizer state] == UIGestureRecognizerStateEnded) || ([recognizer
+state] == UIGestureRecognizerStateCancelled)) {
+           [UIView animateWithDuration:0.5 animations:^{
+                self.imageView.alpha = 0.0;
+                self.imageView.transform = CGAffineTransformIdentity;
+}]; }
+}
+```
 
-### 创建自定义手势识别器
+### 
 
 
 
