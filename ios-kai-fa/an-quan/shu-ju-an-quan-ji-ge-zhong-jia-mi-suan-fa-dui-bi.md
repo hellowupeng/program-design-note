@@ -37,10 +37,10 @@ base64解码：
 ```
 // 先对数据进行解码
 NSData *encData = [[NSData alloc]initWithBase64EncodedString:dataStr options:kNilOptions];
-   
+
 // 将二进制数据转换成字符串
 NSString *encStr = [[NSString alloc]initWithData:encData encoding:NSUTF8StringEncoding];
-    
+
 NSLog(@"%@", encStr);
 ```
 
@@ -105,8 +105,6 @@ MD4、MD5、SHA1、SHA256、SHA512等。
 **疑问一：单项散列函数为什么不可逆？？**
 
 原来好多同学知识知道md5加密是不可逆的，却不知道是为什么，其实散列函数可以将任意长度的输入经过变化得到不同的输出，如果存在两个不同的输入得到了相同的散列值，我们称之为这是一个碰撞，因为使用的hash算法，在计算过程中原文的部分信息是丢失了的，一个MD5理论上可以对应多个原文，因为MD5是有限多个，而原文是无限多个的。
-
-
 
 一个形象的例子：2 + 5 = 7，但是根据 7 的结果，却并不能推算出是由 2 + 5计算得来的。
 
