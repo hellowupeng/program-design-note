@@ -34,7 +34,5 @@ ClazzMapper. xml 中 定义 了 一个 ＜ select.../ ＞， 其 根据 id 查�
 
 lazyLoadingEnabled 属性 表示 延迟 加载 的 全局 开关。 当 开启 时， 所有 关联 对象 都会 延迟 加载。 默认 为 false。 aggressiveLazyLoading 属性 启用 时， 会使 带有 延迟 加载 属性 的 对象 立即 加载； 反之， 每种 属性 将会 按 需 加载。 默认 为 true， 所以 这里 需要 设置 成 false。
 
-StudentMapp.java
-
-![](/assets/onetomanystudentmapper.png)
+StudentMapp.java![](/assets/onetomanystudentmapper.png)
 
