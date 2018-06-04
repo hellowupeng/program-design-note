@@ -223,7 +223,61 @@ replacementString:(NSString *)string {
 
 ### 在文本字段中使用重叠视图
 
+在文本字段中显示叠加视图:
+
+```
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+     if (textField.tag == NameField && self.overlayButton) {
+        textField.leftView = self.overlayButton;
+        textField.leftViewMode = UITextFieldViewModeAlways;
+    }
+}
+ 
+@dynamic overlayButton;
+ 
+- (UIButton *)overlayButton {
+    if (!overlayButton) {
+        overlayButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        UIImage *overlayImage = [UIImage imageNamed:@"bookmark.png"];
+        if (overlayImage) {
+            [overlayButton setImage:overlayImage forState:UIControlStateNormal];
+            [overlayButton addTarget:self action:@selector(bookmarkTapped:)
+                forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
+    return overlayButton;
+}
+```
+
+删除覆盖视图：
+
+```
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+ 
+    if (textField.tag == NameFieldTag) {
+        textField.leftView = nil;
+    }
+    // remainder of implementation....
+}
+
+```
+
 ### 跟踪文本视图中的选择
+
+获取选定的子字符串并更改它：
+
+```
+- (void)textViewDidChangeSelection:(UITextView *)textView {
+    NSRange r = textView.selectedRange;
+    if (r.length == 0) {
+        return;
+    }
+    NSString *selText = [textView.text substringWithRange:r];
+    NSString *upString = [selText uppercaseString];
+    NSString *newString = [textView.text stringByReplacingCharactersInRange:r withString:upString];
+    textView.text = newString;
+}
+```
 
 
 
