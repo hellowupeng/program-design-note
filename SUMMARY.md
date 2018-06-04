@@ -366,6 +366,8 @@
     * [SQL 约束（Constraints）](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-yue-shu-ff08-constraints.md)
     * [SQL NOT NULL 约束](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-not-null-yue-shu.md)
     * [SQL UNIQUE 约束](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/sql-unique-yue-shu.md)
+    * [PRIMARY KEY 约束](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/primary-key-yue-shu.md)
+    * [FOREIGN KEY 约束](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/foreign-key-yue-shu.md)
   * [MySQL 教程（菜鸟教程）](hou-duan-kai-fa/mysql-jiao-cheng.md)
     * [MySQL 安装](hou-duan-kai-fa/mysql-jiao-cheng/mysql-an-zhuang.md)
     * [MySQL 管理](hou-duan-kai-fa/mysql-jiao-cheng/mysql-guan-li.md)
