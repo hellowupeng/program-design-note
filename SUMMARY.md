@@ -156,7 +156,7 @@
   * [其他](ios-kai-fa/qi-ta.md)
     * 秒开功能
     * Crash 分析
-  * OpenGL ES
+  * [OpenGL ES](ios-kai-fa/opengl-es.md)
   * GPUImage
   * 设计模式
     * MVC
