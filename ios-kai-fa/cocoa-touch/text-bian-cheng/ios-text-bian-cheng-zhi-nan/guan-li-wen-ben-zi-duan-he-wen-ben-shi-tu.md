@@ -68,7 +68,7 @@ enum {
 
 ```
 - (void)textFieldDidEndEditing:(UITextField *)textField {
- 
+
     switch (textField.tag) {
         case NameFieldTag:
             // do something with this text field
@@ -89,7 +89,7 @@ enum {
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if ([textField.text isEqualToString:@""])
         return;
- 
+
     switch (textField.tag) {
         case NameFieldTag:
             [thePerson setObject:textField.text forKey:MyAppPersonNameKey];
@@ -139,7 +139,7 @@ Foundation框架提供了抽象基类`NSFormatter`和该类的两个具体子类
     [dateFormatter setTimeZone:[NSTimeZone defaultTimeZone]];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle]; // example: 4/13/10
     DOB.placeholder = [NSString stringWithFormat:@"Example: %@", [dateFormatter stringFromDate:[NSDate date]]];
- 
+
     // code continues....
 }
 ```
@@ -216,7 +216,7 @@ replacementString:(NSString *)string {
             return NO;
         }
     }
- 
+
     return YES;
 }
 ```
