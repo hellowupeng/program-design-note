@@ -1,4 +1,4 @@
-# SQL SELECT TOP, LIMIT, ROWNUM 子句
+# SELECT TOP, LIMIT, ROWNUM 子句
 
 SELECT TOP 子句用于规定要返回的记录的数目。
 

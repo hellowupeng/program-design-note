@@ -1,18 +1,14 @@
-# SQL WHERE 子句
+# WHERE 子句
 
 WHERE 子句用于过滤记录。
 
-WHERE 子句用于提取那些满足指定标准的记录。
-
-### SQL WHERE 语法
+### 语法
 
 ```
 SELECT column_name,column_name
 FROM table_name
 WHERE column_name operator value;
 ```
-
-### 演示数据库
 
 Websites 表：
 
@@ -38,7 +34,7 @@ SELECT * FROM Websites WHERE country='CN';
 
 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。
 
-如果是数值字段，请不要使用引号。
+如果是数值字段，不要使用引号。
 
 实例：
 

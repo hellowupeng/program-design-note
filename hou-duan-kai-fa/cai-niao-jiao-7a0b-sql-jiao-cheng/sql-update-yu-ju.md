@@ -1,8 +1,8 @@
-# SQL UPDATE 语句
+# UPDATE 语句
 
 UPDATE 语句用于更新表中的记录。
 
-### SQL UPDATE 语法
+### 语法
 
 ```
 UPDATE table_name
@@ -24,7 +24,7 @@ WHERE some_column=some_value;
 +----+--------------+---------------------------+-------+---------+
 ```
 
-### SQL UPDATE 实例
+### 实例
 
 ```
 UPDATE Websites 
@@ -33,6 +33,4 @@ WHERE name='菜鸟教程';
 ```
 
 输出结果：![](/assets/sql update 实例.png)
-
-
 

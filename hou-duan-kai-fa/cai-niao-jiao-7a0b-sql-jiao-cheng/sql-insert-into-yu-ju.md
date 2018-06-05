@@ -1,8 +1,8 @@
-# SQL INSERT INTO 语句
+# INSERT INTO 语句
 
 INSERT INTO 语句用于向表中插入新记录。
 
-### SQL INSERT INTO 语法
+### 语法
 
 第一种形式无需指定要插入数据的列名，只需提供被插入的值即可：
 
@@ -32,7 +32,7 @@ VALUES (value1,value2,value3,...);
 +----+--------------+---------------------------+-------+---------+
 ```
 
-### INSERT INTO 实例
+### 实例
 
 ```
 INSERT INTO Websites (name, url, alexa, country)

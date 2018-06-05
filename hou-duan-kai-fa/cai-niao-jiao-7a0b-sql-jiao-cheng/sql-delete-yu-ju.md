@@ -1,8 +1,8 @@
-# SQL DELETE 语句
+# DELETE 语句
 
 DELETE 语句用于删除表中的记录。
 
-### SQL DELETE 语法
+### 语法
 
 ```
 DELETE FROM table_name
@@ -25,7 +25,7 @@ WHERE some_column=some_value;
 +----+---------------+---------------------------+-------+---------+
 ```
 
-### SQL DELETE 实例
+### 实例
 
 ```
 DELETE FROM Websites
@@ -45,8 +45,6 @@ DELETE FROM table_name;
 
 DELETE * FROM table_name;
 ```
-
-
 
 
 
