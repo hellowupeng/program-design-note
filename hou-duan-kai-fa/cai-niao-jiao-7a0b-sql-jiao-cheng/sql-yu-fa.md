@@ -31,23 +31,19 @@ mysql> SELECT * FROM Websites;
 * `SELECT * FROM Websites;` 读取数据表的信息。
 * 上面的表包含五条记录（每一条对应一个网站信息）和5个列（id、name、url、alexa 和 country）。
 
-> 注意
->
-> SQL 对大小写不敏感：SELECT 与 select 是相同的。
+> 注意: SQL 对大小写不敏感：SELECT 与 select 是相同的。
 
 ### 分号
 
-分号是在数据库系统中分隔每条 SQL 语句的标准方法，这样就可以在对服务器的相同请求中执行一条以上的 SQL 语句。
+### 重要的 SQL 命令
 
-### 一些最重要的 SQL 命令
+* **SELECT - **从数据库提取数据
 
-* **SELECT - **从数据库中提取数据
+* **UPDATE - **更新数据库数据
 
-* **UPDATE - **更新数据库中的数据
+* **DELETE - **从数据库删除数据
 
-* **DELETE - **从数据库中删除数据
-
-* **INSERT INTO - **向数据库中插入新数据
+* **INSERT INTO - **向数据库插入新数据
 
 * **CREATE DATABASE - **创建新数据库
 
@@ -55,7 +51,7 @@ mysql> SELECT * FROM Websites;
 
 * **CREATE TABLE - **创建新表
 
-* **ALTER TABLE - **变更（改变）数据库表
+* **ALTER TABLE - **变更数据库表
 
 * **DROP TABLE - **删除表
 
