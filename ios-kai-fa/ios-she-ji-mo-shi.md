@@ -53,11 +53,11 @@
  --------可选--------
  4.如果要支持copy。则（先遵守NSCopying协议）重写 copyWithZone，直接返回 _instance 即可。
  */
- 
+
 /** 第1步：存储唯一实例 */
 static XNShareTool *_instance;
 
-/** 第2步：分配内存空间时会调用这个方法。保证分配分配内存 alloc 时都相同 */
+/** 第2步：分配内存空间时会调用这个方法。保证分配内存 alloc 时都相同 */
 +(id)allocWithZone:(struct _NSZone *)zone
 {
    // 调用 dispatch_once 保证在多线程中也只被实例化一次
@@ -110,6 +110,4 @@ Notifications 和 Key-Value Observing\(KVO\)。
 ### 命令模式
 
 通过 Target\_Action 机制和 Invocation 实现命令模式。
-
-
 
