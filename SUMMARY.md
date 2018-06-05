@@ -230,6 +230,10 @@
       * [Java 网络编程](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-wang-luo-bian-cheng.md)
       * [Java 发送邮件](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-fa-song-you-jian.md)
       * [Java 多线程编程](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-duo-xian-cheng-bian-cheng.md)
+      * [Java 8 新特性](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-8-xin-te-xing.md)
+        * [Java 8 Lambda 表达式](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-8-xin-te-xing/java-8-lambda-biao-da-shi.md)
+        * [Java 8 默认方法](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-8-xin-te-xing/java-8-mo-ren-fang-fa.md)
+        * [Stream](hou-duan-kai-fa/java/cai-niao-jiao-cheng-java-jiao-cheng/java-8-xin-te-xing/stream.md)
     * [注解](hou-duan-kai-fa/java/zhu-jie.md)
   * 图书
     * [Spring MVC+MYBatis企业应用实战](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan.md)
