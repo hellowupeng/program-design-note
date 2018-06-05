@@ -22,5 +22,7 @@ END
 
 3. （3） LAST\_ INSERT\_ ID（） 是 MySQL 的 函数， 和 AUTO\_ INCREMENT 属性 一起 使用， 当 往 带有 AUTO\_ INCREMENT 属性 字段 的 表中 新增 数据 时， LAST\_ INSERT\_ ID（） 函数 返回 该 字段 的 值。
 
+org.fkit.mapper.UserMapper.xml![](/assets/调用存储过程usermapper.png)＜ insert…/ ＞ 元素 调用 名为“ insert\_ user” 的 存储 过程 完成 一个 插入 数据 的 操作。 调用 存储 过程 时， 需要 把 statementType 属 性的 值 设置 为“ CALLABLE”。“ call” 是 用来 调用 存储 过程 的 关键字， 需要 注意 的 是， OUT 模式 的 参数 必须 指定 jdbcType， 这是 因为 在 IN 模式 下， MyBatis 提供 了 默认 的 jdbcType， 而在 OUT 模式 下 没有 提供。
+
 
 
