@@ -361,6 +361,9 @@
           * [10.4.1 事务的概念](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/103001-shen-ru-shi-yong-mybatis/104-mybatis-shi-wu-guan-li/1041-shi-wu-de-gai-nian.md)
           * [10.4.2 Transaction 接口](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/103001-shen-ru-shi-yong-mybatis/104-mybatis-shi-wu-guan-li/1042-transaction-jie-kou.md)
           * [10.4.3 事务的配置创建和使用](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/103001-shen-ru-shi-yong-mybatis/104-mybatis-shi-wu-guan-li/1043-shi-wu-de-pei-zhi-chuang-jian-he-shi-yong.md)
+        * [10.5 MyBatis 缓存机制](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/103001-shen-ru-shi-yong-mybatis/105-mybatis-huan-cun-ji-zhi.md)
+          * [10.5.1 一级缓存（SqlSession级别）](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/103001-shen-ru-shi-yong-mybatis/105-mybatis-huan-cun-ji-zhi/1051-yi-ji-huan-cun-ff08-sqlsession-ji-bie-ff09.md)
+          * [10.5.2 二级缓存（mapper级别）](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/103001-shen-ru-shi-yong-mybatis/105-mybatis-huan-cun-ji-zhi/1052-er-ji-huan-cun-ff08-mapper-ji-bie-ff09.md)
   * [Spring Framework](hou-duan-kai-fa/spring-framework.md)
     * [Spring Framework 5 新特性](hou-duan-kai-fa/spring-framework-5.md)
   * [SQL 教程（菜鸟教程）](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng.md)
@@ -406,5 +409,4 @@
     * [MySQL 删除数据库](hou-duan-kai-fa/mysql-jiao-cheng/mysql-shan-chu-shu-ju-ku.md)
     * [MySQL 选择数据库](hou-duan-kai-fa/mysql-jiao-cheng/mysql-xuan-ze-shu-ju-ku.md)
     * [MySQL 数据类型](hou-duan-kai-fa/mysql-jiao-cheng/mysql-shu-ju-lei-xing.md)
-  * SQL INSERT INTO SELECT 语句
 
