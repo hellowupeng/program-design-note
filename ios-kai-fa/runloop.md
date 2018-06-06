@@ -28,7 +28,7 @@ int main(int argc, char * argv[]) {
 
 堆栈最底层是start\(dyld\)，往上依次是main，UIApplication\(main.m\) -&gt; GSEventRunModal\(Graphic Services\) -&gt;
 
- RunLoop\(包含CFRunLoopRunSpecific，\_\_CFRunLoopRun，\_\_CFRunLoopDoSouces0，**CFRUNLOOP\_IS\_CALLING\_OUT\_TO\_A\_SOURCE0\_PERFORM\_FUNCTION**\) -&gt; Handle Touch Event
+RunLoop\(包含CFRunLoopRunSpecific，\_\_CFRunLoopRun，\_\_CFRunLoopDoSouces0，**CFRUNLOOP\_IS\_CALLING\_OUT\_TO\_A\_SOURCE0\_PERFORM\_FUNCTION**\) -&gt; Handle Touch Event
 
 ### RunLoop 原理
 
@@ -88,7 +88,7 @@ RunLoop只能运行在一种mode下，如果要换mode当前的loop也需要停�
      selector:@selector(timerTick:)
      userInfo:nil
      repeats:YES];
-     
+
 //然后再添加到NSRunLoopCommonModes里
 NSTimer *timer = [NSTimer timerWithTimeInterval:1.0
      target:self
