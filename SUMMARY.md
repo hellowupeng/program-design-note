@@ -253,7 +253,7 @@
           * [1.2.2 MyBatis 及替代技术](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu/122-mybatis-ji-ti-dai-ji-zhu.md)
           * [1.2.3 Spring4 及替代技术](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu/123-spring4-ji-ti-dai-ji-zhu.md)
           * [1.2.4 使用开源框架的好处](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/java-ee-ying-yong/12-qing-liang-ji-java-ee-ying-yong-xiang-guan-ji-zhu/124-shi-yong-kai-yuan-kuang-jia-de-hao-chu.md)
-      * [c](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/c.md)
+      * [2、Spring MVC 简介](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/c.md)
         * 2.1 MVC 思想概述
           * [2.1.1 传统 Model1 和 Model2](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/211-chuan-tong-model1-he-model2.md)
           * [2.1.2 MVC 思想及其优势](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/212-mvc-si-xiang-ji-qi-you-shi.md)
@@ -366,8 +366,6 @@
           * [10.5.1 一级缓存（SqlSession级别）](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/103001-shen-ru-shi-yong-mybatis/105-mybatis-huan-cun-ji-zhi/1051-yi-ji-huan-cun-ff08-sqlsession-ji-bie-ff09.md)
           * [10.5.2 二级缓存（mapper级别）](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/103001-shen-ru-shi-yong-mybatis/105-mybatis-huan-cun-ji-zhi/1052-er-ji-huan-cun-ff08-mapper-ji-bie-ff09.md)
       * [11、MyBatis 的注解配置](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/11mybatis-de-zhu-jie-pei-zhi.md)
-        * [11.1 常用注解](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/11mybatis-de-zhu-jie-pei-zhi/111-chang-yong-zhu-jie.md)
-        * [11.2 注解的使用](hou-duan-kai-fa/spring-mvc+mybatisqi-ye-ying-yong-shi-zhan/11mybatis-de-zhu-jie-pei-zhi/112-zhu-jie-de-shi-yong.md)
   * [Spring Framework](hou-duan-kai-fa/spring-framework.md)
     * [Spring Framework 5 新特性](hou-duan-kai-fa/spring-framework-5.md)
   * [SQL 教程（菜鸟教程）](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng.md)
