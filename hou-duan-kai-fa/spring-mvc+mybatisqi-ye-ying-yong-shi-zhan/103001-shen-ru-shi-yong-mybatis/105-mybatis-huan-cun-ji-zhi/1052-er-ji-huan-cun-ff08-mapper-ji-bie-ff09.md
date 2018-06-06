@@ -49,5 +49,3 @@ cache 元素 用来 开启 当前 mapper 的 namespace 下 的 二级 缓存。 
 
 
 
-
-
