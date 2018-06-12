@@ -58,7 +58,7 @@ byte、int、long、和short都可以用十进制、16进制以及8进制的方�
 ```java
 低  ------------------------------------>  高
 
-byte,short,char—> int —> long—> float —> double 
+byte,short,char—> int —> long—> float —> double
 ```
 
 数据类型转换必须满足如下规则：
