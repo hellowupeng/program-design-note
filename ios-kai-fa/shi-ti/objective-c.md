@@ -12,3 +12,34 @@ Objective-C的动态性，让程序在运行时判断其该有的行为，而不
 
 3）动态载入。让程序在运行时添加代码模块以及其他资源。用户可以根据需要执行一些可执行代码和资源，而不是在启动时就加载所有组件。可执行代码中可以含有和程序运行时整合的新类。
 
+##### 2、属性的实质是什么？包括哪几个部分？属性默认的关键字都有哪些？@dynamic 关键字和 @synthesize 关键字用来做什么的？
+
+属性是一个类中用来描述对象的抽象概念。
+
+属性包括的部分有setter和getter方法
+
+```
+// 原子性
+atomic: 
+nonatomic:
+
+// 合成读写方法名
+getter=getterName
+setter=setterName
+
+// 读写权限
+readwrite
+readonly
+
+// 内存管理
+assign
+retain
+copy
+strong
+
+@synthesize
+@dynamic
+```
+
+
+
