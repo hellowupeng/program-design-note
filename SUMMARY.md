@@ -184,8 +184,8 @@
     * 绘图
     * 动画
     * 数据持久化
-    * 并发编程
-    * 多线程
+    * [并发编程](ios-kai-fa/shi-ti/bing-fa-bian-cheng.md)
+    * [多线程](ios-kai-fa/shi-ti/duo-xian-cheng.md)
     * [UIKit](ios-kai-fa/shi-ti/uikit.md)
     * 性能
     * 网络
