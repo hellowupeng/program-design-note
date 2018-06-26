@@ -141,6 +141,10 @@ NSLog(@"%@", xiaoMing.name);
 ) ,内存地址0x60400025ee70 -- 指针地址0x7ffee2eb0b20
 ```
 
+##### 7、为什么 IBOutlet 修饰的 UIView 也适用 weak 关键字？
+
+在xib或者Sb拖控件时，其实控件就加载到了父控件的subviews数组里面，进行了强引用，使用weak，避免循环引用
+
 
 
 
