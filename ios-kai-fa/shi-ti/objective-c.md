@@ -41,5 +41,107 @@ strong
 @dynamic
 ```
 
+@synthesize  
+如果没有实现setter和getter方法，编译器将会自动在生产setter和getter方法。
+
+@dynamic  
+表示变量对应的属性访问器方法 , 是动态实现的 , 你需要在 NSObject 中继承而来的 +\(BOOL\) resolveInstanceMethod:\(SEL\) sel 方法中指定动态实现的方法或者函数。  
+属性修饰其他关键字：
+
+##### 3、属性的默认关键字是什么？
+
+默认关键字，基本数据： atomic,readwrite,assign
+
+普通的 OC 对象: atomic,readwrite,strong
+
+##### 4、NSString 为什么要用 copy 关键字，如果用 strong 会有什么问题？
+
+```
+// 深复制
+Person *xiaoMing = [[Person alloc] init];
+NSMutableString * name = [[NSMutableStringalloc] initWithString:@"xiaoming"];
+//name.string = @"xiaoming";
+xiaoMing.name = name;
+NSLog(@"%@", xiaoMing.name);
+[name appendString:@"hah"];
+
+//此时名字这个属性被修改了
+NSLog(@"%@", xiaoMing.name);
+```
+
+如果用Copy来修饰name这个属性不会改变，
+
+如果使用Strong，当name这个字符串改变的时候，name这个属性也会随着改变。
+
+补充：这其实也是看需求，看被赋值的字符串是否需要随着赋值字符串的变化而变化，而大多数情况下我们不希望被赋值的字符串如某个对象的某个字符串类型的属性会随着赋值字符串的变化而变化。 反之，如果我们希望被赋值的字符串随着赋值字符串的变化而变化，那么我们也可以使用strong来修饰字符串
+
+##### 5、如何令自己所写的对象具有拷贝功能？
+
+需实现 NSCopying 协议。如果自定义的对象分为可变版本与不可变版本，那么就要同时实现 NSCopying与 NSMutableCopying协议。
+
+具体步骤：
+
+需声明该类遵从 NSCopying 协议实现 NSCopying 协议。该协议只有一个方法:
+
+`- (id)copyWithZone:(NSZone *)zone;`
+
+注意：一提到让自己的类用 copy 修饰符，我们总是想覆写copy方法，其实真正需要实现的却是 “copyWithZone” 方法。至于如何重写带 copy 关键字的 setter这个问题，如果抛开本例来回答的话，如下：
+
+```
+- (void)setName:(NSString *)name {
+    //[_name release];
+    _name = [name copy];
+}
+```
+
+##### 6、可变集合类和不可变集合类的 copy  和 mutableCopy 有什么区别？如果集合是内容复制的话，集合里面的元素也是内容复制吗？
+
+使用copy时 可变集合的指针地址以及内存地址都不相同 深复制 不可变集合的指针地址不一样但是内存地址一样 属于浅复制
+
+使用mutableCopy的时候无论是可变集合还是不可变集合的指针地址和内存地址都不同 都属于深复制
+
+```
+- (void)testCopy {
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithObject:@"mutableArray"];
+    NSArray *array = [NSArray arrayWithObject:@"array"];
+    id copy_mutableArray = mutableArray.copy;
+    id copy_array = array.copy;
+    id mutableCopy_mutableArray = mutableArray.mutableCopy;
+    id mutableCopy_array = array.mutableCopy;
+    NSLog(@"mutableArray:%@ ,内存地址%p -- 指针地址%p",mutableArray,mutableArray,&mutableArray);
+    NSLog(@"array:%@ ,内存地址%p -- 指针地址%p",array,array,&array);
+    NSLog(@"copy_mutableArray:%@ ,内存地址%p -- 指针地址%p",copy_mutableArray,copy_mutableArray,&copy_mutableArray);
+    NSLog(@"copy_array:%@ ,内存地址%p -- 指针地址%p",copy_array,copy_array,&copy_array);
+    NSLog(@"mutableCopy_mutableArray:%@ ,内存地址%p -- 指针地址%p",mutableCopy_mutableArray,mutableCopy_mutableArray,&mutableCopy_mutableArray);
+    NSLog(@"mutableCopy_array:%@ ,内存地址%p -- 指针地址%p",mutableCopy_array,mutableCopy_array,&mutableCopy_array);
+
+}
+```
+
+输出：
+
+```
+2018-02-28 08:12:02.322754+0800 XWBlogsDemos[6646:275862] mutableArray:(
+    mutableArray
+) ,内存地址0x60400025ec90 -- 指针地址0x7ffee2eb0b48
+2018-02-28 08:12:02.322913+0800 XWBlogsDemos[6646:275862] array:(
+    array
+) ,内存地址0x604000019010 -- 指针地址0x7ffee2eb0b40
+2018-02-28 08:12:02.323038+0800 XWBlogsDemos[6646:275862] copy_mutableArray:(
+    mutableArray
+) ,内存地址0x604000019090 -- 指针地址0x7ffee2eb0b38
+2018-02-28 08:12:02.323140+0800 XWBlogsDemos[6646:275862] copy_array:(
+    array
+) ,内存地址0x604000019010 -- 指针地址0x7ffee2eb0b30
+2018-02-28 08:12:02.323236+0800 XWBlogsDemos[6646:275862] mutableCopy_mutableArray:(
+    mutableArray
+) ,内存地址0x60400025ef90 -- 指针地址0x7ffee2eb0b28
+2018-02-28 08:12:02.323333+0800 XWBlogsDemos[6646:275862] mutableCopy_array:(
+    array
+) ,内存地址0x60400025ee70 -- 指针地址0x7ffee2eb0b20
+```
+
+
+
 
 
