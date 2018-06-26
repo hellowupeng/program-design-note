@@ -175,6 +175,7 @@
   * [objc runtime](ios-kai-fa/objc-runtime.md)
     * [Objc Runtime](ios-kai-fa/objc-runtime/objc-runtime.md)
       * [Runtime 的应用](ios-kai-fa/objc-runtime/objc-runtime/runtime-de-ying-yong.md)
+  * [试题](ios-kai-fa/shi-ti.md)
 * [Android 开发](android-kai-fa.md)
   * [Kotlin](android-kai-fa/kotlin.md)
     * [语言基础](android-kai-fa/kotlin/yu-fa-ji-chu.md)
