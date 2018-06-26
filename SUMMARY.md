@@ -403,4 +403,6 @@
     * [CHECK 约束](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/check-yue-shu.md)
     * [DEFAULT 约束](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/default-yue-shu.md)
     * [CREATE INDEX 语句](hou-duan-kai-fa/cai-niao-jiao-7a0b-sql-jiao-cheng/create-index-yu-ju.md)
+  * [数据库](hou-duan-kai-fa/shu-ju-ku.md)
+    * [事务管理](hou-duan-kai-fa/shu-ju-ku/shi-wu-guan-li.md)
 
