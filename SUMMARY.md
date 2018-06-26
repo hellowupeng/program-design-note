@@ -191,7 +191,7 @@
     * 网络
     * 事件处理
     * 设计模式
-    * 架构模式
+    * [架构模式](ios-kai-fa/shi-ti/jia-gou-mo-shi.md)
 * [Android 开发](android-kai-fa.md)
   * [Kotlin](android-kai-fa/kotlin.md)
     * [语言基础](android-kai-fa/kotlin/yu-fa-ji-chu.md)
