@@ -176,6 +176,22 @@
     * [Objc Runtime](ios-kai-fa/objc-runtime/objc-runtime.md)
       * [Runtime 的应用](ios-kai-fa/objc-runtime/objc-runtime/runtime-de-ying-yong.md)
   * [试题](ios-kai-fa/shi-ti.md)
+    * 数据结构
+    * 算法
+    * [Objective-C](ios-kai-fa/shi-ti/objective-c.md)
+    * Swift
+    * C
+    * 绘图
+    * 动画
+    * 数据持久化
+    * 并发编程
+    * 多线程
+    * UIKit
+    * 性能
+    * 网络
+    * 事件处理
+    * 设计模式
+    * 架构模式
 * [Android 开发](android-kai-fa.md)
   * [Kotlin](android-kai-fa/kotlin.md)
     * [语言基础](android-kai-fa/kotlin/yu-fa-ji-chu.md)
