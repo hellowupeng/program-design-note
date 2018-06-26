@@ -145,7 +145,25 @@ NSLog(@"%@", xiaoMing.name);
 
 在xib或者Sb拖控件时，其实控件就加载到了父控件的subviews数组里面，进行了强引用，使用weak，避免循环引用
 
+##### 8、知不知道 Designated Initializer？使用它的时候有什么需要注意的地方？
 
+初始化器. 创建子类时需要调用父类的的初始化器,并且需要重写父类的Designated Initializer，将其指向子类新的初始化器
+
+```
+//Designated Initializer
+- (instancetype)initWithFrame:(CGRect)frame andName:(NSString *)name{
+    //incorrect
+    if (self = [super initWithFrame:frame]){
+        self.name=name;
+    }
+    return self;
+}    
+//super override
+- (id)initWithFrame:(CGRect)frame
+{
+    return [self initWithFrame:frame andName:@""];
+}
+```
 
 
 
